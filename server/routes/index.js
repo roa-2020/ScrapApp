@@ -13,8 +13,8 @@ router.get("/user/:id", (req, res) => {
 // ** SCRAP - GET ROUTE ** //
 
 router.get("/", (req, res) => {
-    scrapsDb.getScrap()
-    .then((scrap) => res.json(scrap))
+    scrapsDb.getScraps()
+    .then((scraps) => res.json(scraps))
 })
 
 // ** SCRAP - POST ROUTE ** //
@@ -35,8 +35,8 @@ router.patch("/:id", (req, res) => {
 // ** SCRAP - DELETE ROUTE ** //
 
 router.delete("/:id", (req, res) => {
-    const id = Number (req.params.id)
+    const id = Number(req.params.id)
     console.log(id)
-    scrapsDb.delete(id)
+    scrapsDb.deleteScrap(id)
     .then((scrap) => res.json(scrap))
 })

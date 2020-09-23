@@ -1,16 +1,30 @@
 const connection = require('./connection')
 
-function g(id, db = connection) {
-  return db('users')
-    .where('id', id)
-    .first()
-}
-
-function getScrap(db = connection) {
+function getScraps(db = connection) {
   return db('scraps')
     .select()
 }
 
-module.exports = {
+function addScrap(scrap, db = connection) {
+  return db('scraps')
+    .insert(scrap)
+}
 
+function updateScrap(id, newScrapData, db = connection) {
+  return db('scraps')
+    .where('id', id)
+    .update(newScrapData)
+}
+
+function deleteScrap(id, db = connection) {
+  return db('scraps')
+    .where('id', id)
+    .del()
+}
+
+module.exports = {
+  getScraps,
+  addScrap,
+  updateScrap,
+  deleteScrap
 }
