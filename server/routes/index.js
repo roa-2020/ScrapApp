@@ -1,35 +1,45 @@
 const express = require ("express")
-const db = require ("")
+const usersDb = require('../db/users')
+const scrapsDb = require('../db/scraps')
 const router = express.Router()
 
+// ** USER - GET ROUTE ** //
 
-// ** GET ROUTE ** //
+router.get("/user/:id", (req, res) => {
+    usersDb.getUserById(req.params.id)
+    .then((user) => res.json(user))
+})
+
+// ** SCRAP - GET ROUTE ** //
 
 router.get("/", (req, res) => {
-    db.getScrap()
-    .then((scrap) => res.json(scrap))
+    scrapsDb.getScraps()
+    .then((scraps) => res.json(scraps))
 })
 
-// ** POST ROUTE ** //
+// ** SCRAP - POST ROUTE ** //
 
 router.post("/", (req, res) => {
-    db.addScrap(req.body)
+    console.log(req.body)
+    scrapsDb.addScrap(req.body)
     .then((scrap) => res.json(scrap))
 })
 
-// ** PATCH ROUTE ** //
+// ** SCRAP - PATCH ROUTE ** //
 
 router.patch("/:id", (req, res) => {
-    db.updateScrap(req.params.id, req.body)
+    scrapsDb.updateScrap(req.params.id, req.body)
     .then((scrap) => res.json(scrap))
 })
 
 
-// ** DELETE ROUTE ** //
+// ** SCRAP - DELETE ROUTE ** //
 
 router.delete("/:id", (req, res) => {
-    const id = Number (req.params.id)
+    const id = Number(req.params.id)
     console.log(id)
-    db.delete(id)
+    scrapsDb.deleteScrap(id)
     .then((scrap) => res.json(scrap))
 })
+
+module.exports = router
