@@ -5,12 +5,22 @@ exports.seed = function (knex) {
   return knex('users').del()
     .then(function () {
       // Inserts seed entries
+
       return Promise.all(
         [
           {
             id: 1,
-            username: 'admin',
-            password: 'Krang',
+            username: 'thephil',
+            name: 'Phil',
+            password: '123',
+            user_rating: 10
+          },
+          {
+            id: 2,
+            username: 'thesteven',
+            name: 'Steven',
+            password: '123',
+            user_rating: 10
           }
         ].map(user => {
           return generateHash(user.password)
