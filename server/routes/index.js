@@ -20,6 +20,7 @@ router.get("/", (req, res) => {
 // ** SCRAP - POST ROUTE ** //
 
 router.post("/", (req, res) => {
+    console.log(req.body)
     scrapsDb.addScrap(req.body)
     .then((scrap) => res.json(scrap))
 })
@@ -40,3 +41,5 @@ router.delete("/:id", (req, res) => {
     scrapsDb.deleteScrap(id)
     .then((scrap) => res.json(scrap))
 })
+
+module.exports = router
