@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
-import ReactMapGL from 'react-map-gl'
+import ReactMapGL, {Marker}from 'react-map-gl'
 import 'mapbox-gl/dist/mapbox-gl.css'
 import { connect } from "react-redux";
-
 import { apiGetScraps } from "../apis/scrap.js";
 
 export default function Map() {
