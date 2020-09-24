@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import ReactMapGL, {Marker}from 'react-map-gl'
 import 'mapbox-gl/dist/mapbox-gl.css'
-import * as scrapData from './data'
 import { connect } from "react-redux";
 import { apiGetScraps } from "../apis/scrap.js";
 
