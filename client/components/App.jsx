@@ -3,7 +3,6 @@ import { HashRouter as Router, Route, Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import {apiGetScraps, apiAddScraps, apiUpdateScraps, apiDeleteScraps} from '../apis/scrap'
 
-
 import Map from './Map'
 import Login from './Login'
 import Register from './Register'
@@ -11,7 +10,6 @@ import Nav from './Nav'
 import { checkAuth } from '../actions/auth'
 import Header from './Header'
 import Footer from './Footer'
-
 
 export class App extends React.Component {
   componentDidMount() {

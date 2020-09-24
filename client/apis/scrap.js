@@ -1,14 +1,12 @@
 // ** SCRAP FRONTEND API CALLS ** //
 
 import request from "superagent";
-import scraps from "../../server/db/scraps";
 
 // ** API - GET SCRAPS ** //
 export function apiGetScraps() {
   return request.get("/api/v1")
-  .then((res) => {
-        console.log(res.body)
-        return res.body
+    .then((res) => {
+      return res.body
     });
 }
 
@@ -23,14 +21,14 @@ export function apiAddScraps(scrap) {
 // ** API - DELETE SCRAPS ** //
 export function apiDeleteScraps(id) {
   return request
-  .delete('/api/v1' + id)
-  .then(res => res.body)
+    .delete('/api/v1/' + id)
+    .then(res => res.body)
 }
 
 // ** API - UPDATE SCRAPS ** //
 export function apiUpdateScraps(id, scrap) {
   return request
-  .update('/api/v1' + id)
-  .send(scrap)
-  .then(res => res.body)
+    .patch('/api/v1/' + id)
+    .send(scrap)
+    .then(res => res.body)
 }

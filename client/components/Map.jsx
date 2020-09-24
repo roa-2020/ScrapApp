@@ -14,6 +14,10 @@ export default function Map() {
   <ReactMapGL 
     {...viewport}
     mapboxApiAccessToken={'pk.eyJ1Ijoic2NyYXBwIiwiYSI6ImNrZmY3Y2ltMzBhbWoydm9rdGk2bGw3bWEifQ.wKdEATteeGosG3h7PuAKMw'}
+    mapStyle="mapbox://styles/scrapp/ckfg9se0g20sk19lhef5gsyqg"
+    onViewportChange={viewport => {
+      setViewport(viewport)
+    }}
     >
     markers here
   </ReactMapGL>
