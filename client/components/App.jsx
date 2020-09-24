@@ -42,7 +42,7 @@ export class App extends React.Component {
         </Router>
         <Header />
         <main>
-          <Map />
+          {/* <Map /> */}
         </main>
         <Footer />
       </>
