@@ -1,12 +1,14 @@
 import React from "react"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-// import { fausercircle } from './'
+import { faUserCircle } from '@fortawesome/free-solid-svg-icons'
 
 class Header extends React.Component {
     render() {
-        return {
-
-        }
+        return (
+            <>
+                <FontAwesomeIcon icon={faUserCircle} />
+            </>
+        )
     }
 }
 
