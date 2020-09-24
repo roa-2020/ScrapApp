@@ -20,10 +20,10 @@ ScrapApp provides a second home for your unwanted scrap. Furniture, clothes, foo
 
 ### MVP
 
-#### As an unregistered User
+As an unregistered User
   * I want to register for the app under my name and password
   * I want a preview of some available scraps as an unregistered user
-#### As a registered User
+As a registered User
   * I want to view the details and location of scrap items in my area as a registered user
   * I want to add/remove a scrap item as a registered user  
   * I want to be able to click the scrap marker and see more details about the scrap item
