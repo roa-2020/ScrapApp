@@ -44,12 +44,12 @@ export class App extends React.Component {
 
             </div>
           }
-        </Router>
         <Header />
-        <main>
+        <main className="map_box_container">
           <Map />
         </main>
         <Footer />
+        </Router>
       </>
     )
   }
