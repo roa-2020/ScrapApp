@@ -1,6 +1,6 @@
 import React from 'react'
-import {HashRouter as Router, Route, Link} from 'react-router-dom'
-import {connect} from 'react-redux'
+import { HashRouter as Router, Route, Link } from 'react-router-dom'
+import { connect } from 'react-redux'
 
 import Login from './Login'
 import Register from './Register'
@@ -17,7 +17,7 @@ export class App extends React.Component {
   }
 
   render() {
-    const {auth} = this.props
+    const { auth } = this.props
     return (
       <>
         <Router>
@@ -50,7 +50,7 @@ export class App extends React.Component {
   }
 }
 
-const mapStateToProps = ({auth}) => {
+const mapStateToProps = ({ auth }) => {
   return {
     auth
   }
