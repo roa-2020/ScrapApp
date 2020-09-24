@@ -24,15 +24,29 @@ class AddScrapForm extends React.Component {
         return (
             <>
                 {/* show form to add new scrap item */}
-                <form action="" className="form">
+                <div className="form-container">
+                    <form action="" className="form" onSubmit={this.handleSubmit}>
                     <div className="field">
                         <label className="label">Location</label>
                         <div className="control">
-                            <input className="input" type="text" placeholder="Location" />
+                                <input className="input" type="text" placeholder="Location" onChange={this.handleChange} />
+                            </div>
                         </div>
-                    </div>
+                        <div className="field">
+                            <label className="label">Scrap Name</label>
+                            <div className="control">
+                                <input className="input" type="text" placeholder="Name" onChange={this.handleChange} />
+                            </div>
+                        </div>
+                        <div className="field">
+                            <label className="label">Description</label>
+                            <div className="control">
+                                <textarea className="textarea" placeholder="Add a description.." onChange={this.handleChange}></textarea>
+                            </div>
+                        </div>
                     <input className="button is-large is-fullwidth is-success" value='Add' type="submit" />
                 </form>
+                </div>
             </>
         )
     }

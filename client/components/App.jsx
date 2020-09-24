@@ -9,6 +9,7 @@ import Nav from './Nav'
 import { checkAuth } from '../actions/auth'
 import Header from './Header'
 import Footer from './Footer'
+import AddScrapForm from './AddScrapForm'
 
 export class App extends React.Component {
   componentDidMount() {
@@ -40,6 +41,7 @@ export class App extends React.Component {
             </div>
           }
         <Header />
+          <Route path="/scraps/add" component={AddScrapForm} />
         <main className="map_box_container">
           <Map />
         </main>
