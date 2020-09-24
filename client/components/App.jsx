@@ -18,10 +18,8 @@ export class App extends React.Component {
 
   render() {
     const { auth } = this.props
-    console.log(!auth.isAuthenticated)
     return (
       <>
-
         <Router>
           <div className="hero-body has-text-centered">
             <Link to='/' className="">
