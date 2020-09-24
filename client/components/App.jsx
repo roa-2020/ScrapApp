@@ -7,6 +7,7 @@ import Register from './Register'
 import Nav from './Nav'
 import { checkAuth } from '../actions/auth'
 import Header from './Header'
+import Footer from './Footer'
 
 
 export class App extends React.Component {
@@ -40,6 +41,10 @@ export class App extends React.Component {
           }
         </Router>
         <Header />
+        <main>
+          <Map />
+        </main>
+        <Footer />
       </>
     )
   }
