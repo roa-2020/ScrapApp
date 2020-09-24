@@ -42,22 +42,22 @@ a.navbar-item:focus, a.navbar-item:focus-within, a.navbar-item:hover, a.navbar-i
   min-height: 100%;
   width: 100%;
   align-items: stretch;
-  padding: 1em;
+  // padding: 1em;
 }
 
 header {
   display: flex;
   flex-flow: row nowrap;
-  height: 100px;
+  height: 80px;
   width: 100%;
   justify-content: space-between;
   align-items: center;
   padding: 1em;
 } 
 
-nav {
+.nav-footer {
   width: 100%;
-  height: 100px;
+  height: 55px;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -67,10 +67,31 @@ nav {
 main {
   flex-grow: 1;
   width: 100%;
-  padding: 1em;
+  // padding: 1em;
+}
+
+.title {
+  color: #3b6464;
 }
 
 header, nav {
   flex-shrink: 0;
   width: 100%;
+  color: #3b6464;
 }
+
+a {
+  color: inherit;
+}
+// .map_box_container{
+//   position: relative;
+//   height: 100% !important;
+//   width: 100% !important;
+// }
+
+//   #map {
+//     position: absolute;
+//     top: 0;
+//     bottom: 0;
+//     width: 100%;
+//   }

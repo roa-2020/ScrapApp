@@ -14,17 +14,18 @@ ScrapApp provides a second home for your unwanted scrap. Furniture, clothes, foo
 * [Express](https://expressjs.com/en/api.html)
 * [Knex.js (SQL)](https://knexjs.org/)
 * [Bulma (CSS framework)](https://bulma.io/documentation/)
-* [JWT Auth (Local)](https://jwt.io/)
+* [Authenticare (Using JWT Auth)](https://github.com/don-smith/authenticare/tree/master/docs)
 
 ## User Stories
 
 ### MVP
 
-As a user:
+#### As an unregistered User
   * I want to register for the app under my name and password
-  * I want to add/remove a scrap item as a registered user
-  * I want to view the the number of scrap items in my area as an unregistered user
+  * I want a preview of some available scraps as an unregistered user
+#### As a registered User
   * I want to view the details and location of scrap items in my area as a registered user
+  * I want to add/remove a scrap item as a registered user  
   * I want to be able to click the scrap marker and see more details about the scrap item
   * I want to be able to view the interface on a mobile device with ease
   * I want to be able to see my location on the map
