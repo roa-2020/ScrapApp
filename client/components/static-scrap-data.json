@@ -6,8 +6,8 @@
   "description": "Very Hot Chips, but they are half eaten",
   "scrap_image": "https://www.flaticon.com/svg/static/icons/svg/685/685352.svg",
   "address": "126 Austin Street, Mount Victoria, Wellington, New Zealand",
-  "latitude": "-41.298736572265625",
-  "longitude": "174.78701782226562",
+  "latitude": [-41.298736572265625],
+  "longitude": [174.78701782226562],
   "user_id": "1",
   "collected": "true"
 },
@@ -19,8 +19,8 @@
   "description": "Green Banana (the best)",
   "scrap_image": "https://www.flaticon.com/svg/static/icons/svg/685/685352.svg",
   "address": "60 Courtenay Place, Wellington CBD, Wellington 6011",
-  "latitude": "-41.29353332519531",
-  "longitude": "174.7815704345703",
+  "latitude": [-41.29353332519531],
+  "longitude": [174.7815704345703],
   "user_id": "1",
   "collected": "false"
 },
@@ -32,8 +32,8 @@
   "description": "50 year old couch - mint condition",
   "scrap_image": "https://www.flaticon.com/svg/static/icons/svg/2611/2611026.svg",
   "address": "78 Pirie Street, Mount Victoria, Wellington, New Zealand",
-  "latitude": "-41.29813766479492",
-  "longitude": "174.78538513183594",
+  "latitude": [-41.29813766479492],
+  "longitude": [174.78538513183594],
   "user_id": "2",
   "collected": "false"
 },
@@ -45,8 +45,8 @@
   "description": "Basketball Hoop - only used once",
   "scrap_image": "https://www.flaticon.com/svg/static/icons/svg/2742/2742640.svg",
   "address": "74 Courtenay Place, Te Aro, Wellington, New Zealand",
-  "latitude": "-41.29353332519531",
-  "longitude": "174.7815704345703",
+  "latitude": [-41.29353332519531],
+  "longitude": [174.7815704345703],
   "user_id": "2",
   "collected": "true"
 }

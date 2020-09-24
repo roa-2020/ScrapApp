@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import ReactMapGL, {Marker}from 'react-map-gl'
+import ReactMapGL, { Marker } from 'react-map-gl'
 import 'mapbox-gl/dist/mapbox-gl.css'
-// import * as scrapData from './data'
+import scrapData from './static-scrap-data.json'
 import { connect } from "react-redux";
 import { apiGetScraps } from "../apis/scrap.js";
 
@@ -16,16 +16,26 @@ export default function Map() {
   })
   return (
     <div id="map">
-    <ReactMapGL 
-      {...viewport}
-      mapboxApiAccessToken={'pk.eyJ1Ijoic2NyYXBwIiwiYSI6ImNrZmY3Y2ltMzBhbWoydm9rdGk2bGw3bWEifQ.wKdEATteeGosG3h7PuAKMw'}
-      mapStyle="mapbox://styles/scrapp/ckfg9se0g20sk19lhef5gsyqg"
-      onViewportChange={viewport => {
-        setViewport(viewport)
-      }}
+      <ReactMapGL
+        {...viewport}
+        mapboxApiAccessToken={'pk.eyJ1Ijoic2NyYXBwIiwiYSI6ImNrZmY3Y2ltMzBhbWoydm9rdGk2bGw3bWEifQ.wKdEATteeGosG3h7PuAKMw'}
+        mapStyle="mapbox://styles/scrapp/ckfg9se0g20sk19lhef5gsyqg"
+        onViewportChange={viewport => {
+          setViewport(viewport)
+        }}
       >
-      markers here
-    </ReactMapGL>
+        {scrapData.map((scrap) => (
+          <Marker
+            key={scrap.id}
+            latitude={scrap.latitude[0]}
+            longitude={scrap.longitude[0]}
+          >
+            <button className="marker-btn">
+              <img src='/images/Scrap_icon.png' alt="scrap icon"></img>
+            </button>
+          </Marker>
+        ))}
+      </ReactMapGL>
     </div>
   )
 }

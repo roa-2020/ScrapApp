@@ -1,6 +1,7 @@
 import React from 'react'
 import { HashRouter as Router, Route, Link } from 'react-router-dom'
 import { connect } from 'react-redux'
+import { apiGetScraps, apiAddScraps, apiUpdateScraps, apiDeleteScraps } from '../apis/scrap'
 
 import Map from './Map'
 import Login from './Login'
@@ -22,30 +23,34 @@ export class App extends React.Component {
     return (
       <>
         <Router>
-          {!auth.isAuthenticated &&
+          <div className="hero-body has-text-centered">
+            <Link to='/' className="">
+              <h1 className="title is-1">ScrapApp</h1>
+            </Link>
+            <Route path="/" component={Nav} />
+          </div>
+
+          {!auth.isAuthenticated
+            ?
             <div className="container has-text-centered">
               <div className="hero is-small is-primary">
-                <div className="hero-body has-text-centered">
-                  <Link to='/' className="">
-                    <h1 className="title is-1">Greetings!</h1>
-                  </Link>
-                  <Route path="/" component={Nav} />
-                </div>
               </div>
               <div className=''>
                 <Route exact path="/" component={Login} />
                 <Route path="/login" component={Login} />
                 <Route path="/register" component={Register} />
               </div>
-
             </div>
+            :
+            <>
+              <main className="map_box_container">
+                <Map />
+              </main>
+              <Header />
+              <Footer />
+              <Route path="/scraps/add" component={AddScrapForm} />
+            </>
           }
-        <Header />
-          <Route path="/scraps/add" component={AddScrapForm} />
-        <main className="map_box_container">
-          <Map />
-        </main>
-        <Footer />
         </Router>
       </>
     )
