@@ -27,7 +27,7 @@ a.navbar-item:focus, a.navbar-item:focus-within, a.navbar-item:hover, a.navbar-i
 
 * {
   box-sizing: border-box;
-  border: 2px solid red;
+  // border: 2px solid red;
 }
 
 
@@ -73,4 +73,8 @@ main {
 header, nav {
   flex-shrink: 0;
   width: 100%;
+}
+
+.mapbox-gl-canvas-container {
+  height: 100vh;;
 }
