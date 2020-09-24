@@ -27,7 +27,7 @@ a.navbar-item:focus, a.navbar-item:focus-within, a.navbar-item:hover, a.navbar-i
 
 * {
   box-sizing: border-box;
-  // border: 2px solid red;
+  border: 2px solid red;
 }
 
 
@@ -37,7 +37,7 @@ a.navbar-item:focus, a.navbar-item:focus-within, a.navbar-item:hover, a.navbar-i
 }
 
 #app {
-  display: flex;
+  // display: flex;
   flex-direction: row;
   min-height: 100%;
   width: 100%;
