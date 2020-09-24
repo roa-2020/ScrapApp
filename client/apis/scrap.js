@@ -6,28 +6,31 @@ import scraps from "../../server/db/scraps";
 // ** API - GET SCRAPS ** //
 export function apiGetScraps() {
   return request.get("/api/v1")
-  .then((res) => res.body);
+  .then((res) => {
+        console.log(res.body)
+        return res.body
+    });
 }
 
 // ** API - ADD SCRAPS ** //
-export function apiAddScraps() {
+export function apiAddScraps(scrap) {
   return request
     .post("/api/v1")
-    .send(scraps)
+    .send(scrap)
     .then((res) => res.body);
 }
 
 // ** API - DELETE SCRAPS ** //
-export function apiDeleteScraps() {
+export function apiDeleteScraps(id) {
   return request
   .delete('/api/v1' + id)
   .then(res => res.body)
 }
 
 // ** API - UPDATE SCRAPS ** //
-export function apiUpdateScraps() {
+export function apiUpdateScraps(id, scrap) {
   return request
-  .update('/api/v1')
-  .send(scraps)
+  .update('/api/v1' + id)
+  .send(scrap)
   .then(res => res.body)
 }

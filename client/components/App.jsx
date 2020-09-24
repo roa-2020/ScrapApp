@@ -1,7 +1,7 @@
 import React from 'react'
 import { HashRouter as Router, Route, Link } from 'react-router-dom'
 import { connect } from 'react-redux'
-
+import {apiGetScraps, apiAddScraps, apiUpdateScraps, apiDeleteScraps} from '../apis/scrap'
 import Login from './Login'
 import Register from './Register'
 import Nav from './Nav'
@@ -17,6 +17,10 @@ export class App extends React.Component {
     const { auth } = this.props
     return (
       <Router>
+        <button onClick={() => apiGetScraps()}>apiGetScraps</button>
+        <button onClick={() => apiAddScraps({name: "hi"})}>apiAddScraps</button>
+        <button onClick={() => apiDeleteScraps(1)}>apiDeleteScraps</button>
+        <button onClick={() => apiUpdateScraps(2, {name: "updated"})}>apiUpdateScraps</button>
         <div className="container has-text-centered">
 
           <div className="hero is-small is-primary">
