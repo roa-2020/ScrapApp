@@ -8,11 +8,11 @@ class Footer extends React.Component {
     render() {
         return (
             <>
-                <footer className="columns is-centered">
-                    <FontAwesomeIcon icon={faChair} size="4x" className="level-item" />
-                    <FontAwesomeIcon icon={faDrumstickBite} size="4x" className="level-item" />
-                    <FontAwesomeIcon icon={faLeaf} size="4x" className="level-item" />
-                </footer>
+                <nav className="navbar is-fixed-bottom" role="navigation">
+                    <FontAwesomeIcon icon={faChair} size="3x" className="" />
+                    <FontAwesomeIcon icon={faDrumstickBite} size="3x" className="" />
+                    <FontAwesomeIcon icon={faLeaf} size="3x" className="" />
+                </nav>
             </>
         )
     }

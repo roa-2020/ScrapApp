@@ -7,11 +7,11 @@ class Header extends React.Component {
     render() {
         return (
             <>
-                <nav className="navbar" role="navigation" aria-label="main navigation">
-                    <FontAwesomeIcon icon={faUserCircle} size="4x" className="navbar-brand" />
-                    <h1 className="title level-item">Scrap</h1>
-                    <FontAwesomeIcon icon={faPlusCircle} size="4x" className="level-item" />
-                </nav>
+                <header className="header">
+                    <FontAwesomeIcon icon={faUserCircle} size="3x" className="" />
+                    <h1 className="title mb-0">Scrap</h1>
+                    <FontAwesomeIcon icon={faPlusCircle} size="3x" className="" />
+                </header>
             </>
         )
     }
