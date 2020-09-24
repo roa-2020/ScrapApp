@@ -14,7 +14,7 @@ ScrapApp provides a second home for your unwanted scrap. Furniture, clothes, foo
 * [Express](https://expressjs.com/en/api.html)
 * [Knex.js (SQL)](https://knexjs.org/)
 * [Bulma (CSS framework)](https://bulma.io/documentation/)
-* [Authenticare] (https://github.com/don-smith/authenticare/tree/master/docs)
+* [Authenticare](https://github.com/don-smith/authenticare/tree/master/docs)
 
 ## User Stories
 
