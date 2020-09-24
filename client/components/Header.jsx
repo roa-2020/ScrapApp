@@ -1,4 +1,6 @@
 import React from "react"
+import { connect } from "react-redux";
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUserCircle } from '@fortawesome/free-solid-svg-icons'
 import { faPlusCircle } from '@fortawesome/free-solid-svg-icons'
@@ -8,9 +10,9 @@ class Header extends React.Component {
         return (
             <>
                 <header className="header">
-                    <FontAwesomeIcon icon={faUserCircle} size="3x" className="" />
-                    <h1 className="title mb-0">Scrap</h1>
-                    <FontAwesomeIcon icon={faPlusCircle} size="3x" className="" />
+                    <a href="/"><FontAwesomeIcon icon={faUserCircle} size="2x" className="is-mobile" /></a>
+                    <h1 className="title mb-0">scrap</h1>
+                    <a href="/"><FontAwesomeIcon icon={faPlusCircle} size="2x" className="is-mobile" /></a>
                 </header>
             </>
         )

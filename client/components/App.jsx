@@ -41,7 +41,7 @@ export class App extends React.Component {
           }
         </Router>
         <Header />
-        <main>
+        <main className="map_box_container">
           <Map />
         </main>
         <Footer />
