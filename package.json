@@ -50,9 +50,13 @@
     "sqlite3": "^5.0.0",
     "supertest": "^4.0.2",
     "webpack": "^4.44.2",
-    "webpack-cli": "^3.3.12"
+    "webpack-cli": "^3.3.12",
+    "react-map-gl": "^5.2.8"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.30",
+    "@fortawesome/free-solid-svg-icons": "^5.14.0",
+    "@fortawesome/react-fontawesome": "^0.1.11",
     "bulma": "^0.9.0",
     "css-loader": "^3.6.0",
     "dotenv": "^8.2.0",
@@ -66,6 +70,7 @@
     "pg": "^8.3.3",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-map-gl": "^5.2.8",
     "react-redux": "^7.2.1",
     "react-router-dom": "^5.2.0",
     "redux": "^4.0.5",
