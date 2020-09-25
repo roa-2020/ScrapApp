@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 
 import { apiAddScraps, apiGetScraps } from "../apis/scrap.js";
 import { initScrap } from "../actions/scraps"
-import { faEthernet } from "@fortawesome/free-solid-svg-icons";
 
 class AddScrapForm extends React.Component {
     state = {
