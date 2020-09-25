@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import ReactMapGL, { Marker, Popup }from 'react-map-gl'
+import ReactMapGL, { Marker, Popup, GeolocateControl}from 'react-map-gl'
 import 'mapbox-gl/dist/mapbox-gl.css'
 import scrapData from './static-scrap-data.json'
 import { connect } from "react-redux";
@@ -40,6 +40,12 @@ const selectedScrap = this.state.selectedScrap
     
       onViewportChange={this.viewportChange}
       >
+        <GeolocateControl 
+        positionOptions={{enableHighAccuracy:true}}
+        trackUserLocation={true}
+        //on page load centre on user
+        auto={true}
+        />
         {scrapData.map((scrap) => (
 
             <Marker 
