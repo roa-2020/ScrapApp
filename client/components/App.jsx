@@ -1,8 +1,9 @@
 import React from 'react'
 import { HashRouter as Router, Route, Link } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { apiGetScraps, apiAddScraps, apiUpdateScraps, apiDeleteScraps } from '../apis/scrap'
+import {apiGetScraps, apiAddScraps, apiUpdateScraps, apiDeleteScraps} from '../apis/scrap'
 
+import Profile from './Profile'
 import Map from './Map'
 import Login from './Login'
 import Register from './Register'
@@ -27,6 +28,7 @@ export class App extends React.Component {
   }
 
   render() {
+   
     const { auth } = this.props
     return (
       <Router>
