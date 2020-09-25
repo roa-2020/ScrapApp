@@ -22,7 +22,6 @@ export class App extends React.Component {
   render() {
     const { auth } = this.props
     return (
-      <>
         <Router>
           <div className="">
             {/* <Link to='/' className="">
@@ -45,16 +44,16 @@ export class App extends React.Component {
             </div>
             :
             <>
-              <Header />
-              <main className="map_box_container">
-                <Map />
-              </main>
-              <Footer />
-              <Route path="/scraps/add" component={AddScrapForm} />
+            <Route exact path="/" component={Header} />
+            <main className="map_box_container">
+              <Route exact path="/" component={Map} />
+            </main>
+            <Route exact path="/" component={Footer} />
+            <Route exact path="/scraps/add" component={AddScrapForm} />
             </>
           }
         </Router>
-      </>
+
     )
   }
 }
