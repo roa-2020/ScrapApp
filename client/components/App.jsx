@@ -21,11 +21,7 @@ export class App extends React.Component {
   render() {
     const { auth } = this.props
     return (
-        <Router>
-        <div className="nav-container">
-            <Route path="/" component={Nav} />
-        </div>
-
+      <Router>
           {!auth.isAuthenticated
           ?
               <div className=''>
