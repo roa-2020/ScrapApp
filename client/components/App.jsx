@@ -55,7 +55,9 @@ export class App extends React.Component {
               <Route path="/login" component={Login} />
               <Route path="/register" component={Register} />
             </div>
+
             <ScrapPreview />
+
           </div>
           :
           <>
