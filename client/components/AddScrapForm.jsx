@@ -28,7 +28,7 @@ class AddScrapForm extends React.Component {
 
     handleSubmit = (e) => {
         e.preventDefault()
-        apiAddScrap(scrap)
+        apiAddScraps(scrap)
             .then(scrap => {
                 this.props.dispatch(initScrap(scrap))
                 this.props.history.push('/')
