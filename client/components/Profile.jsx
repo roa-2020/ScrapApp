@@ -1,4 +1,5 @@
-import React, {propTypes} from "react"
+import React from "react"
+import { connect } from 'react-redux'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUserCircle } from '@fortawesome/free-solid-svg-icons'
@@ -8,27 +9,33 @@ import Nav from "./Nav"
 import { apiGetUser } from "../apis/users.js";
 
 
+
 class Profile extends React.Component {
     state = {
         details: "",
     }
     componentDidMount() {
+        
     }
     render() {
+        apiGetUser(this.props.auth.user.id).then(data =>
+            this.setState({...this.state, details: data}))
+    
         return (
             <>
-                <Nav />
+                {/* <Nav /> */}
                 {/* show users profile information here along with nav to logout  */
                  
-               
-                 <userProfile 
-                        username = 'thephil'
-                        name = 'Phil'
-                        password = '123'
-                    /> 
-                
-                
-                
+            //    <p>hi</p>
+            <div className = 'profileInfo'>
+                <ul>
+                    <li>{this.state.details && this.state.details.username}</li>
+                    <li>{this.state.details && this.state.details.name}</li>
+                    <li>********</li>
+                </ul>
+            </div>
+
+                        
                 }
             </>
         )
@@ -36,7 +43,10 @@ class Profile extends React.Component {
     }
    
 }
-Profile.propTypes = {
-}
+const mapStateToProps = ({ auth }) => {
+    return {
+      auth
+    }
+  }
 
-export default Profile
+  export default connect(mapStateToProps)(Profile)
