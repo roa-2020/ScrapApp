@@ -23,23 +23,32 @@ class Profile extends React.Component {
             this.setState({...this.state, details: data}))
     
         return (
-            <>
+            <div className='profile'>
                
                  <div className='nav-container'>
                      <Nav />
                   </div>
+
+                  <div className='topProfile'>
+
+                    <FontAwesomeIcon icon={faUserCircle} size="2x" className="is-mobile" />
+                    <div className=''><h1 class="title">{this.state.details && this.state.details.username}</h1></div> 
+                  
+                  </div>
            
-            <div className = 'profileInfo'>
+                <div className='profileInfo'>
+                    
+                    <div className='profile-container'><h1 class="title">{this.state.details && this.state.details.username}</h1></div> 
+                    <div className='profile-container'><h1 class="title">{this.state.details && this.state.details.name}</h1></div> 
+                    <div className='profile-container'><h1 class="title">********</h1></div> 
                 
-                   <div className='container'><h1 class="title">{this.state.details && this.state.details.username}</h1></div> 
-                   <div className='container'><h1 class="title">{this.state.details && this.state.details.name}</h1></div> 
-                   <div className='container'><h1 class="title">********</h1></div> 
-               
-            </div>
+                </div>
 
                         
                 
-            </>
+            </div>
+
+            
         )
       
     }
