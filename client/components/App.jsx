@@ -23,18 +23,18 @@ export class App extends React.Component {
     return (
       <>
         <Router>
-          <div className="hero-body has-text-centered">
-            <Link to='/' className="">
+          <div className="">
+            {/* <Link to='/' className="">
               <h1 className="title is-1">ScrapApp</h1>
-            </Link>
+            </Link> */}
             <Route path="/" component={Nav} />
           </div>
 
           {!auth.isAuthenticated
             ?
-            <div className="container has-text-centered">
-              <div className="hero is-small is-primary">
-              </div>
+            <div className="">
+              {/* <div className="hero is-small is-primary">
+              </div> */}
               <div className=''>
                 <Route exact path="/" component={Login} />
                 <Route path="/login" component={Login} />
@@ -43,10 +43,10 @@ export class App extends React.Component {
             </div>
             :
             <>
+              <Header />
               <main className="map_box_container">
                 <Map />
               </main>
-              <Header />
               <Footer />
               <Route path="/scraps/add" component={AddScrapForm} />
             </>

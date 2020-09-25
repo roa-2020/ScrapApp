@@ -1,8 +1,8 @@
 import React from "react"
 import { connect } from "react-redux";
 
-import { apiAddScraps } from "../apis/scrap.js";
-
+import { apiAddScraps, apiGetScraps } from "../apis/scrap.js";
+import { initScrap } from "../actions/scraps"
 
 class AddScrapForm extends React.Component {
     state = {
@@ -12,7 +12,7 @@ class AddScrapForm extends React.Component {
     }
 
     componentDidMount() {
-        apiAddScraps()
+        apiGetScraps()
             .then(scrap => {
                 this.setState({
                     scrap: scrap
@@ -28,8 +28,10 @@ class AddScrapForm extends React.Component {
 
     handleSubmit = (e) => {
         e.preventDefault()
-        this.setState({
-
+        apiAddScrap(scrap)
+            .then(scrap => {
+                this.props.dispatch(initScrap(scrap))
+                this.props.history.push('/')
         })
     }
 
@@ -39,6 +41,7 @@ class AddScrapForm extends React.Component {
                 {/* show form to add new scrap item */}
                 <div className="form-container">
                     <form action="" className="form" onSubmit={this.handleSubmit}>
+                        <h1>Add A Scrap</h1>
                     <div className="field">
                         <label className="label">Location</label>
                         <div className="control">
