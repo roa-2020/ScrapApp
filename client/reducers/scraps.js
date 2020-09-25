@@ -1,5 +1,4 @@
-import { ADD_SCRAP, RECIEVE_SCRAP } from '../actions/scraps'
-import { DELETE_SCRAP } from '../actions/scraps'
+import { ADD_SCRAP, RECIEVE_SCRAP, DELETE_SCRAP } from '../actions/scraps'
 
 const initialState = {
     scrap: {}
