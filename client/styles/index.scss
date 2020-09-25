@@ -116,3 +116,30 @@ a {
 body {
   overflow: hidden; /* Hide scrollbars */
 }
+.preview-cols {
+  display: flex;
+  flex-direction: row;
+}
+
+.card{
+ padding: 0px 20px 20px 20px;
+}
+
+.preview-title{
+  text-align: center;
+  margin-top: 1rem;
+  font-weight: bold;
+}
+
+// .map_box_container{
+//   position: relative;
+//   height: 100% !important;
+//   width: 100% !important;
+// }
+
+//   #map {
+//     position: absolute;
+//     top: 0;
+//     bottom: 0;
+//     width: 100%;
+//   }
