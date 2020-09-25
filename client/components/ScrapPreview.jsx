@@ -1,13 +1,15 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { checkAuth } from '../actions/auth'
 
-import { initScrap } from '../actions/scraps'
+import { getAllScraps } from '../actions/scraps'
 import { apiGetScraps } from '../apis/scrap'
 
-export class ScrapPreview extends React.Component {
+class ScrapPreview extends React.Component {
   componentDidMount() {
-    apiGetScraps().then(scraps => console.log(scraps))
+    //1) Use api call to get all scraps (array of objects)
+    //2) dispatch action getAllScraps to store into global state
+    apiGetScraps().then(scraps => this.props.dispatch(getAllScraps(scraps)))
+    console.log(this.props)
   }
 
   render() {
@@ -19,8 +21,9 @@ export class ScrapPreview extends React.Component {
   }
 }
 
-const mapStateToProps = ({ }) => {
+const mapStateToProps = ({ scraps }) => {
   return {
+    scraps
   }
 }
 
