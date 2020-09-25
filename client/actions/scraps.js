@@ -2,7 +2,7 @@
 export const RECIEVE_SCRAP = 'RECIEVE_SCRAP'
 export const ADD_SCRAP = 'ADD_SCRAP'
 export const DELETE_SCRAP = 'DELETE_SCRAP'
-
+export const UPDATE_SCRAP = 'UPDATE_SCRAP'
 
 
 export function initScrap(scrapDetails) {
@@ -28,5 +28,4 @@ export function deleteScrap(scrapDetails) {
         scrapDetails
     }
 }
-
 

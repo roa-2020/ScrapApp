@@ -36,6 +36,12 @@ a.navbar-item:focus, a.navbar-item:focus-within, a.navbar-item:hover, a.navbar-i
   width: 100%;
 }
 
+.profileInfo {
+  box-sizing: border-box;
+    border: 2px solid black;
+
+}
+
 #app {
   // display: flex;
   flex-direction: row;

@@ -1,8 +1,9 @@
 import React from 'react'
 import { HashRouter as Router, Route, Link } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { apiGetScraps, apiAddScraps, apiUpdateScraps, apiDeleteScraps } from '../apis/scrap'
+import {apiGetScraps, apiAddScraps, apiUpdateScraps, apiDeleteScraps} from '../apis/scrap'
 
+import Profile from './Profile'
 import Map from './Map'
 import Login from './Login'
 import Register from './Register'
@@ -12,6 +13,7 @@ import Header from './Header'
 import Footer from './Footer'
 import AddScrapForm from './AddScrapForm'
 
+
 export class App extends React.Component {
   componentDidMount() {
     const confirmSuccess = () => { }
@@ -19,6 +21,7 @@ export class App extends React.Component {
   }
 
   render() {
+   
     const { auth } = this.props
     return (
       <Router>
@@ -37,6 +40,7 @@ export class App extends React.Component {
             </main>
             <Route exact path="/" component={Footer} />
             <Route exact path="/scraps/add" component={AddScrapForm} />
+            <Route exact path="/user/:1"  component={Profile} />
             </>
           }
         </Router>
