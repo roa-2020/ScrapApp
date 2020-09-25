@@ -6,27 +6,39 @@ import { connect } from "react-redux";
 import { apiGetScraps } from "../apis/scrap.js";
 import { HashRouter as Router, Route, Link } from 'react-router-dom'
 
-function Map() {
+class Map extends React.Component{
 
-  const [viewport, setViewport] = useState({
-    latitude: -41.294105529785156,
-    longitude: 174.7752685546875,
-    width: "100vw",
-    height: "100vh",
-    zoom: 15,
-  })
-  
-  const [selectedScrap, setSelectedScrap] = useState(null);
+  state= {
+    selectedScrap:null,
+    viewport: {
+      latitude: -41.294105529785156,
+      longitude: 174.7752685546875,
+      width: "100vw",
+      height: "100vh",
+      zoom: 15,
+    }
+  }
+
+  viewportChange= (viewport) => {
+    this.setState({viewport})
+  } 
+
+  changeScrap = (scrap) => {
+    this.setState({selectedScrap:scrap})
+  }
+
+  render(){
+
+const selectedScrap = this.state.selectedScrap
 
   return (
     <div id="map">
     <ReactMapGL 
-      {...viewport}
+      {...this.state.viewport}
       mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
       mapStyle="mapbox://styles/scrapp/ckfg9se0g20sk19lhef5gsyqg"
-      onViewportChange={viewport => {
-        setViewport(viewport)
-      }}
+    
+      onViewportChange={this.viewportChange}
       >
         {scrapData.map((scrap) => (
 
@@ -38,7 +50,8 @@ function Map() {
               <button className="marker-btn" 
                 onClick={e => {
                   e.preventDefault()
-                  setSelectedScrap(scrap)
+              
+                  this.changeScrap(scrap)
                 }}
               >
                 <img src='/images/Scrap_icon.png'alt="scrap icon"></img>
@@ -51,7 +64,7 @@ function Map() {
             latitude={selectedScrap.latitude[0]} 
             longitude={selectedScrap.longitude[0]}
             onClose={() => {
-              setSelectedScrap(null)
+              this.changeScrap(null)
             }}
           >
 
@@ -68,7 +81,7 @@ function Map() {
     </div>
   )
 }
-
+}
 const mapStateToProps = ({ auth }) => {
   return {
     auth
