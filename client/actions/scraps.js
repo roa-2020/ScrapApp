@@ -1,4 +1,3 @@
-import scraps from "../../server/db/scraps"
 
 export const RECIEVE_SCRAP = 'RECIEVE_SCRAP'
 export const ADD_SCRAP = 'ADD_SCRAP'

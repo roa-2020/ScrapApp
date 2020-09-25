@@ -1,7 +1,7 @@
 import React from 'react'
 import { HashRouter as Router, Route, Link } from 'react-router-dom'
 import { connect } from 'react-redux'
-import {apiGetScraps, apiAddScraps, apiUpdateScraps, apiDeleteScraps} from '../apis/scrap'
+import { apiGetScraps, apiAddScraps, apiUpdateScraps, apiDeleteScraps } from '../apis/scrap'
 
 import Map from './Map'
 import Login from './Login'
@@ -10,6 +10,7 @@ import Nav from './Nav'
 import { checkAuth } from '../actions/auth'
 import Header from './Header'
 import Footer from './Footer'
+import { ScrapPreview } from './ScrapPreview'
 
 export class App extends React.Component {
   componentDidMount() {
@@ -32,13 +33,14 @@ export class App extends React.Component {
           {!auth.isAuthenticated
             ?
             <div className="container has-text-centered">
-              <div className="hero is-small is-primary">
+              <div className="hero is-smaxll is-primary">
               </div>
               <div className=''>
                 <Route exact path="/" component={Login} />
                 <Route path="/login" component={Login} />
                 <Route path="/register" component={Register} />
               </div>
+              <ScrapPreview />
             </div>
             :
             <>
