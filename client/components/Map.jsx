@@ -37,31 +37,33 @@ class Map extends React.Component {
     this.changeScrap(null)
   }
 
-  render() {
+  render(){
 
-    const selectedScrap = this.state.selectedScrap
+const selectedScrap = this.state.selectedScrap
 
-    return (
-      <div id="map">
-        <ReactMapGL
-          {...this.state.viewport}
-          mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
-          mapStyle="mapbox://styles/scrapp/ckfg9se0g20sk19lhef5gsyqg"
+console.log(this.props.scraps)
 
-          onViewportChange={this.viewportChange}
-        >
-          <GeolocateControl
-            positionOptions={{ enableHighAccuracy: true }}
-            trackUserLocation={true}
-            //on page load centre on user
-            auto={true}
-          />
-          {scrapData.map((scrap) => (
+  return (
+    <div id="map">
+    <ReactMapGL 
+      {...this.state.viewport}
+      mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
+      mapStyle="mapbox://styles/scrapp/ckfg9se0g20sk19lhef5gsyqg"
+    
+      onViewportChange={this.viewportChange}
+      >
+        <GeolocateControl 
+        positionOptions={{enableHighAccuracy:true}}
+        trackUserLocation={true}
+        //on page load centre on user
+        auto={true}
+        />
+        {this.props.scraps.map((scrap) => (
 
-            <Marker
+            <Marker 
               key={scrap.id}
-              latitude={scrap.latitude[0]}
-              longitude={scrap.longitude[0]}
+              latitude={scrap.latitude}
+              longitude={scrap.longitude}
             >
               <button className="marker-btn"
                 onClick={e => {
@@ -73,39 +75,36 @@ class Map extends React.Component {
                 <img src='/images/Scrap_icon.png' alt="scrap icon"></img>
               </button>
             </Marker>
-          ))}
+        ))}
 
-          {selectedScrap && (
-            <Popup
-              latitude={selectedScrap.latitude[0]}
-              longitude={selectedScrap.longitude[0]}
-              onClose={() => {
-                // this.changeScrap(null)
-              }}
-            >
+        {selectedScrap && (
+          <Popup 
+            latitude={selectedScrap.latitude} 
+            longitude={selectedScrap.longitude}
+            onClose={() => {
+              // this.changeScrap(null)
+            }}
+          >
 
-              <div>
-                <p className="title is-5">{selectedScrap.scrap_name}</p>
-                <p className="title is-6">Category: {selectedScrap.category}</p>
-                <p className="subtitle is-6">{selectedScrap.description}</p>
-                <button className="button is-danger"
+            <div>
+              <p className="title is-6">{selectedScrap.scrap_name} - {selectedScrap.category}</p>
+              <p className="subtitle is-6">{selectedScrap.description}</p>
+              <button className="button is-danger"
                   onClick={() => {
                     this.deleteScrap(selectedScrap.id);
                   }}>scrap gone</button>
-              </div>
-            </Popup>
-          )}
+            </div>
 
-        </ReactMapGL>
-      </div >
-    )
-  }
+          </Popup>
+        )}
+
+    </ReactMapGL>
+    </div>
+  )
 }
-const mapStateToProps = ({ auth, scraps }) => {
-  return {
-    auth,
-    scraps
-  }
+}
+function mapStateToProps(globalState) {
+  return { scraps: globalState.scraps }
 }
 
 export default connect(mapStateToProps)(Map)
