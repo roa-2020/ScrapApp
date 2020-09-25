@@ -51,6 +51,7 @@ export class App extends React.Component {
             </main>
             <Route exact path="/" component={Footer} />
             <Route exact path="/scraps/add" component={AddScrapForm} />
+            <Route exact path="/user/:1"  component={Profile} />
             </>
           }
         </Router>
