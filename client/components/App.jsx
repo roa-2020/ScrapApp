@@ -1,7 +1,7 @@
 import React from 'react'
 import { HashRouter as Router, Route, Link } from 'react-router-dom'
 import { connect } from 'react-redux'
-import {apiGetScraps, apiAddScraps, apiUpdateScraps, apiDeleteScraps} from '../apis/scrap'
+import { apiGetScraps, apiAddScraps, apiUpdateScraps, apiDeleteScraps } from '../apis/scrap'
 
 import Profile from './Profile'
 import Map from './Map'
@@ -20,7 +20,13 @@ export class App extends React.Component {
   componentDidMount() {
     const confirmSuccess = () => { }
     this.props.dispatch(checkAuth(confirmSuccess))
+    apiGetScraps()
+      .then(scraps => {
+        this.props.dispatch(getAllScraps(scraps));
+      })
+  }
 
+  componentDidUpdate() {
     apiGetScraps()
       .then(scraps => {
         this.props.dispatch(getAllScraps(scraps));
@@ -28,7 +34,7 @@ export class App extends React.Component {
   }
 
   render() {
-   
+
     const { auth } = this.props
     return (
       <Router>
