@@ -2,26 +2,19 @@ import React from "react"
 import { connect } from 'react-redux'
 import { HashRouter as Router, Route, Link } from 'react-router-dom'
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUserCircle } from '@fortawesome/free-solid-svg-icons'
-import { faPlusCircle } from '@fortawesome/free-solid-svg-icons'
-
 import Nav from "./Nav"
-import { apiGetUser } from "../apis/users.js";
-
-
 
 class Profile extends React.Component {
     state = {
         details: "",
     }
     componentDidMount() {
-        
+
     }
     render() {
         apiGetUser(this.props.auth.user.id).then(data =>
-            this.setState({...this.state, details: data}))
-    
+            this.setState({ ...this.state, details: data }))
+
         return (
             <div className='profile'>
                
@@ -50,14 +43,14 @@ class Profile extends React.Component {
 
             
         )
-      
+
     }
-   
+
 }
 const mapStateToProps = ({ auth }) => {
     return {
-      auth
+        auth
     }
-  }
+}
 
-  export default connect(mapStateToProps)(Profile)
+export default connect(mapStateToProps)(Profile)
