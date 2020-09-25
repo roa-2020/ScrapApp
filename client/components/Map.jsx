@@ -3,10 +3,12 @@ import ReactMapGL, { Marker, Popup, GeolocateControl } from 'react-map-gl'
 import 'mapbox-gl/dist/mapbox-gl.css'
 import scrapData from './static-scrap-data.json'
 import { connect } from "react-redux";
-import { apiGetScraps } from "../apis/scrap.js";
+import { apiGetScraps, apiDeleteScraps } from "../apis/scrap.js";
 import { HashRouter as Router, Route, Link } from 'react-router-dom'
 
 import { deleteScrap } from '../actions/scraps'
+
+import { getAllScraps } from '../actions/scraps'
 
 class Map extends React.Component {
 
@@ -31,6 +33,7 @@ class Map extends React.Component {
 
   deleteScrap = (id) => {
     this.props.dispatch(deleteScrap(id))
+    apiDeleteScraps(id)
     this.changeScrap(null)
   }
 
