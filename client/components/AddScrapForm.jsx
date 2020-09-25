@@ -3,9 +3,12 @@ import { connect } from "react-redux";
 
 import { apiAddScraps, apiGetScraps } from "../apis/scrap.js";
 import { initScrap } from "../actions/scraps"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faImage } from '@fortawesome/free-solid-svg-icons'
 
 class AddScrapForm extends React.Component {
     state = {
+        category: '',
         address: '',
         scrap_name: '',
         description: '',
@@ -35,13 +38,41 @@ class AddScrapForm extends React.Component {
     render() {
         return (
             <>
-                {/* show form to add new scrap item */}
                 <div className="form-container">
                     <form action="" className="form" onSubmit={this.handleSubmit}>
                         <h1>Add A Scrap</h1>
-                    <div className="field">
-                        <label className="label">Location</label>
-                        <div className="control">
+                        <div className="field">
+                            <label className="label">Category</label>
+                            <div className="control">
+                                <input type="radio" name="category" onChange={this.handleChange} value="food" id="food" />
+                                <label htmlFor="food">
+                                    <FontAwesomeIcon icon={faImage} size="2x" className="nav-icon" />
+                                </label>
+                                <input type="radio" name="category" onChange={this.handleChange} value="furniture" id="furniture" />
+                                <label htmlFor="furniture">
+                                    <FontAwesomeIcon icon={faImage} size="2x" className="nav-icon" />
+                                </label>
+                                <input type="radio" name="category" onChange={this.handleChange} value="clothes" id="clothes" />
+                                <label htmlFor="clothes">
+                                    <FontAwesomeIcon icon={faImage} size="2x" className="nav-icon" />
+                                </label>
+                                <input type="radio" name="category" onChange={this.handleChange} value="stuff" id="stuff" />
+                                <label htmlFor="stuff">
+                                    <FontAwesomeIcon icon={faImage} size="2x" className="nav-icon" />
+                                </label>
+                                <input type="radio" name="category" onChange={this.handleChange} value="shoes" id="shoes" />
+                                <label htmlFor="shoes">
+                                    <FontAwesomeIcon icon={faImage} size="2x" className="nav-icon" />
+                                </label>
+                                <input type="radio" name="category" onChange={this.handleChange} value="balls" id="balls" />
+                                <label htmlFor="balls">
+                                    <FontAwesomeIcon icon={faImage} size="2x" className="nav-icon" />
+                                </label>
+                            </div>
+                        </div>
+                        <div className="field">
+                            <label className="label">Location</label>
+                            <div className="control">
                                 <input className="input" type="text" placeholder="Location" value={this.state.address} name="address" onChange={this.handleChange} />
                             </div>
                         </div>
@@ -58,6 +89,7 @@ class AddScrapForm extends React.Component {
                             </div>
                         </div>
                     <input className="button is-large is-fullwidth is-success" value='Add' type="submit" />
+
                 </form>
                 </div>
             </>
