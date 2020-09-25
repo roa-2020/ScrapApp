@@ -11,9 +11,9 @@ class Header extends React.Component {
         return (
             <>
                 <header className="navbar is-fixed-top">
-                    <Link to='/user'><FontAwesomeIcon icon={faUserCircle} size="2x" className="is-mobile" /></Link>
-                    <h1 className="title mb-0">scrap</h1>
-                    <Link to='/scraps/add'><FontAwesomeIcon icon={faPlusCircle} size="2x" className="is-mobile" /></Link>
+                    <Link to='/user'><FontAwesomeIcon icon={faUserCircle} size="2x" className="nav-icon" /></Link>
+                    <h1 className="title mb-0">Scrap</h1>
+                    <Link to='/scraps/add'><FontAwesomeIcon icon={faPlusCircle} size="2x" className="nav-icon" /></Link>
                 </header>
             </>
         )
