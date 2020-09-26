@@ -27,7 +27,6 @@ export class App extends React.Component {
   }
 
   componentDidUpdate() {
-    console.log("app comp updated")
     apiGetScraps()
       .then(scraps => {
         this.props.dispatch(getAllScraps(scraps));
