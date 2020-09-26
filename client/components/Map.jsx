@@ -77,7 +77,7 @@ class Map extends React.Component {
               latitude={selectedScrap.latitude}
               longitude={selectedScrap.longitude}
               onClose={() => {
-                // this.changeScrap(null)
+                this.changeScrap(null);
               }}
             >
               <div>
