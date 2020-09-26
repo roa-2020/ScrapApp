@@ -1,15 +1,19 @@
 import React, { useState } from 'react'
-import ReactMapGL, { Marker, Popup, GeolocateControl}from 'react-map-gl'
+import ReactMapGL, { Marker, Popup, GeolocateControl } from 'react-map-gl'
 import 'mapbox-gl/dist/mapbox-gl.css'
 import scrapData from './static-scrap-data.json'
 import { connect } from "react-redux";
-import { apiGetScraps } from "../apis/scrap.js";
+import { apiGetScraps, apiDeleteScraps } from "../apis/scrap.js";
 import { HashRouter as Router, Route, Link } from 'react-router-dom'
 
-class Map extends React.Component{
+import { deleteScrap } from '../actions/scraps'
 
-  state= {
-    selectedScrap:null,
+import { getAllScraps } from '../actions/scraps'
+
+class Map extends React.Component {
+
+  state = {
+    selectedScrap: null,
     viewport: {
       latitude: -41.294105529785156,
       longitude: 174.7752685546875,
@@ -19,12 +23,18 @@ class Map extends React.Component{
     }
   }
 
-  viewportChange= (viewport) => {
-    this.setState({viewport})
-  } 
+  viewportChange = (viewport) => {
+    this.setState({ viewport })
+  }
 
   changeScrap = (scrap) => {
-    this.setState({selectedScrap:scrap})
+    this.setState({ selectedScrap: scrap })
+  }
+
+  deleteScrap = (id) => {
+    this.props.dispatch(deleteScrap(id))
+    apiDeleteScraps(id)
+    this.changeScrap(null)
   }
 
   render(){
@@ -55,14 +65,14 @@ console.log(this.props.scraps)
               latitude={scrap.latitude}
               longitude={scrap.longitude}
             >
-              <button className="marker-btn" 
+              <button className="marker-btn"
                 onClick={e => {
                   e.preventDefault()
-              
+
                   this.changeScrap(scrap)
                 }}
               >
-                <img src='/images/Scrap_icon.png'alt="scrap icon"></img>
+                <img src='/images/Scrap_icon.png' alt="scrap icon"></img>
               </button>
             </Marker>
         ))}
@@ -72,13 +82,17 @@ console.log(this.props.scraps)
             latitude={selectedScrap.latitude} 
             longitude={selectedScrap.longitude}
             onClose={() => {
-              this.changeScrap(null)
+              // this.changeScrap(null)
             }}
           >
 
             <div>
               <p className="title is-6">{selectedScrap.scrap_name} - {selectedScrap.category}</p>
               <p className="subtitle is-6">{selectedScrap.description}</p>
+              <button className="button is-danger"
+                  onClick={() => {
+                    this.deleteScrap(selectedScrap.id);
+                  }}>scrap gone</button>
             </div>
 
           </Popup>

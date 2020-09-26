@@ -10,7 +10,10 @@ const reducer = (state = [], action) => {
             return [...state, action.scrapDetails]
 
         case DELETE_SCRAP:
-            return state.filter((scrapDetails) => scrapDetails !== action.scrapDetails)
+            return state.filter((scrap) => {
+                console.log("trying to del id " + action.id + ", looking @ id " + scrap.id)
+                return scrap.id !== action.id
+            })
 
         case RECIEVE_ALL_SCRAPS:
             return action.scraps
