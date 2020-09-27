@@ -38,8 +38,11 @@ a.navbar-item:focus, a.navbar-item:focus-within, a.navbar-item:hover, a.navbar-i
 
 .profileInfo {
   box-sizing: border-box;
-    border: 2px solid black;
+  border: 2px solid black;
+}
 
+.navbar navbar-brand{
+  margin: 0 auto;
 }
 
 #app {
