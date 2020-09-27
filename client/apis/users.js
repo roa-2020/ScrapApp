@@ -6,4 +6,4 @@ export function apiGetUser(id) {
       return res.body
     })
     .catch(err => console.log(err))
-} 
+}
