@@ -61,11 +61,14 @@ export class App extends React.Component {
           </div>
           :
           <>
-            <Route exact path="/" component={Header} />
+            <Header />
+            {/* <Route exact path="/" component={Header} /> */}
             <main className="map_box_container">
               <Route exact path="/" component={Map} />
             </main>
             <Route exact path="/" component={Footer} />
+            {/* <Route exact path="/scraps/add" component={Header} /> */}
+
             <Route exact path="/scraps/add" component={AddScrapForm} />
           </>
         }
