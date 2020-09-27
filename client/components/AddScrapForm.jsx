@@ -40,10 +40,10 @@ class AddScrapForm extends React.Component {
             <>
                 <div className="form-container">
                     <form action="" className="form" onSubmit={this.handleSubmit}>
-                        <h1>Add A Scrap</h1>
+                        <h1 className="title">Add A Scrap</h1>
                         <div className="field">
                             <label className="label">Category</label>
-                            <div className="control">
+                            <div className="control radio-group">
                                 <input type="radio" name="category" onChange={this.handleChange} value="food" id="food" />
                                 <label htmlFor="food">
                                     <FontAwesomeIcon icon={faImage} size="2x" className="nav-icon" />
@@ -88,7 +88,7 @@ class AddScrapForm extends React.Component {
                                 <textarea className="textarea" placeholder="Add a description.." value={this.state.description} name="description" onChange={this.handleChange}></textarea>
                             </div>
                         </div>
-                    <input className="button is-large is-fullwidth is-success" value='Add' type="submit" />
+                        <input className="button is-large" value='Add' type="submit" />
 
                 </form>
                 </div>
