@@ -17,7 +17,6 @@ class Profile extends React.Component {
 
         return (
             <>
-
                 <div className='nav-container'>
                     <Nav />
                 </div>

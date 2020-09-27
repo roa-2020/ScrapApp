@@ -15,6 +15,9 @@ class Header extends React.Component {
                     <h1 className="title mb-0">Scrap</h1>
                     <Link to='/scraps/add'><FontAwesomeIcon icon={faPlusCircle} size="2x" className="nav-icon" /></Link>
                 </header>
+
+                
+
             </>
         )
     }
