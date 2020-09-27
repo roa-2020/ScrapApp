@@ -22,7 +22,7 @@ class Login extends React.Component {
     const {auth} = this.props
     return (
       <form className="form-box" onSubmit={this.handleSubmit}>
-        <h1 className="title is-2">Login</h1>
+        <h1 className="title is-2">Scrap</h1>
         {auth.errorMessage && <span className="has-text-danger is-large">{auth.errorMessage}</span>}
         <label className="label is-large has-text-centered">Username
           <input required className="input has-text-centered is-large is-fullwidth" placeholder="User Name" type="text" name="username" autoComplete="username" value={this.state.username} onChange={this.handleChange}/>
