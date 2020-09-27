@@ -82,6 +82,7 @@ a.navbar-item:focus, a.navbar-item:focus-within, a.navbar-item:hover, a.navbar-i
   min-height: 100%;
   width: 100%;
   align-items: stretch;
+  background-color: #fbf3e5c4;
   // padding: 1em;
 }
 
@@ -153,10 +154,12 @@ body {
 .preview-cols {
   display: flex;
   flex-direction: row;
+  justify-content: space-evenly;
 }
 
 .card{
- padding: 0px 20px 20px 20px;
+//  padding: 2em;
+ margin: 1em;
 }
 
 .preview-title{
@@ -165,15 +168,45 @@ body {
   font-weight: bold;
 }
 
-// .map_box_container{
-//   position: relative;
-//   height: 100% !important;
-//   width: 100% !important;
-// }
+.form-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2em;
+}
 
-//   #map {
-//     position: absolute;
-//     top: 0;
-//     bottom: 0;
-//     width: 100%;
-//   }
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form > input, .field {
+  width: 50%;
+}
+
+.control  {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.button {
+  background-color: #817d74;
+  color: white;
+}
+
+
+@media only screen and (max-width: 600px) {
+  .form > input, .field {
+    width: 90%;
+  }
+
+  .radio-group {
+    display: flex;
+    justify-content: space-evenly;
+    flex-flow: row wrap;
+  }
+
+}
