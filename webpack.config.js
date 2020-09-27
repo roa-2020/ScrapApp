@@ -1,6 +1,7 @@
 const path = require('path')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const Dotenv = require('dotenv-webpack')
+const webpack = require('webpack')
 
 module.exports = {
   entry: [
@@ -14,6 +15,7 @@ module.exports = {
   mode: 'development',
   plugins: [
     new Dotenv(),
+    new webpack.EnvironmentPlugin(['NODE_ENV', 'DEBUG', 'REACT_APP_MAPBOX_TOKEN', 'JWT_SECRET']),
     new MiniCssExtractPlugin({
       filename: 'styles.css',
       chunkFilename: '[id].css',
