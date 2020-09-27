@@ -28,11 +28,10 @@ export function addScrap(scrapDetails) {
     }
 }
 
-export function deleteScrap(scrapDetails) {
-    console.log('action', scrapDetails)
+export function deleteScrap(id) {
     return {
         type: DELETE_SCRAP,
-        scrapDetails
+        id
     }
 }
 
