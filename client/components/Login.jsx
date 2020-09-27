@@ -1,6 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {loginUser, loginError} from '../actions/auth'
+import { Link } from 'react-router-dom'
 
 class Login extends React.Component {
   state = {
@@ -30,7 +31,11 @@ class Login extends React.Component {
         <label className="label is-large has-text-centered">Password
           <input required className="input has-text-centered is-large is-fullwidth" placeholder="Password" type="password" name="password" autoComplete="current-password" value={this.state.password} onChange={this.handleChange}/>
         </label>
-        <input className="button is-large" value='Login' type="submit" />
+        <div className="button-container">
+          <input className="button is-medium" value='Login' type="submit" />
+          {/* <input className="button is-large" value='Login' type="submit" /> */}
+          <Link to='/register' className="button is-medium">Register</Link>
+        </div>
       </form>
     )
   }
