@@ -27,7 +27,6 @@ export class App extends React.Component {
   }
 
   componentDidUpdate() {
-    console.log("app comp updated")
     apiGetScraps()
       .then(scraps => {
         this.props.dispatch(getAllScraps(scraps));
@@ -43,19 +42,15 @@ export class App extends React.Component {
           {/* <Link to='/' className="">
               <h1 className="title is-1">ScrapApp</h1>
             </Link> */}
-          <Route path="/" component={Nav} />
+
         </div>
 
         {!auth.isAuthenticated
           ?
-          <div className="">
-            {/* <div className="hero is-small is-primary">
-              </div> */}
-            <div className=''>
+          <div className="login-container">
               <Route exact path="/" component={Login} />
               <Route path="/login" component={Login} />
-              <Route path="/register" component={Register} />
-            </div>
+            <Route path="/register" component={Register} />
 
             <ScrapPreview />
 
@@ -66,7 +61,9 @@ export class App extends React.Component {
             <main className="map_box_container">
               <Route exact path="/" component={Map} />
             </main>
+            <Route exact path="/user" component={Nav} />
             <Route exact path="/" component={Footer} />
+            <Route exact path="/scraps/add" component={Nav} />
             <Route exact path="/scraps/add" component={AddScrapForm} />
             <Route exact path="/user/:id" component={Profile} />
           </>
