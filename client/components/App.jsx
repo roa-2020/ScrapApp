@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useRef, useCallback } from 'react'
 import { HashRouter as Router, Route, Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { apiGetScraps, apiAddScraps, apiUpdateScraps, apiDeleteScraps } from '../apis/scrap'
@@ -13,7 +13,7 @@ import Header from './Header'
 import Footer from './Footer'
 import ScrapPreview from './ScrapPreview'
 import AddScrapForm from './AddScrapForm'
-
+import MapLocate from './MapLocate'
 import { getAllScraps } from '../actions/scraps'
 
 export class App extends React.Component {

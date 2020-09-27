@@ -143,3 +143,11 @@ body {
 //     bottom: 0;
 //     width: 100%;
 //   }
+
+.mapboxgl-ctrl-top-right {
+  top: 25px;
+  right: 25px;
+}
+.mapboxgl-ctrl-geocoder--input {
+  height: 50px;
+}
