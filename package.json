@@ -16,7 +16,7 @@
     "h:migrate": "heroku run npx knex migrate:latest",
     "h:rollback": "heroku run npx knex migrate:rollback",
     "h:seed": "heroku run npx knex seed:run",
-    "postinstall": "webpack && knex migrate:latest && knex seed:run"
+    "postinstall": "webpack && knex migrate:latest"
   },
   "author": "EDA",
   "license": "ISC",
