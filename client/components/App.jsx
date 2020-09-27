@@ -67,6 +67,7 @@ export class App extends React.Component {
             </main>
             <Route exact path="/" component={Footer} />
             <Route exact path="/scraps/add" component={AddScrapForm} />
+            <Route exact path="/user/:id" component={Profile} />
           </>
         }
       </Router>
