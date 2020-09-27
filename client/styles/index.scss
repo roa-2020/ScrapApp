@@ -45,6 +45,11 @@ a.navbar-item:focus, a.navbar-item:focus-within, a.navbar-item:hover, a.navbar-i
   text-align: center;
   background-color: white;
   box-sizing: border-box;
+  border: 2px solid black;
+}
+
+.navbar navbar-brand{
+  margin: 0 auto;
     border: 2px solid black;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -56,6 +61,11 @@ a.navbar-item:focus, a.navbar-item:focus-within, a.navbar-item:hover, a.navbar-i
     padding-right: 10px;
     padding-left: 10px;
   }
+
+.logout{
+  color: red;
+  text-align: right;
+}
 
   .topProfile{
     display: flex;
