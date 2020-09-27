@@ -48,14 +48,10 @@ export class App extends React.Component {
 
         {!auth.isAuthenticated
           ?
-          <div className="">
-            {/* <div className="hero is-small is-primary">
-              </div> */}
-            <div className=''>
+          <div className="login-container">
               <Route exact path="/" component={Login} />
               <Route path="/login" component={Login} />
-              <Route path="/register" component={Register} />
-            </div>
+            <Route path="/register" component={Register} />
 
             <ScrapPreview />
 

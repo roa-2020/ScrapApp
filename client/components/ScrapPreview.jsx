@@ -6,7 +6,7 @@ class ScrapPreview extends React.Component {
   render() {
     return (
       <>
-        <h1 className="preview-title">Preview of scraps</h1>
+        <h1 className="preview-title">Current Scraps In Your Area!</h1>
         <div className="preview-cols">
           {
             this.props.scraps.slice(0, 3).map(scrap => {
