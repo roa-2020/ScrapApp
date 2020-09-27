@@ -30,7 +30,7 @@ class Login extends React.Component {
         <label className="label is-large has-text-centered">Password
           <input required className="input has-text-centered is-large is-fullwidth" placeholder="Password" type="password" name="password" autoComplete="current-password" value={this.state.password} onChange={this.handleChange}/>
         </label>
-        <input className="button is-large is-success" value='Login' type="submit" />
+        <input className="button is-large" value='Login' type="submit" />
       </form>
     )
   }
