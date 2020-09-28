@@ -16,8 +16,256 @@
 @import "bulma/sass/components/navbar.sass";
 @import "bulma/sass/layout/hero.sass";
 @import "bulma/sass/layout/section.sass";
+@import "bulma/sass/layout/footer.sass";
+@import "bulma/sass/helpers/spacing.sass";
 
 // Fix for transparent background on active nav items
 a.navbar-item:focus, a.navbar-item:focus-within, a.navbar-item:hover, a.navbar-item.is-active, .navbar-link:focus, .navbar-link:focus-within, .navbar-link:hover, .navbar-link.is-active {
   background-color: inherit;
+}
+
+
+* {
+  box-sizing: border-box;
+  // border: 2px solid red;
+}
+
+
+ html, body, #app {
+  height: 100%;
+  width: 100%;
+}
+
+.profile {
+  // background-color: gray;
+  height: 100%;
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-container {
+  text-align: center;
+  background-color: white;
+  box-sizing: border-box;
+  border: 2px solid black;
+  margin: 10px;
+  padding: 10px;
+   
+}
+
+.profileInfo{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 50%;
+}
+
+// .navbar .navbar-brand{
+//   margin: 0 auto;
+//     border: 2px solid black;
+//     margin-top: 10px;
+//     margin-bottom: 10px;
+//     margin-right: 10px;
+//     margin-left: 10px;
+
+//     padding-top: 10px;
+//     padding-bottom: 10px;
+//     padding-right: 10px;
+//     padding-left: 10px;
+//   }
+
+  .logoutButton{
+    margin: 10px;
+    padding: 10px;
+
+  }
+
+  .topProfile{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 50px;
+    margin-right: 20px;
+    margin-left: 20px;
+    width: 50%;
+  }
+
+#app {
+  // display: flex;
+  flex-direction: row;
+  min-height: 100%;
+  width: 100%;
+  align-items: stretch;
+  background-color: #fbf3e5c4;
+  // padding: 1em;
+}
+
+header {
+  display: flex;
+  flex-flow: row nowrap;
+  height: 80px;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em;
+  background-color: #fbf3e5c4;
+} 
+
+
+.nav-footer {
+  width: 100%;
+  height: 55px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 1em;
+  background-color: #fbf3e5c4;
+} 
+
+main {
+  flex-grow: 1;
+  width: 100%;
+  // padding: 1em;
+}
+
+.title {
+  color: #3b6464;
+  line-height: revert !important;
+}
+
+header, nav {
+  flex-shrink: 0;
+  width: 100%;
+  color: #3b6464;
+  background-color: #fbf3e5c4;
+}
+
+a {
+  color: inherit;
+}
+
+.marker-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.marker-btn img {
+  width: 20px;
+  height: 20px;
+}
+
+.navbar {
+  background-color: #fbf3e5c4;
+}
+
+.nav-icon {
+  margin: 0.2em;
+}
+
+body {
+  overflow: hidden; /* Hide scrollbars */
+}
+.preview-cols {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.card{
+//  padding: 2em;
+ margin: 1em;
+}
+
+.preview-title{
+  text-align: center;
+  margin-top: 1rem;
+  font-weight: bold;
+}
+
+.form-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 3em;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form > input, .field {
+  width: 50%;
+}
+
+.control  {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.button {
+  background-color: #817d74;
+  color: white;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+
+@media only screen and (max-width: 600px) {
+  .form > input, .field, .profileInfo, .topProfile {
+    width: 90%;
+  }
+
+  .radio-group {
+    display: flex;
+    justify-content: space-evenly;
+    flex-flow: row wrap;
+  }
+
+  .login-container {
+    padding: 1em;
+  }
+
+  .subtitle {
+    text-align: center;
+  }
+}
+
+.media-content, .media-left{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.button-container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly !important;
+  align-items: center;
+  margin: 1em;
+}
+
+.mapboxgl-ctrl-top-right {
+  top: 95px;
+  right: 25px;
+}
+.mapboxgl-ctrl-geocoder--input {
+  height: 50px;
+}
+
+.login-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
