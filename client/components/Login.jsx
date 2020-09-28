@@ -1,6 +1,9 @@
 import React from 'react'
-import {connect} from 'react-redux'
-import {loginUser, loginError} from '../actions/auth'
+
+import { connect } from 'react-redux'
+import { loginUser, loginError } from '../actions/auth'
+
+import { Link } from 'react-router-dom'
 
 class Login extends React.Component {
   state = {
@@ -9,35 +12,38 @@ class Login extends React.Component {
   }
 
   handleChange = (e) => {
-    this.setState({[e.target.name]: e.target.value})
+    this.setState({ [e.target.name]: e.target.value })
   }
 
   handleSubmit = (e) => {
     e.preventDefault()
-    let {username, password} = this.state
+    let { username, password } = this.state
     const confirmSuccess = () => { this.props.history.push('/') }
-    this.props.dispatch(loginUser({username, password}, confirmSuccess))
+    this.props.dispatch(loginUser({ username, password }, confirmSuccess))
   }
   render() {
-    const {auth} = this.props
+    const { auth } = this.props
     return (
-      <form className="form box" onSubmit={this.handleSubmit}>
-        <h1 className="title is-2">Login</h1>
-        <hr />
+      <form className="form-box" onSubmit={this.handleSubmit}>
+        <h1 className="title is-2">Scrap</h1>
         {auth.errorMessage && <span className="has-text-danger is-large">{auth.errorMessage}</span>}
         <label className="label is-large has-text-centered">Username
-          <input required className="input has-text-centered is-large is-fullwidth" placeholder="User Name" type="text" name="username" autoComplete="username" value={this.state.username} onChange={this.handleChange}/>
+          <input required className="input has-text-centered is-large is-fullwidth" placeholder="User Name" type="text" name="username" autoComplete="username" value={this.state.username} onChange={this.handleChange} />
         </label>
         <label className="label is-large has-text-centered">Password
-          <input required className="input has-text-centered is-large is-fullwidth" placeholder="Password" type="password" name="password" autoComplete="current-password" value={this.state.password} onChange={this.handleChange}/>
+          <input required className="input has-text-centered is-large is-fullwidth" placeholder="Password" type="password" name="password" autoComplete="current-password" value={this.state.password} onChange={this.handleChange} />
         </label>
-        <input className="button is-large is-fullwidth is-success" value='Login' type="submit" />
+        <div className="button-container">
+          <input className="button is-medium" value='Login' type="submit" />
+          {/* <input className="button is-large" value='Login' type="submit" /> */}
+          <Link to='/register' className="button is-medium">Register</Link>
+        </div>
       </form>
     )
   }
 }
 
-const mapStateToProps = ({auth}) => {
+const mapStateToProps = ({ auth }) => {
   return {
     auth
   }

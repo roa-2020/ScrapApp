@@ -1,17 +1,16 @@
-import React, { useState } from 'react'
-import ReactMapGL, { Marker, Popup, GeolocateControl } from 'react-map-gl'
-import 'mapbox-gl/dist/mapbox-gl.css'
-import scrapData from './static-scrap-data.json'
+import React, { useState } from "react";
+import ReactMapGL, { Marker, Popup, GeolocateControl } from "react-map-gl";
+import "mapbox-gl/dist/mapbox-gl.css";
+import scrapData from "./static-scrap-data.json";
 import { connect } from "react-redux";
 import { apiGetScraps, apiDeleteScraps } from "../apis/scrap.js";
-import { HashRouter as Router, Route, Link } from 'react-router-dom'
+import { HashRouter as Router, Route, Link } from "react-router-dom";
 
-import { deleteScrap } from '../actions/scraps'
+import { deleteScrap } from "../actions/scraps";
 
-import { getAllScraps } from '../actions/scraps'
+import { getAllScraps } from "../actions/scraps";
 
 class Map extends React.Component {
-
   state = {
     selectedScrap: null,
     viewport: {
@@ -20,91 +19,90 @@ class Map extends React.Component {
       width: "100vw",
       height: "100vh",
       zoom: 15,
-    }
-  }
+    },
+  };
 
   viewportChange = (viewport) => {
-    this.setState({ viewport })
-  }
+    this.setState({ viewport });
+  };
 
   changeScrap = (scrap) => {
-    this.setState({ selectedScrap: scrap })
-  }
+    this.setState({ selectedScrap: scrap });
+  };
 
   deleteScrap = (id) => {
-    this.props.dispatch(deleteScrap(id))
-    apiDeleteScraps(id)
-    this.changeScrap(null)
-  }
+    this.props.dispatch(deleteScrap(id));
+    apiDeleteScraps(id);
+    this.changeScrap(null);
+  };
 
-  render(){
+  render() {
+    const selectedScrap = this.state.selectedScrap;
 
-const selectedScrap = this.state.selectedScrap
-
-console.log(this.props.scraps)
-
-  return (
-    <div id="map">
-    <ReactMapGL 
-      {...this.state.viewport}
-      mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
-      mapStyle="mapbox://styles/scrapp/ckfg9se0g20sk19lhef5gsyqg"
-    
-      onViewportChange={this.viewportChange}
-      >
-        <GeolocateControl 
-        positionOptions={{enableHighAccuracy:true}}
-        trackUserLocation={true}
-        //on page load centre on user
-        auto={true}
-        />
-        {this.props.scraps.map((scrap) => (
-
-            <Marker 
+    return (
+      <div id="map">
+        <ReactMapGL
+          {...this.state.viewport}
+          mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
+          mapStyle="mapbox://styles/scrapp/ckfg9se0g20sk19lhef5gsyqg"
+          onViewportChange={this.viewportChange}
+        >
+          {/* <GeolocateControl
+            positionOptions={{ enableHighAccuracy: true }}
+            trackUserLocation={true}
+            //on page load centre on user
+            auto={true}
+          /> */}
+          {this.props.scraps.map((scrap) => (
+            <Marker
               key={scrap.id}
               latitude={scrap.latitude}
               longitude={scrap.longitude}
             >
-              <button className="marker-btn"
-                onClick={e => {
-                  e.preventDefault()
+              <button
+                className="marker-btn"
+                onClick={(e) => {
+                  e.preventDefault();
 
-                  this.changeScrap(scrap)
+                  this.changeScrap(scrap);
                 }}
               >
-                <img src='/images/Scrap_icon.png' alt="scrap icon"></img>
+                <img src="/images/Scrap_icon.png" alt="scrap icon"></img>
               </button>
             </Marker>
-        ))}
+          ))}
 
-        {selectedScrap && (
-          <Popup 
-            latitude={selectedScrap.latitude} 
-            longitude={selectedScrap.longitude}
-            onClose={() => {
-              // this.changeScrap(null)
-            }}
-          >
-
-            <div>
-              <p className="title is-6">{selectedScrap.scrap_name} - {selectedScrap.category}</p>
-              <p className="subtitle is-6">{selectedScrap.description}</p>
-              <button className="button is-danger"
+          {selectedScrap && (
+            <Popup
+              latitude={selectedScrap.latitude}
+              longitude={selectedScrap.longitude}
+              onClose={() => {
+                this.changeScrap(null);
+              }}
+            >
+              <div>
+                <p className="title is-6">
+                  {selectedScrap.scrap_name} - {selectedScrap.category}
+                </p>
+                <p className="subtitle is-6">{selectedScrap.description}</p>
+                <button
+                  className="button is-danger"
                   onClick={() => {
                     this.deleteScrap(selectedScrap.id);
-                  }}>scrap gone</button>
-            </div>
-
-          </Popup>
-        )}
-
-    </ReactMapGL>
-    </div>
-  )
-}
+                  }}
+                >
+                  scrap gone
+                </button>
+              </div>
+            </Popup>
+          )}
+        </ReactMapGL>
+      </div>
+    );
+  }
 }
 function mapStateToProps(globalState) {
-  return { scraps: globalState.scraps }
+  return { scraps: globalState.scraps };
 }
 
-export default connect(mapStateToProps)(Map)
+export default connect(mapStateToProps)(Map);
