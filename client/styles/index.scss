@@ -238,3 +238,11 @@ body {
   align-items: center;
   margin: 1em;
 }
+
+.login-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
