@@ -1,17 +1,24 @@
-import React, { useState } from "react";
+import React, { createRef, } from "react";
 import ReactMapGL, { Marker, Popup, GeolocateControl } from "react-map-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
+import "react-map-gl-geocoder/dist/mapbox-gl-geocoder.css";
 import scrapData from "./static-scrap-data.json";
 import { connect } from "react-redux";
 import { apiGetScraps, apiDeleteScraps } from "../apis/scrap.js";
 import { HashRouter as Router, Route, Link } from "react-router-dom";
 import Header from './Header'
 
+import Geocoder from "react-map-gl-geocoder";
 import { deleteScrap } from "../actions/scraps";
 import { getAllScraps } from "../actions/scraps";
 
 
 class Map extends React.Component {
+  constructor(props) {
+    super(props)
+    this.mapRef = createRef();
+  }
+
   state = {
     selectedScrap: null,
     viewport: {
@@ -24,6 +31,14 @@ class Map extends React.Component {
   };
 
   viewportChange = (viewport) => {
+    this.setState({ viewport });
+  };
+
+  viewportChangeGeocoder = (viewport) => {
+    const lat = viewport.latitude
+    const lng = viewport.longitude
+    console.log(lat, lng)
+
     this.setState({ viewport });
   };
 
@@ -42,11 +57,19 @@ class Map extends React.Component {
     return (
       <div id="map">
         <ReactMapGL
+          ref={this.mapRef}
           {...this.state.viewport}
           mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
           mapStyle="mapbox://styles/scrapp/ckfg9se0g20sk19lhef5gsyqg"
           onViewportChange={this.viewportChange}
         >
+
+          <Geocoder
+            mapRef={this.mapRef}
+            onViewportChange={this.viewportChangeGeocoder}
+            mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
+            position="top-right"
+          />
 
           <Header
             positionOptions={{ enableHighAccuracy: true }}
