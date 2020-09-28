@@ -1,7 +1,7 @@
 @charset "utf-8";
 
 // Import a Google Font
-@import url('https://fonts.googleapis.com/css?family=Lato:400,700');
+@import url("https://fonts.googleapis.com/css?family=Lato:400,700");
 
 // Import custom variables and Bulma overides
 @import "./variables.scss";
@@ -20,18 +20,25 @@
 @import "bulma/sass/helpers/spacing.sass";
 
 // Fix for transparent background on active nav items
-a.navbar-item:focus, a.navbar-item:focus-within, a.navbar-item:hover, a.navbar-item.is-active, .navbar-link:focus, .navbar-link:focus-within, .navbar-link:hover, .navbar-link.is-active {
+a.navbar-item:focus,
+a.navbar-item:focus-within,
+a.navbar-item:hover,
+a.navbar-item.is-active,
+.navbar-link:focus,
+.navbar-link:focus-within,
+.navbar-link:hover,
+.navbar-link.is-active {
   background-color: inherit;
 }
-
 
 * {
   box-sizing: border-box;
   // border: 2px solid red;
 }
 
-
- html, body, #app {
+html,
+body,
+#app {
   height: 100%;
   width: 100%;
 }
@@ -48,38 +55,38 @@ a.navbar-item:focus, a.navbar-item:focus-within, a.navbar-item:hover, a.navbar-i
   border: 2px solid black;
 }
 
-.navbar navbar-brand{
+.navbar navbar-brand {
   margin: 0 auto;
-    border: 2px solid black;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    margin-right: 10px;
-    margin-left: 10px;
+  border: 2px solid black;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  margin-left: 10px;
 
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-right: 10px;
-    padding-left: 10px;
-  }
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-right: 10px;
+  padding-left: 10px;
+}
 
-  .buttonStyling {
+.buttonStyling {
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+    0 17px 50px 0 rgba(0, 0, 0, 0.19);
 
-      box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-     
-    margin-top: 10px;
-    margin-bottom: 10px;
-    margin-right: 100px;
-    margin-left: 125px;
-   }
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right: 100px;
+  margin-left: 125px;
+}
 
-  .topProfile{
-    display: flex;
-    justify-content: space-between;
-    margin-top: 10px;
-    margin-bottom: 50px;
-    margin-right: 20px;
-    margin-left: 20px;
-  }
+.topProfile {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  margin-bottom: 50px;
+  margin-right: 20px;
+  margin-left: 20px;
+}
 
 #app {
   // display: flex;
@@ -100,7 +107,7 @@ header {
   align-items: center;
   padding: 1em;
   background-color: #fbf3e5c4;
-} 
+}
 
 .nav-footer {
   width: 100%;
@@ -110,7 +117,7 @@ header {
   align-items: center;
   padding: 1em;
   background-color: #fbf3e5c4;
-} 
+}
 
 main {
   flex-grow: 1;
@@ -123,7 +130,8 @@ main {
   line-height: revert !important;
 }
 
-header, nav {
+header,
+nav {
   flex-shrink: 0;
   width: 100%;
   color: #3b6464;
@@ -162,12 +170,12 @@ body {
   justify-content: space-evenly;
 }
 
-.card{
-//  padding: 2em;
- margin: 1em;
+.card {
+  //  padding: 2em;
+  margin: 1em;
 }
 
-.preview-title{
+.preview-title {
   text-align: center;
   margin-top: 1rem;
   font-weight: bold;
@@ -188,11 +196,12 @@ body {
   align-items: center;
 }
 
-.form > input, .field {
+.form > input,
+.field {
   width: 50%;
 }
 
-.control  {
+.control {
   display: flex;
   justify-content: space-evenly;
 }
@@ -202,9 +211,9 @@ body {
   color: white;
 }
 
-
 @media only screen and (max-width: 600px) {
-  .form > input, .field {
+  .form > input,
+  .field {
     width: 90%;
   }
 
@@ -223,7 +232,8 @@ body {
   }
 }
 
-.media-content, .media-left{
+.media-content,
+.media-left {
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -237,4 +247,33 @@ body {
   justify-content: space-evenly !important;
   align-items: center;
   margin: 1em;
+}
+
+// Form transitions
+
+.toggle-menu {
+  z-index: 234567891;
+  position: fixed;
+  margin-top: 20px;
+}
+
+.side-bar {
+  margin-top: 35px;
+  min-height: 1080px;
+  background-color: #fbf3e5c4;
+  position: fixed;
+  z-index: 234567890;
+  transition: width 600ms ease-in-out;
+}
+
+.side-bar-open {
+  width: 75%;
+}
+
+.side-bar-closed {
+  width: 0;
+}
+
+.side-bar-closed form {
+  display: none;
 }
