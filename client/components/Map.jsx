@@ -6,13 +6,16 @@ import scrapData from "./static-scrap-data.json";
 import { connect } from "react-redux";
 import { apiGetScraps, apiDeleteScraps } from "../apis/scrap.js";
 import { HashRouter as Router, Route, Link } from "react-router-dom";
+import Header from './Header'
+
 import Geocoder from "react-map-gl-geocoder";
 import { deleteScrap } from "../actions/scraps";
-
 import { getAllScraps } from "../actions/scraps";
+import { setLocation } from "../actions/newScrap";
+
 
 class Map extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props)
     this.mapRef = createRef();
   }
@@ -31,12 +34,13 @@ class Map extends React.Component {
   viewportChange = (viewport) => {
     this.setState({ viewport });
   };
-  
+
   viewportChangeGeocoder = (viewport) => {
     const lat = viewport.latitude
     const lng = viewport.longitude
-    console.log(lat, lng)
-
+    console.log(lat,lng)
+    this.props.dispatch(setLocation(lat, lng))
+    
     this.setState({ viewport });
   };
 
@@ -52,28 +56,29 @@ class Map extends React.Component {
 
   render() {
     const selectedScrap = this.state.selectedScrap;
-
     return (
       <div id="map">
         <ReactMapGL
-        ref={this.mapRef}
+          ref={this.mapRef}
           {...this.state.viewport}
           mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
           mapStyle="mapbox://styles/scrapp/ckfg9se0g20sk19lhef5gsyqg"
           onViewportChange={this.viewportChange}
         >
+
           <Geocoder
           mapRef={this.mapRef}
           onViewportChange={this.viewportChangeGeocoder}
           mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
           position="top-right"
-        />
-          <GeolocateControl
+          />
+          
+          <Header
             positionOptions={{ enableHighAccuracy: true }}
             trackUserLocation={true}
             //on page load centre on user
-            auto={true}
-          />
+            auto={true} />
+
           {this.props.scraps.map((scrap) => (
             <Marker
               key={scrap.id}
