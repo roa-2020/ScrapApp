@@ -6,7 +6,7 @@ import scrapData from "./static-scrap-data.json";
 import { connect } from "react-redux";
 import { apiGetScraps, apiDeleteScraps } from "../apis/scrap.js";
 import { HashRouter as Router, Route, Link } from "react-router-dom";
-import Header from './Header'
+import Footer from './Footer'
 
 import Geocoder from "react-map-gl-geocoder";
 import { deleteScrap } from "../actions/scraps";
@@ -73,7 +73,7 @@ class Map extends React.Component {
             position="top-right"
           />
 
-          <Header
+          <Footer
             positionOptions={{ enableHighAccuracy: true }}
             trackUserLocation={true}
             //on page load centre on user

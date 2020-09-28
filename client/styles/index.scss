@@ -313,8 +313,12 @@ header.navbar {
 
 .mapboxgl-ctrl-icon {
   background-color: #fbf3e5;
+  width: 20px;
 }
-
+.mapboxgl-ctrl-group > button {
+  width: 40px;
+  height: 40px;
+}
 .popup {
   display: flex;
   flex-direction: column;
