@@ -5,7 +5,7 @@ function getScraps(db = connection) {
     .select()
     .then(scraps => scraps.map(scrap => {
       scrap.latitude = Number(scrap.latitude)
-      scrap.longtude = Number(scrap.longitude)
+      scrap.longitude = Number(scrap.longitude)
       return scrap
     }))
 }
