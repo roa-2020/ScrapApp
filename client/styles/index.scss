@@ -258,6 +258,14 @@ body {
   margin: 1em;
 }
 
+.mapboxgl-ctrl-top-right {
+  top: 95px;
+  right: 25px;
+}
+.mapboxgl-ctrl-geocoder--input {
+  height: 50px;
+}
+
 .login-container {
   height: 100%;
   display: flex;
