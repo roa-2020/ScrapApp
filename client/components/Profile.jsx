@@ -43,7 +43,7 @@ class Profile extends React.Component {
                     <div className='profile-container'><h1 className="title">{this.state.details && this.state.details.name}</h1></div> 
                     <div className='profile-container'><h1 className="title">********</h1></div> 
                    
-                    <button onClick={() => logout()} className='title buttonStyling button' >Log out</button>
+                    <button onClick={() => logout()} className='title button' >Log out</button>
                 
                 </div>
 
