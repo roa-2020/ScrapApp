@@ -55,8 +55,7 @@ class Map extends React.Component {
   };
 
   render() {
-    const selectedScrap = this.state.selectedScrap;
-    console.log(selectedScrap)
+    const selectedScrap = this.state.selectedScrap
     return (
       <div id="map">
         <ReactMapGL
