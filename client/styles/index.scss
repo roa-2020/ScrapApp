@@ -99,6 +99,7 @@ a.navbar-item:focus, a.navbar-item:focus-within, a.navbar-item:hover, a.navbar-i
   width: 100%;
   align-items: stretch;
   background-color: #fbf3e5c4;
+  margin: 0;
   // padding: 1em;
 }
 
@@ -234,6 +235,19 @@ body {
   .subtitle {
     text-align: center;
   }
+
+  .password-container, .name-container {
+    flex-direction: column !important; 
+  }
+
+  .textarea:not([rows]) {
+    min-height: 6em;
+  }
+
+  .login-container {
+    height: unset !important;
+    overflow-y: scroll;
+  }
 }
 
 .media-content, .media-left{
@@ -266,4 +280,41 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+
+.password-container, .name-container {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+}
+
+.column {
+  margin: 1em;
+}
+
+header.navbar {
+  display: flex;
+  align-items: center;
+}
+
+.form-container {
+  height: 100%;
+  margin-top: 2em;
+}
+
+.mapboxgl-ctrl-icon {
+  background-color: #fbf3e5;
+}
+
+.popup {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  word-wrap: break-word;
+  width: 200px;
+}
+
+.popup:first-child {
+  margin-bottom: 2em;
 }

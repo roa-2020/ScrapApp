@@ -56,6 +56,7 @@ class Map extends React.Component {
 
   render() {
     const selectedScrap = this.state.selectedScrap;
+    console.log(selectedScrap)
     return (
       <div id="map">
         <ReactMapGL
@@ -107,13 +108,14 @@ class Map extends React.Component {
               }}
 
             >
-              <div>
+              <div className="popup">
                 <p className="title is-6">
                   {selectedScrap.scrap_name} - {selectedScrap.category}
                 </p>
                 <p className="subtitle is-6">{selectedScrap.description}</p>
+                <p className="subtitle is-7">{selectedScrap.address.split(' ').slice(0, 6).join(' ')}</p>
                 <button
-                  className="button is-danger"
+                  className="button is-danger is-small"
                   onClick={() => {
                     this.deleteScrap(selectedScrap.id);
                   }}
