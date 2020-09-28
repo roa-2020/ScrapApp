@@ -11,6 +11,7 @@ import Header from './Header'
 import Geocoder from "react-map-gl-geocoder";
 import { deleteScrap } from "../actions/scraps";
 import { getAllScraps } from "../actions/scraps";
+import { setLocation } from "../actions/newScrap";
 
 
 class Map extends React.Component {
@@ -37,8 +38,9 @@ class Map extends React.Component {
   viewportChangeGeocoder = (viewport) => {
     const lat = viewport.latitude
     const lng = viewport.longitude
-    console.log(lat, lng)
-
+    console.log(lat,lng)
+    this.props.dispatch(setLocation(lat, lng))
+    
     this.setState({ viewport });
   };
 

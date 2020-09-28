@@ -2,7 +2,7 @@ import React from "react"
 import { connect } from "react-redux";
 
 import { apiAddScraps, apiGetScraps } from "../apis/scrap.js";
-import { initScrap } from "../actions/scraps"
+import { getAllScraps, initScrap } from "../actions/scraps"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faImage, faDrumstickBite, faCouch, faTshirt, faDumpsterFire, faShoePrints, faBowlingBall } from '@fortawesome/free-solid-svg-icons'
 
@@ -29,9 +29,14 @@ class AddScrapForm extends React.Component {
         e.preventDefault()
         const scrap = this.state
         console.log(scrap)
+        scrap.longitude=this.props.longitude
+        scrap.latitude=this.props.latitude
         apiAddScraps(scrap)
             .then(scrap => {
-                this.props.dispatch(initScrap(scrap))
+                apiGetScraps()
+                .then(scraps => {
+                this.props.dispatch(getAllScraps(scraps));
+                })
                 this.props.history.push('/')
         })
     }
@@ -90,16 +95,7 @@ class AddScrapForm extends React.Component {
                             </div>
                         </div>
                         <input className="button is-large" value='Add' type="submit" />
-                        <input
-                        type="hidden" 
-                        value={this.props.latitude} 
-                        name="latitude"
-                        />
-                        <input
-                            type="hidden"
-                            value={this.props.longitude}
-                            name="longitude"
-                        />  
+                        
                 </form>
                 </div>
             </>
@@ -108,7 +104,7 @@ class AddScrapForm extends React.Component {
 }
 
 function mapStateToProps(globalState) {
-    return { scraps: globalState.scraps }
+    return { latitude: globalState.newScrap.lat, longitude: globalState.newScrap.long }
 }
 
 export default connect(mapStateToProps)(AddScrapForm);
