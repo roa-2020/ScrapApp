@@ -263,17 +263,15 @@ body {
   background-color: #fbf3e5c4;
   position: fixed;
   z-index: 234567890;
-  transition: width 600ms ease-in-out;
+  transition: width 600ms ease-in-out, opacity 600ms ease-in-out;
 }
 
 .side-bar-open {
   width: 75%;
+  opacity: 1;
 }
 
 .side-bar-closed {
   width: 0;
-}
-
-.side-bar-closed form {
-  display: none;
+  opacity: 0;
 }

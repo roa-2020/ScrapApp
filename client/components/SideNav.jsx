@@ -1,4 +1,7 @@
 import React from "react";
+import Profile from "./Profile";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUserCircle } from "@fortawesome/free-solid-svg-icons";
 
 export default class Sidebar extends React.Component {
   state = {
@@ -23,9 +26,7 @@ export default class Sidebar extends React.Component {
             this.state.menuOpen ? "side-bar-open" : "side-bar-closed",
           ].join(" ")}
         >
-          <form>
-            <input placeholder="tings"></input>
-          </form>
+          <Profile />
         </div>
       </React.Fragment>
     );
