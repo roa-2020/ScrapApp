@@ -94,7 +94,7 @@ class AddScrapForm extends React.Component {
                                 <textarea required className="textarea" placeholder="Add a description.." value={this.state.description} name="description" onChange={this.handleChange}></textarea>
                             </div>
                         </div>
-                        <input className="button is-large" value='Add' type="submit" />
+                        <input className="button is-medium" value='Add' type="submit" />
                         
                 </form>
                 </div>

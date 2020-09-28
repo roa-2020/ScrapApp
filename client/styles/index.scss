@@ -239,11 +239,16 @@ body {
   }
 
   .password-container, .name-container {
-    flex-direction: column; 
+    flex-direction: column !important; 
   }
 
   .textarea:not([rows]) {
     min-height: 6em;
+  }
+
+  .login-container {
+    height: unset !important;
+    overflow-y: scroll;
   }
 }
 
@@ -288,4 +293,18 @@ body {
 
 .column {
   margin: 1em;
+}
+
+header.navbar {
+  display: flex;
+  align-items: center;
+}
+
+.form-container {
+  height: 100%;
+  margin-top: 2em;
+}
+
+.mapboxgl-ctrl-icon {
+  background-color: #fbf3e5;
 }
