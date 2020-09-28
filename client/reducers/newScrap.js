@@ -1,3 +1,5 @@
+import { SET_LOCATION } from "../actions/newScrap"
+
 const initialState = {}
 
 const reducer = (state = initialState, action) => {
