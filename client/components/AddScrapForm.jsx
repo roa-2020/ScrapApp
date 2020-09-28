@@ -90,7 +90,16 @@ class AddScrapForm extends React.Component {
                             </div>
                         </div>
                         <input className="button is-large" value='Add' type="submit" />
-
+                        <input
+                        type="hidden" 
+                        value={this.props.latitude} 
+                        name="latitude"
+                        />
+                        <input
+                            type="hidden"
+                            value={this.props.longitude}
+                            name="longitude"
+                        />  
                 </form>
                 </div>
             </>
@@ -98,4 +107,8 @@ class AddScrapForm extends React.Component {
     }
 }
 
-export default connect()(AddScrapForm)
+mapStateToProps(globalState) {
+    return { scraps: globalState.scraps }
+}
+
+export default connect(mapStateToProps)(AddScrapForm)
