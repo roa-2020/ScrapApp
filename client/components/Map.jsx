@@ -47,12 +47,12 @@ class Map extends React.Component {
           mapStyle="mapbox://styles/scrapp/ckfg9se0g20sk19lhef5gsyqg"
           onViewportChange={this.viewportChange}
         >
-          {/* <GeolocateControl
+          <GeolocateControl
             positionOptions={{ enableHighAccuracy: true }}
             trackUserLocation={true}
             //on page load centre on user
             auto={true}
-          /> */}
+          />
           {/* {this.props.scraps.map((scrap) => ( */}
             {/* <Marker
               key={scrap.id}
