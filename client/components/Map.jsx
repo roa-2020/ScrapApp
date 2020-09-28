@@ -5,10 +5,11 @@ import scrapData from "./static-scrap-data.json";
 import { connect } from "react-redux";
 import { apiGetScraps, apiDeleteScraps } from "../apis/scrap.js";
 import { HashRouter as Router, Route, Link } from "react-router-dom";
+import Header from './Header'
 
 import { deleteScrap } from "../actions/scraps";
-
 import { getAllScraps } from "../actions/scraps";
+
 
 class Map extends React.Component {
   state = {
@@ -38,7 +39,6 @@ class Map extends React.Component {
 
   render() {
     const selectedScrap = this.state.selectedScrap;
-
     return (
       <div id="map">
         <ReactMapGL
@@ -47,12 +47,13 @@ class Map extends React.Component {
           mapStyle="mapbox://styles/scrapp/ckfg9se0g20sk19lhef5gsyqg"
           onViewportChange={this.viewportChange}
         >
-          {/* <GeolocateControl
+
+          <Header
             positionOptions={{ enableHighAccuracy: true }}
             trackUserLocation={true}
             //on page load centre on user
-            auto={true}
-          /> */}
+            auto={true} />
+
           {this.props.scraps.map((scrap) => (
             <Marker
               key={scrap.id}

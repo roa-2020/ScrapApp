@@ -50,10 +50,10 @@ export class App extends React.Component {
           </div>
           :
           <>
-            <Route exact path="/" component={Header} />
             <main className="map_box_container">
               <Route exact path="/" component={Map} />
             </main>
+            {/* <Route exact path="/" component={Header} /> */}
             <Route exact path="/user" component={Nav} />
             <Route exact path="/" component={Footer} />
             <Route exact path="/scraps/add" component={Nav} />
