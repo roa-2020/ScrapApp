@@ -14,6 +14,10 @@ import { getAllScraps } from "../actions/scraps";
 import { setLocation } from "../actions/newScrap";
 
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faImage, faDrumstickBite, faCouch, faTshirt, faDumpsterFire, faShoePrints, faBowlingBall } from '@fortawesome/free-solid-svg-icons'
+
+
 class Map extends React.Component {
   constructor(props) {
     super(props)
@@ -71,6 +75,7 @@ class Map extends React.Component {
             onViewportChange={this.viewportChangeGeocoder}
             mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
             position="top-right"
+            placeholder="Add your location!"
           />
 
           <Footer
@@ -109,7 +114,9 @@ class Map extends React.Component {
             >
               <div className="popup">
                 <p className="title is-6">
-                  {selectedScrap.scrap_name} - {selectedScrap.category}
+                  {selectedScrap.scrap_name} - {selectedScrap.category} <span>
+                    <FontAwesomeIcon icon={faDrumstickBite} size="1x" className="nav-icon" />
+                  </span>
                 </p>
                 <p className="subtitle is-6">{selectedScrap.description}</p>
                 <p className="subtitle is-7">{selectedScrap.address.split(' ').slice(0, 6).join(' ')}</p>

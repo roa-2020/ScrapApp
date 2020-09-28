@@ -78,7 +78,7 @@ a.navbar-item:focus, a.navbar-item:focus-within, a.navbar-item:hover, a.navbar-i
 
 .label{
   text-align: left;
-  margin-bottom: 0 !important;
+  // margin-bottom: 0 !important;
 }
 
 .topProfile{
@@ -219,9 +219,12 @@ body {
     width: 100%;
   }
 
+  .form {
+    width: 95% !important ;
+  }
   .radio-group {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     flex-flow: row wrap;
   }
 
@@ -238,7 +241,7 @@ body {
   }
 
   .textarea:not([rows]) {
-    min-height: 6em;
+    min-height: 6em !important;
   }
 
   .login-container {
@@ -253,10 +256,35 @@ body {
   .form-container {
     padding: 2em;
     margin-top: 0 !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .field:not(:last-child) {
+    margin-bottom: 0.75rem !important;
   }
 }
 
 //---------------------------------------------//
+
+.field:not(:last-child) {
+  margin-bottom: 2.75rem;
+}
+
+.textarea:not([rows]) {
+  min-height: 12em;
+}
+
+.form {
+  width: 60%
+}
+
+.form-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
 
 .media-content, .media-left{
   display: flex;
