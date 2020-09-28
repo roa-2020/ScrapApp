@@ -7,6 +7,7 @@ import { connect } from "react-redux";
 import { apiGetScraps, apiDeleteScraps } from "../apis/scrap.js";
 import { HashRouter as Router, Route, Link } from "react-router-dom";
 import Footer from './Footer'
+import Header from './Header'
 
 import Geocoder from "react-map-gl-geocoder";
 import { deleteScrap } from "../actions/scraps";
@@ -31,7 +32,7 @@ class Map extends React.Component {
       longitude: 174.7752685546875,
       width: "100vw",
       height: "100vh",
-      zoom: 15,
+      zoom: 15
     },
   };
 
@@ -78,6 +79,12 @@ class Map extends React.Component {
 
 
 
+  //Controls zoom level when clicking on geolocate button
+  _onViewportChange = (viewport) => {
+    viewport.zoom = this.state.viewport.zoom + 1 //Whatever zoom level you want
+    this.setState({ viewport })
+  }
+
   render() {
     console.log(faDrumstickBite)
     const selectedScrap = this.state.selectedScrap;
@@ -100,31 +107,34 @@ class Map extends React.Component {
             countries="nz"
           />
 
-          <Footer
+          <GeolocateControl
             positionOptions={{ enableHighAccuracy: true }}
             trackUserLocation={true}
             //on page load centre on user
-            auto={true} />
+            auto={true}
+            onViewportChange={this._onViewportChange}
+          />
 
-          {this.props.scraps.map((scrap) => (
-            <Marker
-              key={scrap.id}
-              latitude={scrap.latitude}
-              longitude={scrap.longitude}
-            >
-              <button
-                className="marker-btn"
-                onClick={(e) => {
-                  e.preventDefault();
-                  this.changeScrap(scrap);
-                }}
+          {
+            this.props.scraps.map((scrap) => (
+              <Marker
+                key={scrap.id}
+                latitude={scrap.latitude}
+                longitude={scrap.longitude}
               >
-                <FontAwesomeIcon icon={this.getScrapIcon(scrap.category)} size="2x" className="nav-icon" />
-                {/* <img src={"/images/Scrap_icon.png"} alt="scrap icon"></img> */}
-              </button>
-            </Marker>
-          ))}
-
+                <button
+                  className="marker-btn"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    this.changeScrap(scrap);
+                  }}
+                >
+                   <FontAwesomeIcon icon={this.getScrapIcon(scrap.category)} size="2x" className="nav-icon" />
+                 </button>
+              </Marker>
+            ))
+          }
+  
           {selectedScrap && (
             <Popup
               latitude={selectedScrap.latitude}
