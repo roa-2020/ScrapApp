@@ -56,7 +56,6 @@ class Map extends React.Component {
 
   render() {
     const selectedScrap = this.state.selectedScrap;
-    console.log(selectedScrap)
     return (
       <div id="map">
         <ReactMapGL
@@ -72,6 +71,7 @@ class Map extends React.Component {
             onViewportChange={this.viewportChangeGeocoder}
             mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
             position="top-right"
+            countries= "nz"
           />
 
           <Header
