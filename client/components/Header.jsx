@@ -16,7 +16,14 @@ class Header extends React.Component {
                 <header className="navbar is-fixed-top">
                     <Link to={`/user/${auth.user.id}`}><FontAwesomeIcon icon={faUserCircle} size="2x" className="nav-icon" /></Link>
                     <h1 className="title mb-0">Scrap</h1>
+                    <GeolocateControl
+                        positionOptions={this.props.positionOptions}
+                        trackUserLocation={this.props.trackUserLocation}
+                        //on page load centre on user
+                        auto={this.props.auto}
+                    />
                     <Link to='/scraps/add'><FontAwesomeIcon icon={faPlusCircle} size="2x" className="nav-icon" /></Link>
+
                 </header>
             </>
         )
