@@ -35,8 +35,8 @@ class Map extends React.Component {
   viewportChangeGeocoder = (viewport) => {
     const lat = viewport.latitude
     const lng = viewport.longitude
-    console.log(lat, lng)
-
+    this.props.dispatch(setLocation(lat, lng))
+    
     this.setState({ viewport });
   };
 
