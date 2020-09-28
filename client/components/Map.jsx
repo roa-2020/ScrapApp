@@ -32,7 +32,7 @@ class Map extends React.Component {
       longitude: 174.7752685546875,
       width: "100vw",
       height: "100vh",
-      zoom: 15,
+      zoom: 15
     },
   };
 
@@ -59,6 +59,12 @@ class Map extends React.Component {
     this.changeScrap(null);
   };
 
+  //Controls zoom level when clicking on geolocate button
+  _onViewportChange = (viewport) => {
+    viewport.zoom = this.state.viewport.zoom //Whatever zoom level you want
+    this.setState({ viewport })
+  }
+
   render() {
     const selectedScrap = this.state.selectedScrap;
     return (
@@ -80,11 +86,13 @@ class Map extends React.Component {
             countries="nz"
           />
 
-          <Header
+          <GeolocateControl
             positionOptions={{ enableHighAccuracy: true }}
             trackUserLocation={true}
             //on page load centre on user
-            auto={true} />
+            auto={true}
+            onViewportChange={this._onViewportChange}
+          />
 
           {this.props.scraps.map((scrap) => (
             <Marker
