@@ -241,6 +241,10 @@ body {
   .password-container, .name-container {
     flex-direction: column; 
   }
+
+  .textarea:not([rows]) {
+    min-height: 6em;
+  }
 }
 
 .media-content, .media-left{

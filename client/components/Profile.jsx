@@ -23,34 +23,23 @@ class Profile extends React.Component {
             this.setState({...this.state, details: data}))
             const { auth, logout } = this.props
         return (
-            
+          <>
+            <div className='nav-container'>
+              <Nav />
+            </div>
             <div className='profile'>
-               
-                 <div className='nav-container'>
-                     <Nav />
-                  </div>
-
-                  <div className='topProfile'>
-
+              <div className='topProfile'>
                     <FontAwesomeIcon icon={faUserCircle} size="4x"  />
-                    <div className=''><h1 className="title">{this.state.details && this.state.details.username}</h1></div> 
-                  
-                  </div>
-           
-                <div className='profileInfo'>
-                    
+                <div className=''><h1 className="title">{this.state.details && this.state.details.username}</h1></div> 
+              </div>       
+              <div className='profileInfo'>
                     <div className='profile-container'><h1 className="title">{this.state.details && this.state.details.username}</h1></div> 
                     <div className='profile-container'><h1 className="title">{this.state.details && this.state.details.name}</h1></div> 
-                    <div className='profile-container'><h1 className="title">********</h1></div> 
-                   
-                    <button onClick={() => logout()} className='title button logoutButton' >Log out</button>
-                
-                </div>
-
-                
-                
+                <div className='profile-container'><h1 className="title">********</h1></div> 
+                <button onClick={() => logout()} className='title button logoutButton' >Log out</button>
+              </div>  
             </div>
-
+          </>
             
         )
       
