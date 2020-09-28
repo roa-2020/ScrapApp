@@ -2,7 +2,7 @@ import React from "react"
 import { connect } from "react-redux";
 
 import { apiAddScraps, apiGetScraps } from "../apis/scrap.js";
-import { initScrap } from "../actions/scraps"
+import { getAllScraps, initScrap } from "../actions/scraps"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faImage, faDrumstickBite, faCouch, faTshirt, faDumpsterFire, faShoePrints, faBowlingBall } from '@fortawesome/free-solid-svg-icons'
 
@@ -28,10 +28,14 @@ class AddScrapForm extends React.Component {
     handleSubmit = (e) => {
         e.preventDefault()
         const scrap = this.state
-        console.log(scrap)
+        scrap.longitude=this.props.longitude
+        scrap.latitude=this.props.latitude
         apiAddScraps(scrap)
             .then(scrap => {
-                this.props.dispatch(initScrap(scrap))
+                apiGetScraps()
+                .then(scraps => {
+                this.props.dispatch(getAllScraps(scraps));
+                })
                 this.props.history.push('/')
         })
     }
@@ -89,8 +93,8 @@ class AddScrapForm extends React.Component {
                                 <textarea required className="textarea" placeholder="Add a description.." value={this.state.description} name="description" onChange={this.handleChange}></textarea>
                             </div>
                         </div>
-                        <input className="button is-large" value='Add' type="submit" />
-
+                        <input className="button is-medium" value='Add' type="submit" />
+                        
                 </form>
                 </div>
             </>
@@ -98,4 +102,8 @@ class AddScrapForm extends React.Component {
     }
 }
 
-export default connect()(AddScrapForm)
+function mapStateToProps(globalState) {
+    return { latitude: globalState.newScrap.lat, longitude: globalState.newScrap.long }
+}
+
+export default connect(mapStateToProps)(AddScrapForm);
