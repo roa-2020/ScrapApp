@@ -2,6 +2,8 @@ import React from "react"
 import { connect } from "react-redux";
 import { Link } from 'react-router-dom'
 
+import ReactMapGL, { Marker, Popup, GeolocateControl } from "react-map-gl";
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUserCircle } from '@fortawesome/free-solid-svg-icons'
 import { faPlusCircle } from '@fortawesome/free-solid-svg-icons'

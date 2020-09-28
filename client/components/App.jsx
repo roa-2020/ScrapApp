@@ -41,8 +41,8 @@ export class App extends React.Component {
         {!auth.isAuthenticated
           ?
           <div className="login-container">
-              <Route exact path="/" component={Login} />
-              <Route path="/login" component={Login} />
+            <Route exact path="/" component={Login} />
+            <Route path="/login" component={Login} />
             <Route path="/register" component={Register} />
 
             <ScrapPreview />
