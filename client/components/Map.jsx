@@ -61,7 +61,7 @@ class Map extends React.Component {
 
   //Controls zoom level when clicking on geolocate button
   _onViewportChange = (viewport) => {
-    viewport.zoom = this.state.viewport.zoom //Whatever zoom level you want
+    viewport.zoom = this.state.viewport.zoom + 1 //Whatever zoom level you want
     this.setState({ viewport })
   }
 
