@@ -59,7 +59,7 @@ class Map extends React.Component {
   };
 
   render() {
-    const selectedScrap = this.state.selectedScrap
+    const selectedScrap = this.state.selectedScrap;
     return (
       <div id="map">
         <ReactMapGL
@@ -76,6 +76,7 @@ class Map extends React.Component {
             mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
             position="top-right"
             placeholder="Add your location!"
+            countries="nz"
           />
 
           <Footer
