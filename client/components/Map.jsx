@@ -7,6 +7,7 @@ import { connect } from "react-redux";
 import { apiGetScraps, apiDeleteScraps } from "../apis/scrap.js";
 import { HashRouter as Router, Route, Link } from "react-router-dom";
 import Footer from './Footer'
+import Header from './Header'
 
 import Geocoder from "react-map-gl-geocoder";
 import { deleteScrap } from "../actions/scraps";
@@ -79,7 +80,7 @@ class Map extends React.Component {
             countries="nz"
           />
 
-          <Footer
+          <Header
             positionOptions={{ enableHighAccuracy: true }}
             trackUserLocation={true}
             //on page load centre on user

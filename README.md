@@ -58,8 +58,6 @@ ScrapApp provides a second home for your unwanted scrap. Furniture, clothes, foo
   | --- | --- |
   | auth | Store information regarding user logins, auth status and auth errors |
   | scraps | Store current scraps |
-  | addForm | Store information about the scrap item |
-  | toggleItemDetails | Toggles between item details and map |
 
  ## Actions
 
@@ -69,12 +67,6 @@ ScrapApp provides a second home for your unwanted scrap. Furniture, clothes, foo
  | --- | --- | --- |
  | RECEIVE_SCRAP | scraps | Retreive scraps from the db and store in redux |
  | DELETE_SCRAP | scrap | Delete a single scrap item |
- 
-
- ### addForm
- | type | data | purpose |
- | --- | --- | --- |
- | ADD_SCRAP | scrap | Add a single scrap item to the map after it is created |
 
  ### toggleItemDetails
   | type | data | purpose |
