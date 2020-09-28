@@ -94,23 +94,25 @@ class Map extends React.Component {
             onViewportChange={this._onViewportChange}
           />
 
-          {this.props.scraps.map((scrap) => (
-            <Marker
-              key={scrap.id}
-              latitude={scrap.latitude}
-              longitude={scrap.longitude}
-            >
-              <button
-                className="marker-btn"
-                onClick={(e) => {
-                  e.preventDefault();
-                  this.changeScrap(scrap);
-                }}
+          {
+            this.props.scraps.map((scrap) => (
+              <Marker
+                key={scrap.id}
+                latitude={scrap.latitude}
+                longitude={scrap.longitude}
               >
-                <img src="/images/Scrap_icon.png" alt="scrap icon"></img>
-              </button>
-            </Marker>
-          ))}
+                <button
+                  className="marker-btn"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    this.changeScrap(scrap);
+                  }}
+                >
+                  <img src="/images/Scrap_icon.png" alt="scrap icon"></img>
+                </button>
+              </Marker>
+            ))
+          }
 
           {selectedScrap && (
             <Popup
