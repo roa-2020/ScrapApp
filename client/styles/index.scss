@@ -236,6 +236,10 @@ body {
   .subtitle {
     text-align: center;
   }
+
+  .password-container, .name-container {
+    flex-direction: column; 
+  }
 }
 
 .media-content, .media-left{
@@ -260,4 +264,11 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+
+.password-container, .name-container {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
 }
