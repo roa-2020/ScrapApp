@@ -358,3 +358,33 @@ header.navbar {
 .popup:first-child {
   margin-bottom: 2em;
 }
+
+
+// Form transitions
+
+.toggle-menu {
+  z-index: 234567891;
+  position: fixed;
+  margin-top: 20px;
+}
+
+.side-bar {
+  margin-top: 35px;
+  min-height: 1080px;
+  background-color: #fbf3e5c4;
+  position: fixed;
+  z-index: 234567890;
+  transition: width 600ms ease-in-out;
+}
+
+.side-bar-open {
+  width: 75%;
+}
+
+.side-bar-closed {
+  width: 0;
+}
+
+.side-bar-closed form {
+  display: none;
+}
