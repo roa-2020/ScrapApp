@@ -8,7 +8,7 @@ exports.seed = function (knex) {
         {
           id: 1,
           scrap_name: 'Hot Chips',
-          category: 'Food',
+          category: 'Shoes',
           description: 'Very Hot Chips, but they are half eaten',
           scrap_image: 'https://www.flaticon.com/svg/static/icons/svg/685/685352.svg',
           address: '126 Austin Street, Mount Victoria, Wellington, New Zealand',
@@ -44,7 +44,7 @@ exports.seed = function (knex) {
         {
           id: 4,
           scrap_name: 'Basketball Hoop',
-          category: 'Sports',
+          category: 'Clothes',
           description: 'Basketball Hoop - only used once',
           scrap_image: 'https://www.flaticon.com/svg/static/icons/svg/2742/2742640.svg',
           address: 'Caci, Oriental Parade, Oriental Bay, Wellington, Wellington City, Wellington, 6011, New Zealand',
@@ -116,7 +116,7 @@ exports.seed = function (knex) {
         {
           id: 10,
           scrap_name: 'TV',
-          category: 'Appliances',
+          category: 'Stuff',
           description: 'Smol TV',
           scrap_image: 'https://www.flaticon.com/svg/static/icons/svg/711/711944.svg',
           address: 'Noel Leeming, 133-139, Tory Street, Te Aro, Wellington, Wellington City, Wellington, 6011, New Zealand',

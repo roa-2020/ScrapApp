@@ -39,7 +39,6 @@ class AddScrapForm extends React.Component {
                 this.props.history.push('/')
         })
     }
-
     render() {
         return (
             <>
@@ -49,7 +48,7 @@ class AddScrapForm extends React.Component {
                         <div className="field">
                             <label className="label">Category</label>
                             <div className="control radio-group">
-                                <input type="radio" name="category" onChange={this.handleChange} value="food" id="food" />
+                                <input type="radio" name="category" onChange={this.handleChange} value="faDrumstickBite" id="food" />
                                 <label htmlFor="food">
                                     <FontAwesomeIcon icon={faDrumstickBite} size="2x" className="nav-icon" />
                                 </label>
