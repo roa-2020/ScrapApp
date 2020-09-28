@@ -39,6 +39,11 @@ a.navbar-item:focus, a.navbar-item:focus-within, a.navbar-item:hover, a.navbar-i
 .profile {
   // background-color: gray;
   height: 100%;
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .profile-container {
@@ -49,6 +54,13 @@ a.navbar-item:focus, a.navbar-item:focus-within, a.navbar-item:hover, a.navbar-i
   margin: 10px;
   padding: 10px;
    
+}
+
+.profileInfo{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 50%;
 }
 
 // .navbar .navbar-brand{
@@ -65,7 +77,11 @@ a.navbar-item:focus, a.navbar-item:focus-within, a.navbar-item:hover, a.navbar-i
 //     padding-left: 10px;
 //   }
 
-  
+  .logoutButton{
+    margin: 10px;
+    padding: 10px;
+
+  }
 
   .topProfile{
     display: flex;
@@ -74,6 +90,7 @@ a.navbar-item:focus, a.navbar-item:focus-within, a.navbar-item:hover, a.navbar-i
     margin-bottom: 50px;
     margin-right: 20px;
     margin-left: 20px;
+    width: 50%;
   }
 
 #app {
@@ -96,6 +113,7 @@ header {
   padding: 1em;
   background-color: #fbf3e5c4;
 } 
+
 
 .nav-footer {
   width: 100%;
@@ -200,7 +218,7 @@ body {
 
 
 @media only screen and (max-width: 600px) {
-  .form > input, .field {
+  .form > input, .field, .profileInfo, .topProfile {
     width: 90%;
   }
 
