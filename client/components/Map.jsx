@@ -32,7 +32,7 @@ class Map extends React.Component {
       longitude: 174.7752685546875,
       width: "100vw",
       height: "100vh",
-      zoom: 15,
+      zoom: 15
     },
   };
 
@@ -59,6 +59,12 @@ class Map extends React.Component {
     this.changeScrap(null);
   };
 
+  //Controls zoom level when clicking on geolocate button
+  _onViewportChange = (viewport) => {
+    viewport.zoom = this.state.viewport.zoom + 1 //Whatever zoom level you want
+    this.setState({ viewport })
+  }
+
   render() {
     const selectedScrap = this.state.selectedScrap;
     return (
@@ -80,29 +86,33 @@ class Map extends React.Component {
             countries="nz"
           />
 
-          <Header
+          <GeolocateControl
             positionOptions={{ enableHighAccuracy: true }}
             trackUserLocation={true}
             //on page load centre on user
-            auto={true} />
+            auto={true}
+            onViewportChange={this._onViewportChange}
+          />
 
-          {this.props.scraps.map((scrap) => (
-            <Marker
-              key={scrap.id}
-              latitude={scrap.latitude}
-              longitude={scrap.longitude}
-            >
-              <button
-                className="marker-btn"
-                onClick={(e) => {
-                  e.preventDefault();
-                  this.changeScrap(scrap);
-                }}
+          {
+            this.props.scraps.map((scrap) => (
+              <Marker
+                key={scrap.id}
+                latitude={scrap.latitude}
+                longitude={scrap.longitude}
               >
-                <img src="/images/Scrap_icon.png" alt="scrap icon"></img>
-              </button>
-            </Marker>
-          ))}
+                <button
+                  className="marker-btn"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    this.changeScrap(scrap);
+                  }}
+                >
+                  <img src="/images/Scrap_icon.png" alt="scrap icon"></img>
+                </button>
+              </Marker>
+            ))
+          }
 
           {selectedScrap && (
             <Popup
