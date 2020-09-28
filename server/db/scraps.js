@@ -7,7 +7,7 @@ function getScraps(db = connection) {
       scrap.latitude = Number(scrap.latitude)
       scrap.longtude = Number(scrap.longitude)
       return scrap
-    })
+    }))
 }
 
 function addScrap(scrap, db = connection) {
