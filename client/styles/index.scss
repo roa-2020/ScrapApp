@@ -308,3 +308,15 @@ header.navbar {
 .mapboxgl-ctrl-icon {
   background-color: #fbf3e5;
 }
+
+.popup {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  word-wrap: break-word;
+  width: 200px;
+}
+
+.popup:first-child {
+  margin-bottom: 2em;
+}
