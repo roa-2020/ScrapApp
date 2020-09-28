@@ -38,18 +38,11 @@ export class App extends React.Component {
     const { auth } = this.props
     return (
       <Router>
-        <div className="">
-          {/* <Link to='/' className="">
-              <h1 className="title is-1">ScrapApp</h1>
-            </Link> */}
-
-        </div>
-
         {!auth.isAuthenticated
           ?
           <div className="login-container">
-              <Route exact path="/" component={Login} />
-              <Route path="/login" component={Login} />
+            <Route exact path="/" component={Login} />
+            <Route path="/login" component={Login} />
             <Route path="/register" component={Register} />
 
             <ScrapPreview />
