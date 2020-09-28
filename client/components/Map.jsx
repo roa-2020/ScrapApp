@@ -53,8 +53,8 @@ class Map extends React.Component {
             //on page load centre on user
             auto={true}
           />
-          {/* {this.props.scraps.map((scrap) => ( */}
-            {/* <Marker
+          {this.props.scraps.map((scrap) => (
+            <Marker
               key={scrap.id}
               latitude={scrap.latitude}
               longitude={scrap.longitude}
@@ -95,7 +95,7 @@ class Map extends React.Component {
                 </button>
               </div>
             </Popup>
-          )} */}
+          )}
         </ReactMapGL>
       </div>
     );

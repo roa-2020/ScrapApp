@@ -3,6 +3,11 @@ const connection = require('./connection')
 function getScraps(db = connection) {
   return db('scraps')
     .select()
+    .then(scraps => scraps.map(scrap => {
+      scrap.latitude = Number(scrap.latitude)
+      scrap.longtude = Number(scrap.longitude)
+      return scrap
+    })
 }
 
 function addScrap(scrap, db = connection) {
