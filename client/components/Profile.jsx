@@ -38,11 +38,27 @@ class Profile extends React.Component {
                   </div>
            
                 <div className='profileInfo'>
-                    
-                    <div className='profile-container'><h1 className="title">{this.state.details && this.state.details.username}</h1></div> 
-                    <div className='profile-container'><h1 className="title">{this.state.details && this.state.details.name}</h1></div> 
-                    <div className='profile-container'><h1 className="title">********</h1></div> 
-                   
+
+                    <div className="field">
+                      <div className='profile-container'>
+                        <label className='label'>Username</label>
+                        <h1 className="title">{this.state.details && this.state.details.username}</h1>
+                      </div> 
+                    </div>
+
+                    <div className="field">
+                      <div className='profile-container'>
+                        <label className='label'>Name</label>
+                        <h1 className="title">{this.state.details && this.state.details.name}</h1>
+                      </div> 
+                    </div>
+
+                    <div className="field">
+                      <div className='profile-container'>
+                        <label className='label'>Password</label>
+                        <h1 className="title">********</h1>
+                      </div> 
+                    </div>
                     <button onClick={() => logout()} className='title button logoutButton' >Log out</button>
                 
                 </div>
