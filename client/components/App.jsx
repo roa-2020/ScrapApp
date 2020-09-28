@@ -13,6 +13,7 @@ import Header from './Header'
 import Footer from './Footer'
 import ScrapPreview from './ScrapPreview'
 import AddScrapForm from './AddScrapForm'
+import SideNav from './SideNav'
 
 import { getAllScraps } from '../actions/scraps'
 
@@ -63,6 +64,7 @@ export class App extends React.Component {
           :
           <>
             <Route exact path="/" component={Header} />
+            <Route exact path="/" component={SideNav} />
             <main className="map_box_container">
               <Route exact path="/" component={Map} />
             </main>
