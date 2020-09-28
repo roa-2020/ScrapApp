@@ -65,45 +65,32 @@ a.navbar-item:focus, a.navbar-item:focus-within, a.navbar-item:hover, a.navbar-i
   padding: 1em;
 }
 
-// .navbar .navbar-brand{
-//   margin: 0 auto;
-//     border: 2px solid black;
-//     margin-top: 10px;
-//     margin-bottom: 10px;
-//     margin-right: 10px;
-//     margin-left: 10px;
 
-//     padding-top: 10px;
-//     padding-bottom: 10px;
-//     padding-right: 10px;
-//     padding-left: 10px;
-//   }
+.logoutButton{
+  margin: 10px;
+  padding: 10px;
+  width: 100%;
+}
 
-  .logoutButton{
-    margin: 10px;
-    padding: 10px;
-    width: 100%;
-  }
+.field{
+  width: 100% !important;
+}
 
-  .field{
-    width: 100% !important;
-  }
+.label{
+  text-align: left;
+  margin-bottom: 0 !important;
+}
 
-  .label{
-    text-align: left;
-    margin-bottom: 0 !important;
-  }
-
-  .topProfile{
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    margin-top: 10px;
-    margin-bottom: 50px;
-    margin-right: 20px;
-    margin-left: 20px;
-    width: 50%;
-  }
+.topProfile{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 50px;
+  margin-right: 20px;
+  margin-left: 20px;
+  width: 50%;
+}
 
 #app {
   // display: flex;
