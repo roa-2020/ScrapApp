@@ -101,6 +101,7 @@ a.navbar-item:focus, a.navbar-item:focus-within, a.navbar-item:hover, a.navbar-i
   width: 100%;
   align-items: stretch;
   background-color: #fbf3e5c4;
+  margin: 0;
   // padding: 1em;
 }
 
@@ -279,4 +280,8 @@ body {
   display: flex;
   justify-content: space-evenly;
   flex-direction: row;
+}
+
+.column {
+  margin: 1em;
 }
