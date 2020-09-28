@@ -38,9 +38,9 @@ class Map extends React.Component {
   viewportChangeGeocoder = (viewport) => {
     const lat = viewport.latitude
     const lng = viewport.longitude
-    console.log(lat,lng)
+    console.log(lat, lng)
     this.props.dispatch(setLocation(lat, lng))
-    
+
     this.setState({ viewport });
   };
 
@@ -90,7 +90,6 @@ class Map extends React.Component {
                 className="marker-btn"
                 onClick={(e) => {
                   e.preventDefault();
-
                   this.changeScrap(scrap);
                 }}
               >
@@ -103,9 +102,11 @@ class Map extends React.Component {
             <Popup
               latitude={selectedScrap.latitude}
               longitude={selectedScrap.longitude}
+              closeOnClick={false}
               onClose={() => {
-                this.changeScrap(null);
+                this.changeScrap(null)
               }}
+
             >
               <div className="popup">
                 <p className="title is-6">
