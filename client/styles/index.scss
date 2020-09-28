@@ -39,6 +39,11 @@ a.navbar-item:focus, a.navbar-item:focus-within, a.navbar-item:hover, a.navbar-i
 .profile {
   // background-color: gray;
   height: 100%;
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .profile-container {
@@ -46,31 +51,37 @@ a.navbar-item:focus, a.navbar-item:focus-within, a.navbar-item:hover, a.navbar-i
   background-color: white;
   box-sizing: border-box;
   border: 2px solid black;
+  margin: 10px;
+  padding: 10px;
+   
 }
 
-.navbar navbar-brand{
-  margin: 0 auto;
-    border: 2px solid black;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    margin-right: 10px;
-    margin-left: 10px;
+.profileInfo{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 50%;
+}
 
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-right: 10px;
-    padding-left: 10px;
+// .navbar .navbar-brand{
+//   margin: 0 auto;
+//     border: 2px solid black;
+//     margin-top: 10px;
+//     margin-bottom: 10px;
+//     margin-right: 10px;
+//     margin-left: 10px;
+
+//     padding-top: 10px;
+//     padding-bottom: 10px;
+//     padding-right: 10px;
+//     padding-left: 10px;
+//   }
+
+  .logoutButton{
+    margin: 10px;
+    padding: 10px;
+
   }
-
-  .buttonStyling {
-
-      box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-     
-    margin-top: 10px;
-    margin-bottom: 10px;
-    margin-right: 100px;
-    margin-left: 125px;
-   }
 
   .topProfile{
     display: flex;
@@ -79,6 +90,7 @@ a.navbar-item:focus, a.navbar-item:focus-within, a.navbar-item:hover, a.navbar-i
     margin-bottom: 50px;
     margin-right: 20px;
     margin-left: 20px;
+    width: 50%;
   }
 
 #app {
@@ -101,6 +113,7 @@ header {
   padding: 1em;
   background-color: #fbf3e5c4;
 } 
+
 
 .nav-footer {
   width: 100%;
@@ -200,11 +213,12 @@ body {
 .button {
   background-color: #817d74;
   color: white;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 
 
 @media only screen and (max-width: 600px) {
-  .form > input, .field {
+  .form > input, .field, .profileInfo, .topProfile {
     width: 90%;
   }
 
