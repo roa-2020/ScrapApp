@@ -28,7 +28,6 @@ class AddScrapForm extends React.Component {
     handleSubmit = (e) => {
         e.preventDefault()
         const scrap = this.state
-        console.log(scrap)
         scrap.longitude=this.props.longitude
         scrap.latitude=this.props.latitude
         apiAddScraps(scrap)

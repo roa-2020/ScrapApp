@@ -6,12 +6,16 @@ import scrapData from "./static-scrap-data.json";
 import { connect } from "react-redux";
 import { apiGetScraps, apiDeleteScraps } from "../apis/scrap.js";
 import { HashRouter as Router, Route, Link } from "react-router-dom";
-import Header from './Header'
+import Footer from './Footer'
 
 import Geocoder from "react-map-gl-geocoder";
 import { deleteScrap } from "../actions/scraps";
 import { getAllScraps } from "../actions/scraps";
 import { setLocation } from "../actions/newScrap";
+
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faImage, faDrumstickBite, faCouch, faTshirt, faDumpsterFire, faShoePrints, faBowlingBall } from '@fortawesome/free-solid-svg-icons'
 
 
 class Map extends React.Component {
@@ -71,10 +75,11 @@ class Map extends React.Component {
             onViewportChange={this.viewportChangeGeocoder}
             mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
             position="top-right"
-            countries= "nz"
+            placeholder="Add your location!"
+            countries="nz"
           />
 
-          <Header
+          <Footer
             positionOptions={{ enableHighAccuracy: true }}
             trackUserLocation={true}
             //on page load centre on user
@@ -110,7 +115,9 @@ class Map extends React.Component {
             >
               <div className="popup">
                 <p className="title is-6">
-                  {selectedScrap.scrap_name} - {selectedScrap.category}
+                  {selectedScrap.scrap_name} - {selectedScrap.category} <span>
+                    <FontAwesomeIcon icon={faDrumstickBite} size="1x" className="nav-icon" />
+                  </span>
                 </p>
                 <p className="subtitle is-6">{selectedScrap.description}</p>
                 <p className="subtitle is-7">{selectedScrap.address.split(' ').slice(0, 6).join(' ')}</p>
