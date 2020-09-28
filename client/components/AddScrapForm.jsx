@@ -107,8 +107,8 @@ class AddScrapForm extends React.Component {
     }
 }
 
-mapStateToProps(globalState) {
+function mapStateToProps(globalState) {
     return { scraps: globalState.scraps }
 }
 
-export default connect(mapStateToProps)(AddScrapForm)
+export default connect(mapStateToProps)(AddScrapForm);
