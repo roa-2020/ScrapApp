@@ -30,6 +30,7 @@ class AddScrapForm extends React.Component {
         const scrap = this.state
         scrap.longitude=this.props.longitude
         scrap.latitude=this.props.latitude
+        scrap.address = this.props.address
         apiAddScraps(scrap)
             .then(scrap => {
                 apiGetScraps()
@@ -50,26 +51,26 @@ class AddScrapForm extends React.Component {
                             <div className="control radio-group">
                                 <input type="radio" name="category" onChange={this.handleChange} value="Food" id="food" />
                                 <label htmlFor="food">
-                                    <FontAwesomeIcon icon={faDrumstickBite} size="2x" className="nav-icon" />
+                                    <FontAwesomeIcon icon={faDrumstickBite} size="2x" className="nav-icon food-icon" />
                                 </label>
                                 <input type="radio" name="category" onChange={this.handleChange} value="Furniture" id="furniture" />
                                 <label htmlFor="furniture">
-                                    <FontAwesomeIcon icon={faCouch} size="2x" className="nav-icon" />
+                                    <FontAwesomeIcon icon={faCouch} size="2x" className="nav-icon furniture-icon" />
                                 </label>
                                 <input type="radio" name="category" onChange={this.handleChange} value="Clothes" id="clothes" />
                                 <label htmlFor="clothes">
-                                    <FontAwesomeIcon icon={faTshirt} size="2x" className="nav-icon" />
+                                    <FontAwesomeIcon icon={faTshirt} size="2x" className="nav-icon clothes-icon" />
                                 </label>
                                 <input type="radio" name="category" onChange={this.handleChange} value="Stuff" id="stuff" />
                                 <label htmlFor="stuff">
-                                    <FontAwesomeIcon icon={faArchive} size="2x" className="nav-icon" />
+                                    <FontAwesomeIcon icon={faArchive} size="2x" className="nav-icon stuff-icon" />
                                 </label>
                             </div>
                         </div>
                         <div className="field">
                             <label className="label">Location</label>
                             <div className="control">
-                                <FormGeocode/>
+                                <FormGeocode />
                                 {/* <input required className="input" type="text" placeholder="Location" value={this.state.address} name="address" onChange={this.handleChange} /> */}
                             </div>
                         </div>
@@ -97,7 +98,7 @@ class AddScrapForm extends React.Component {
 }
 
 function mapStateToProps(globalState) {
-    return { latitude: globalState.newScrap.lat, longitude: globalState.newScrap.long }
+    return { latitude: globalState.newScrap.lat, longitude: globalState.newScrap.long, address: globalState.newScrap.address }
 }
 
 export default connect(mapStateToProps)(AddScrapForm);

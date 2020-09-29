@@ -124,7 +124,7 @@ class Map extends React.Component {
                     this.changeScrap(scrap);
                   }}
                 >
-                  <FontAwesomeIcon icon={this.getScrapIcon(scrap.category)} size="2x" className="nav-icon" />
+                  <FontAwesomeIcon icon={this.getScrapIcon(scrap.category)} size="2x" className={`nav-icon ${scrap.category}`}/>
                 </button>
               </Marker>
             ))
