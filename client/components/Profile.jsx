@@ -21,7 +21,7 @@ class Profile extends React.Component {
     apiGetUser(this.props.auth.user.id).then(data =>
       this.setState({ ...this.state, details: data }))
     const { auth, logout } = this.props
-    let profilepicLink = `/profilepics/${auth.user.profilepic}.jpg`
+    let profilepicLink = `/profilepics/${auth.user.profilepic}.png`
 
     return (
       <>

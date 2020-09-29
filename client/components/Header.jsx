@@ -17,13 +17,16 @@ class Header extends React.Component {
     };
     render() {
         const { auth } = this.props
-        let profilepicLink = `/profilepics/${auth.user.profilepic}.jpg`
+
+        let profilepic = <img src={`/profilepics/${auth.user.profilepic}.png`} onClick={this.toggleMenu} className="nav-icon profile-img" />
+        let defaultImg = <FontAwesomeIcon onClick={this.toggleMenu} icon={faUserCircle} size="3x" className="nav-icon" />
+
         return (
             <>
                 <header className="navbar is-fixed-top navbar-main">
                     <div className="add-btn-grp">
                         {/* <FontAwesomeIcon onClick={this.toggleMenu} icon={profilepicLink} size="2x" className="nav-icon" /> */}
-                        <img src={profilepicLink} onClick={this.toggleMenu} className="nav-icon profile-img" />
+                        {auth.user.profilepic ? profilepic : defaultImg}
                         {/* <h1 className="profile-title">profile</h1> */}
                     </div>
                     <h1 className="title mb-0">ScrapApp</h1>
