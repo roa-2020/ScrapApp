@@ -20,9 +20,15 @@ class Header extends React.Component {
         return (
             <>
                 <header className="navbar is-fixed-top navbar-main">
-                    <FontAwesomeIcon onClick={this.toggleMenu} icon={faUserCircle} size="2x" className="nav-icon" />
+                    <div className="add-btn-grp">
+                        <FontAwesomeIcon onClick={this.toggleMenu} icon={faUserCircle} size="2x" className="nav-icon" />
+                        <h1 className="profile-title">profile</h1>
+                    </div>
                     <h1 className="title mb-0">Scrap</h1>
+                    <div className="add-btn-grp">
+                        <h1 className="add">Add</h1>
                     <Link to='/scraps/add'><FontAwesomeIcon icon={faPlusCircle} size="2x" className="nav-icon" /></Link>
+                    </div>
                 </header>
                 <div
                     className={[
