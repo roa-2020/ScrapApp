@@ -2,6 +2,7 @@ import {
   RECIEVE_SCRAP,
   RECIEVE_ALL_SCRAPS,
   DELETE_SCRAP,
+  // FILTER_SCRAPS
 } from "../actions/scraps";
 
 const reducer = (state = [], action) => {
@@ -15,6 +16,9 @@ const reducer = (state = [], action) => {
 
     case RECIEVE_ALL_SCRAPS:
       return action.scraps;
+
+    // case FILTER_SCRAPS:
+    //   return action.scraps.filter(scrap => scrap.category === action.filter)
 
     default:
       return state;

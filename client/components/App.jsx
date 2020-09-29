@@ -29,7 +29,11 @@ export class App extends React.Component {
   componentDidUpdate() {
     apiGetScraps()
       .then(scraps => {
-        this.props.dispatch(getAllScraps(scraps));
+        if (this.props.filter === "") {
+          this.props.dispatch(getAllScraps(scraps));
+        } else {
+          this.props.dispatch(getAllScraps(scraps.filter(scrap => scrap.category === this.props.filter)))
+        }
       })
   }
 
@@ -67,9 +71,10 @@ export class App extends React.Component {
   }
 }
 
-const mapStateToProps = ({ auth }) => {
+const mapStateToProps = ({ auth, filter }) => {
   return {
-    auth
+    auth,
+    filter
   }
 }
 
