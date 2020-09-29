@@ -4,7 +4,7 @@ import FormGeocode from './FormGeocode'
 import { apiAddScraps, apiGetScraps } from "../apis/scrap.js";
 import { getAllScraps, initScrap } from "../actions/scraps"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faImage, faDrumstickBite, faCouch, faTshirt, faDumpsterFire, faShoePrints, faBowlingBall } from '@fortawesome/free-solid-svg-icons'
+import { faImage, faDrumstickBite, faCouch, faTshirt, faArchive} from '@fortawesome/free-solid-svg-icons'
 
 
 class AddScrapForm extends React.Component {
@@ -62,15 +62,7 @@ class AddScrapForm extends React.Component {
                                 </label>
                                 <input type="radio" name="category" onChange={this.handleChange} value="Stuff" id="stuff" />
                                 <label htmlFor="stuff">
-                                    <FontAwesomeIcon icon={faDumpsterFire} size="2x" className="nav-icon" />
-                                </label>
-                                <input type="radio" name="category" onChange={this.handleChange} value="Shoes" id="shoes" />
-                                <label htmlFor="shoes">
-                                    <FontAwesomeIcon icon={faShoePrints} size="2x" className="nav-icon" />
-                                </label>
-                                <input type="radio" name="category" onChange={this.handleChange} value="Sports" id="balls" />
-                                <label htmlFor="balls">
-                                    <FontAwesomeIcon icon={faBowlingBall} size="2x" className="nav-icon" />
+                                    <FontAwesomeIcon icon={faArchive} size="2x" className="nav-icon" />
                                 </label>
                             </div>
                         </div>
