@@ -55,6 +55,17 @@ body,
   margin-top: 1em;
 }
 
+.mapboxgl-popup-close-button {
+  position: absolute;
+  right: 0;
+  top: 0;
+  border: 0;
+  border-radius: 0 3px 0 0;
+  cursor: pointer;
+  background-color: transparent;
+  font-size: 40px;
+}
+
 .mapboxgl-ctrl button.mapboxgl-ctrl-geolocate .mapboxgl-ctrl-icon {
   width: 50px;
   height: 50px;
@@ -86,6 +97,7 @@ body,
   border-color: #dbdbdb;
   border-radius: 4px;
   color: #363636;
+  
 }
 
 .profileInfo {
@@ -493,12 +505,28 @@ input[type=radio] {
   height: 2em;
 }
 
+.Food{
+  color: #c98c37;
+}
+
+.Furniture{
+  color: #66ce2a;
+}
+
+.Clothes{
+  color: #8ed6d1;
+}
+
+.Stuff{
+  color: #ca7070;
+}
+
 .food-icon {
-  color: #c89041;
+  color: #c98c37;
 }
 
 .furniture-icon {
-  color: #98d675;
+  color: #66ce2a;
 }
 
 .clothes-icon {
