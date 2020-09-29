@@ -46,6 +46,30 @@ a.navbar-item:focus, a.navbar-item:focus-within, a.navbar-item:hover, a.navbar-i
   align-items: center;
 }
 
+.mapboxgl-ctrl button.mapboxgl-ctrl-geolocate .mapboxgl-ctrl-icon {
+  width: 50px;
+  height: 50px;
+}
+
+.mapboxgl-ctrl-group{
+  background-color: black;
+  width: 0;
+}
+
+.mapboxgl-ctrl-geolocate{
+  margin: 80vh 0 0 80vw;
+  background-color: red !important;
+}
+
+.mapboxgl-ctrl-geolocate:focus{
+  box-shadow: none !important;
+}
+
+.mapboxgl-ctrl-icon{
+  border-radius: 50px !important;
+  background-color: white !important;
+}
+
 .profile-container {
   text-align: center;
   background-color: white;
