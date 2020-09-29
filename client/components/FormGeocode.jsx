@@ -18,6 +18,7 @@ class FormGeocode extends React.Component {
   state = {
     latitude: -41.294105529785156,
     longitude: 174.7752685546875,
+
   }
   
   viewportChange = (viewport) => {
@@ -27,10 +28,8 @@ class FormGeocode extends React.Component {
   viewportChangeGeocoder = (viewport) => {
     const lat = viewport.latitude
     const lng = viewport.longitude
-    // console.log(viewport)
-    // console.log(lat, lng)
+    console.log(viewport)
     this.props.dispatch(setLocation(lat, lng))
-    // this.setState({ viewport });
   };
 
 
