@@ -6,7 +6,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUserCircle } from '@fortawesome/free-solid-svg-icons'
 import { faPlusCircle } from '@fortawesome/free-solid-svg-icons'
 
-import Nav from "./Nav"
 import { apiGetUser } from "../apis/users";
 import { logoutUser } from '../actions/auth'
 
@@ -24,9 +23,6 @@ class Profile extends React.Component {
     const { auth, logout } = this.props
     return (
       <>
-        <div className='nav-container'>
-          <Nav />
-        </div>
         <div className='profile'>
           <div className='topProfile'>
             <FontAwesomeIcon icon={faUserCircle} size="4x" />
@@ -56,7 +52,8 @@ class Profile extends React.Component {
                 <h1 className="title">********</h1>
               </div>
             </div>
-            <button onClick={() => logout()} className='title button logoutButton is-medium' >Log out</button>
+            <button onClick={logout} className='title button logoutButton is-medium' >Log out</button>
+            <button onClick={this.props.closeMenu} className='title button logoutButton is-medium' >Close</button>
 
           </div>
 
