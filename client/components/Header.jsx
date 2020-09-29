@@ -22,7 +22,7 @@ class Header extends React.Component {
         const { auth } = this.props
         return (
             <>
-                <header className="navbar is-fixed-top">
+                <header className="navbar is-fixed-top navbar-main">
                     {/* <Link to={`/user/${auth.user.id}`}>
                         <FontAwesomeIcon icon={faUserCircle} size="2x" className="nav-icon" />
                         </Link> */}
@@ -43,7 +43,7 @@ class Header extends React.Component {
                         this.state.menuOpen ? "side-bar-open" : "side-bar-closed",
                     ].join(" ")}
                 >
-                    <Profile />
+                    <Profile closeMenu={this.toggleMenu} />
 
                 </div>
             </>

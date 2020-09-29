@@ -56,7 +56,8 @@ class Profile extends React.Component {
                 <h1 className="title">********</h1>
               </div>
             </div>
-            <button onClick={() => logout()} className='title button logoutButton is-medium' >Log out</button>
+            <button onClick={logout} className='title button logoutButton is-medium' >Log out</button>
+            <button onClick={this.props.closeMenu} className='title button logoutButton is-medium' >Close</button>
 
           </div>
 

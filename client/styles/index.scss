@@ -51,6 +51,7 @@ body,
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: 1em;
 }
 
 .mapboxgl-ctrl button.mapboxgl-ctrl-geolocate .mapboxgl-ctrl-icon {
@@ -186,11 +187,13 @@ a {
   height: 20px;
 }
 
-.navbar {
+.navbar-main {
   background-color: #fbf3e5c4;
   box-shadow:  0px 2px 8px 0px #a49b98;
 }
-
+.navbar {
+  background-color: #fbf3e5c4;
+}
 .nav-icon {
   margin: 0.2em;
 }
@@ -427,11 +430,12 @@ header.navbar {
 .side-bar {
   // margin-top: 4%;
   margin-bottom: auto;
-  min-height: 100%;
+  min-height: 100vh;
   background-color: #fbf3e5c4;
   position: fixed;
   z-index: 234567890;
   transition: left 800ms ease-in-out;
+  top: 0;
 }
 
 .side-bar-open {
