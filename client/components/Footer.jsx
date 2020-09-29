@@ -17,7 +17,7 @@ class Footer extends React.Component {
                     <FontAwesomeIcon onClick={() => this.props.dispatch(applyFilter("Food"))} icon={faDrumstickBite} size="2x" className="is-mobile" />
                     <FontAwesomeIcon onClick={() => this.props.dispatch(applyFilter("Furniture"))} icon={faCouch} size="2x" className="is-mobile" />
                     <FontAwesomeIcon onClick={() => this.props.dispatch(applyFilter("Clothes"))} icon={faTshirt} size="2x" className="is-mobile" />
-                    <FontAwesomeIcon onClick={() => this.props.dispatch(applyFilter("Miscellaneous"))} icon={faArchive} size="2x" className="is-mobile" />
+                    <FontAwesomeIcon onClick={() => this.props.dispatch(applyFilter("Stuff"))} icon={faArchive} size="2x" className="is-mobile" />
                 </nav>
             </>
         )
