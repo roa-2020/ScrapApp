@@ -32,7 +32,7 @@ class Map extends React.Component {
       longitude: 174.7752685546875,
       width: "100vw",
       height: "100vh",
-      zoom: 15,
+      zoom: 13
     },
   };
 
@@ -45,7 +45,6 @@ class Map extends React.Component {
     const lng = viewport.longitude
     console.log(lat, lng)
     this.props.dispatch(setLocation(lat, lng))
-
     this.setState({ viewport });
   };
 
@@ -58,6 +57,31 @@ class Map extends React.Component {
     apiDeleteScraps(id);
     this.changeScrap(null);
   };
+  getScrapIcon = (category) => {
+    switch (category) {
+      case 'Food':
+        return faDrumstickBite;
+      case 'Furniture':
+        return faCouch
+      case 'Clothes':
+        return faTshirt;
+      case 'shoes':
+        return faShoePrints;
+      case 'Sports':
+        return faBowlingBall;
+      case 'Stuff':
+      default:
+        return faDumpsterFire
+
+    }
+  }
+
+  //Controls zoom level when clicking on geolocate button
+  _onViewportChange = (viewport) => {
+    viewport.zoom = 15 //Whatever zoom level you want
+    this.setState({ viewport })
+    console.log("changing _onViewportChange")
+  }
 
   render() {
     const selectedScrap = this.state.selectedScrap;
@@ -80,29 +104,33 @@ class Map extends React.Component {
             countries="nz"
           />
 
-          <Header
+          <GeolocateControl
             positionOptions={{ enableHighAccuracy: true }}
             trackUserLocation={true}
             //on page load centre on user
-            auto={true} />
+            auto={true}
+            onViewportChange={this._onViewportChange}
+          />
 
-          {this.props.scraps.map((scrap) => (
-            <Marker
-              key={scrap.id}
-              latitude={scrap.latitude}
-              longitude={scrap.longitude}
-            >
-              <button
-                className="marker-btn"
-                onClick={(e) => {
-                  e.preventDefault();
-                  this.changeScrap(scrap);
-                }}
+          {
+            this.props.scraps.map((scrap) => (
+              <Marker
+                key={scrap.id}
+                latitude={scrap.latitude}
+                longitude={scrap.longitude}
               >
-                <img src="/images/Scrap_icon.png" alt="scrap icon"></img>
-              </button>
-            </Marker>
-          ))}
+                <button
+                  className="marker-btn"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    this.changeScrap(scrap);
+                  }}
+                >
+                  <FontAwesomeIcon icon={this.getScrapIcon(scrap.category)} size="2x" className="nav-icon" />
+                </button>
+              </Marker>
+            ))
+          }
 
           {selectedScrap && (
             <Popup
@@ -116,8 +144,8 @@ class Map extends React.Component {
             >
               <div className="popup">
                 <p className="title is-6">
-                  {selectedScrap.scrap_name} - {selectedScrap.category} <span>
-                    <FontAwesomeIcon icon={faDrumstickBite} size="1x" className="nav-icon" />
+                  {selectedScrap.scrap_name}<span>
+                    <FontAwesomeIcon icon={this.getScrapIcon(selectedScrap.category)} size="1x" className="nav-icon" />
                   </span>
                 </p>
                 <p className="subtitle is-6">{selectedScrap.description}</p>
