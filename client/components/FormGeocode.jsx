@@ -3,13 +3,13 @@ import 'react-map-gl-geocoder/dist/mapbox-gl-geocoder.css'
 import React, { createRef } from 'react'
 import MapGL from 'react-map-gl'
 import Geocoder from 'react-map-gl-geocoder'
-import { connect } from 'superagent'
+import { connect } from "react-redux"
 
 const MAPBOX_TOKEN = process.env.REACT_APP_MAPBOX_TOKEN
 
 class FormGeocode extends React.Component {
   constructor(props) {
-  super(props)
+  super()
   this.mapRef = createRef();
   this.geocoderContainerRef = createRef();
   }
@@ -19,6 +19,21 @@ class FormGeocode extends React.Component {
     longitude: 174.7752685546875,
   }
   
+  viewportChange = (viewport) => {
+    this.setState({ viewport });
+  };
+
+  viewportChangeGeocoder = (viewport) => {
+    const lat = viewport.latitude
+    const lng = viewport.longitude
+    console.log(viewport)
+    // console.log(lat, lng)
+    this.props.dispatch(setLocation(lat, lng))
+    this.setState({ viewport });
+  };
+
+
+
   render() {
       return (
       <div style={{ width: "100%" }}>
@@ -29,6 +44,7 @@ class FormGeocode extends React.Component {
           <Geocoder
             mapRef={this.mapRef}
             containerRef={this.geocoderContainerRef}
+            onViewportChange={this.viewportChangeGeocoder}
             mapboxApiAccessToken={MAPBOX_TOKEN}
             position="top-left"
             countries="nz"
@@ -38,8 +54,8 @@ class FormGeocode extends React.Component {
   };
 }
 
-// function mapStateToProps(globalState) {
-//   return { scraps: globalState.scraps };
-// };
+function mapStateToProps(globalState) {
+  return { scraps: globalState.scraps };
+};
 
-export default FormGeocode;
+export default connect(mapStateToProps)(FormGeocode)
