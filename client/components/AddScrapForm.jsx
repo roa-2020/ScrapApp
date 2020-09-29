@@ -1,6 +1,6 @@
 import React from "react"
 import { connect } from "react-redux";
-
+import FormGeocode from './FormGeocode'
 import { apiAddScraps, apiGetScraps } from "../apis/scrap.js";
 import { getAllScraps, initScrap } from "../actions/scraps"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -48,27 +48,27 @@ class AddScrapForm extends React.Component {
                         <div className="field">
                             <label className="label">Category</label>
                             <div className="control radio-group">
-                                <input type="radio" name="category" onChange={this.handleChange} value="faDrumstickBite" id="food" />
+                                <input type="radio" name="category" onChange={this.handleChange} value="Food" id="food" />
                                 <label htmlFor="food">
                                     <FontAwesomeIcon icon={faDrumstickBite} size="2x" className="nav-icon" />
                                 </label>
-                                <input type="radio" name="category" onChange={this.handleChange} value="furniture" id="furniture" />
+                                <input type="radio" name="category" onChange={this.handleChange} value="Furniture" id="furniture" />
                                 <label htmlFor="furniture">
                                     <FontAwesomeIcon icon={faCouch} size="2x" className="nav-icon" />
                                 </label>
-                                <input type="radio" name="category" onChange={this.handleChange} value="clothes" id="clothes" />
+                                <input type="radio" name="category" onChange={this.handleChange} value="Clothes" id="clothes" />
                                 <label htmlFor="clothes">
                                     <FontAwesomeIcon icon={faTshirt} size="2x" className="nav-icon" />
                                 </label>
-                                <input type="radio" name="category" onChange={this.handleChange} value="stuff" id="stuff" />
+                                <input type="radio" name="category" onChange={this.handleChange} value="Stuff" id="stuff" />
                                 <label htmlFor="stuff">
                                     <FontAwesomeIcon icon={faDumpsterFire} size="2x" className="nav-icon" />
                                 </label>
-                                <input type="radio" name="category" onChange={this.handleChange} value="shoes" id="shoes" />
+                                <input type="radio" name="category" onChange={this.handleChange} value="Shoes" id="shoes" />
                                 <label htmlFor="shoes">
                                     <FontAwesomeIcon icon={faShoePrints} size="2x" className="nav-icon" />
                                 </label>
-                                <input type="radio" name="category" onChange={this.handleChange} value="balls" id="balls" />
+                                <input type="radio" name="category" onChange={this.handleChange} value="Sports" id="balls" />
                                 <label htmlFor="balls">
                                     <FontAwesomeIcon icon={faBowlingBall} size="2x" className="nav-icon" />
                                 </label>
@@ -77,7 +77,8 @@ class AddScrapForm extends React.Component {
                         <div className="field">
                             <label className="label">Location</label>
                             <div className="control">
-                                <input required className="input" type="text" placeholder="Location" value={this.state.address} name="address" onChange={this.handleChange} />
+                                <FormGeocode/>
+                                {/* <input required className="input" type="text" placeholder="Location" value={this.state.address} name="address" onChange={this.handleChange} /> */}
                             </div>
                         </div>
                         <div className="field">
@@ -93,7 +94,6 @@ class AddScrapForm extends React.Component {
                             </div>
                         </div>
                         <input className="button is-medium" value='Add' type="submit" />
-                        
                 </form>
                 </div>
             </>
