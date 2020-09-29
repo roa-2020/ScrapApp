@@ -16,7 +16,7 @@ import { setLocation } from "../actions/newScrap";
 
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faImage, faDrumstickBite, faCouch, faTshirt, faDumpsterFire, faShoePrints, faBowlingBall } from '@fortawesome/free-solid-svg-icons'
+import { faImage, faDrumstickBite, faCouch, faTshirt, faArchive} from '@fortawesome/free-solid-svg-icons'
 
 
 class Map extends React.Component {
@@ -65,13 +65,9 @@ class Map extends React.Component {
         return faCouch
       case 'Clothes':
         return faTshirt;
-      case 'shoes':
-        return faShoePrints;
-      case 'Sports':
-        return faBowlingBall;
       case 'Stuff':
       default:
-        return faDumpsterFire
+        return faArchive
 
     }
   }
