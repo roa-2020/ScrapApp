@@ -5,7 +5,8 @@ import {
 const filter = (state = "", action) => {
   switch (action.type) {
     case APPLY_FILTER:
-      return action.category
+      if (state === action.category) return ""
+      else return action.category
     default:
       return state;
   }
