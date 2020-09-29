@@ -38,7 +38,7 @@ a.navbar-item:focus, a.navbar-item:focus-within, a.navbar-item:hover, a.navbar-i
 
 .profile {
   // background-color: gray;
-  height: 100%;
+  // height: 100%;
   padding: 1em;
   display: flex;
   flex-direction: column;
@@ -46,12 +46,36 @@ a.navbar-item:focus, a.navbar-item:focus-within, a.navbar-item:hover, a.navbar-i
   align-items: center;
 }
 
+.mapboxgl-ctrl button.mapboxgl-ctrl-geolocate .mapboxgl-ctrl-icon {
+  width: 50px;
+  height: 50px;
+}
+
+.mapboxgl-ctrl-group{
+  background-color: black;
+  width: 0;
+}
+
+.mapboxgl-ctrl-geolocate{
+  margin: 80vh 0 0 80vw;
+  background-color: red !important;
+}
+
+.mapboxgl-ctrl-geolocate:focus{
+  box-shadow: none !important;
+}
+
+.mapboxgl-ctrl-icon{
+  border-radius: 50px !important;
+  background-color: white !important;
+}
+
 .profile-container {
   text-align: center;
   background-color: white;
   box-sizing: border-box;
-  border: 2px solid black;
-  margin: 10px;
+  border: 1px solid #817d74;
+  // margin: 10px;
   padding: 10px;
    
 }
@@ -61,38 +85,33 @@ a.navbar-item:focus, a.navbar-item:focus-within, a.navbar-item:hover, a.navbar-i
   flex-direction: column;
   justify-content: space-evenly;
   width: 50%;
+  align-items: center;
+  padding: 1em;
 }
 
-// .navbar .navbar-brand{
-//   margin: 0 auto;
-//     border: 2px solid black;
-//     margin-top: 10px;
-//     margin-bottom: 10px;
-//     margin-right: 10px;
-//     margin-left: 10px;
 
-//     padding-top: 10px;
-//     padding-bottom: 10px;
-//     padding-right: 10px;
-//     padding-left: 10px;
-//   }
+.logoutButton{
+  margin: 10px;
+  padding: 10px;
+  width: 100%;
+}
 
-  .logoutButton{
-    margin: 10px;
-    padding: 10px;
+.field{
+  width: 100% !important;
+}
 
-  }
+.label{
+  text-align: left;
+  // margin-bottom: 0 !important;
+}
 
-  .topProfile{
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    margin-top: 10px;
-    margin-bottom: 50px;
-    margin-right: 20px;
-    margin-left: 20px;
-    width: 50%;
-  }
+.topProfile{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-bottom: 2em;
+  width: 50%;
+}
 
 #app {
   // display: flex;
@@ -101,6 +120,7 @@ a.navbar-item:focus, a.navbar-item:focus-within, a.navbar-item:hover, a.navbar-i
   width: 100%;
   align-items: stretch;
   background-color: #fbf3e5c4;
+  margin: 0;
   // padding: 1em;
 }
 
@@ -217,15 +237,18 @@ body {
   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 
-
+//--------------------------  THESE ARE THE STYLES FOR MOBILE ONLY -------------------//
 @media only screen and (max-width: 600px) {
   .form > input, .field, .profileInfo, .topProfile {
-    width: 90%;
+    width: 100%;
   }
 
+  .form {
+    width: 95% !important ;
+  }
   .radio-group {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     flex-flow: row wrap;
   }
 
@@ -236,6 +259,55 @@ body {
   .subtitle {
     text-align: center;
   }
+
+  .password-container, .name-container {
+    flex-direction: column !important; 
+  }
+
+  .textarea:not([rows]) {
+    min-height: 6em !important;
+  }
+
+  .login-container {
+    height: unset !important;
+    overflow-y: scroll;
+  }
+
+  .mapboxgl-ctrl-geocoder--input {
+    width: 200px;
+  }
+
+  .form-container {
+    padding: 2em;
+    margin-top: 0 !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .field:not(:last-child) {
+    margin-bottom: 0.75rem !important;
+  }
+}
+
+//---------------------------------------------//
+
+.field:not(:last-child) {
+  margin-bottom: 2.75rem;
+}
+
+.textarea:not([rows]) {
+  min-height: 12em;
+}
+
+.form {
+  width: 60%
+}
+
+.form-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
 }
 
 .media-content, .media-left{
@@ -268,4 +340,45 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+
+.password-container, .name-container {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+}
+
+.column {
+  margin: 1em;
+}
+
+header.navbar {
+  display: flex;
+  align-items: center;
+}
+
+.form-container {
+  height: 100%;
+  margin-top: 2em;
+}
+
+.mapboxgl-ctrl-icon {
+  background-color: #fbf3e5;
+  width: 20px;
+}
+.mapboxgl-ctrl-group > button {
+  width: 40px;
+  height: 40px;
+}
+.popup {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  word-wrap: break-word;
+  width: 200px;
+}
+
+.popup:first-child {
+  margin-bottom: 2em;
 }

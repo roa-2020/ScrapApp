@@ -28,7 +28,6 @@ class AddScrapForm extends React.Component {
     handleSubmit = (e) => {
         e.preventDefault()
         const scrap = this.state
-        console.log(scrap)
         scrap.longitude=this.props.longitude
         scrap.latitude=this.props.latitude
         apiAddScraps(scrap)
@@ -40,7 +39,6 @@ class AddScrapForm extends React.Component {
                 this.props.history.push('/')
         })
     }
-
     render() {
         return (
             <>
@@ -50,7 +48,7 @@ class AddScrapForm extends React.Component {
                         <div className="field">
                             <label className="label">Category</label>
                             <div className="control radio-group">
-                                <input type="radio" name="category" onChange={this.handleChange} value="food" id="food" />
+                                <input type="radio" name="category" onChange={this.handleChange} value="faDrumstickBite" id="food" />
                                 <label htmlFor="food">
                                     <FontAwesomeIcon icon={faDrumstickBite} size="2x" className="nav-icon" />
                                 </label>
@@ -94,7 +92,7 @@ class AddScrapForm extends React.Component {
                                 <textarea required className="textarea" placeholder="Add a description.." value={this.state.description} name="description" onChange={this.handleChange}></textarea>
                             </div>
                         </div>
-                        <input className="button is-large" value='Add' type="submit" />
+                        <input className="button is-medium" value='Add' type="submit" />
                         
                 </form>
                 </div>
