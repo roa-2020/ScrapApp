@@ -21,16 +21,15 @@ class Profile extends React.Component {
     apiGetUser(this.props.auth.user.id).then(data =>
       this.setState({ ...this.state, details: data }))
     const { auth, logout } = this.props
-    let profilepicLink = `/profilepics/${auth.user.profilepic}.png`
+    let profilepic = <img src={`/profilepics/${auth.user.profilepic}.png`} className="nav-icon profile-img" style={{ width: "6em" }} />
+    let defaultImg = <FontAwesomeIcon icon={faUserCircle} size="6x" className="nav-icon" style={{ margin: "0 auto" }} />
 
     return (
       <>
         <div className='profile'>
           <div className='topProfile'>
-            <img src={profilepicLink} className="nav-icon profile-img" style={{ width: "6em" }} />
-
+            {auth.user.profilepic ? profilepic : defaultImg}
             {/* <h1 className="title">{this.state.details && this.state.details.username}</h1> */}
-
           </div>
 
           <div className='profileInfo'>
