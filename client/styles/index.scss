@@ -57,6 +57,7 @@ a.navbar-item:focus, a.navbar-item:focus-within, a.navbar-item:hover, a.navbar-i
 }
 
 .mapboxgl-ctrl-geolocate{
+  z-index: 999999 !important;
   margin: 80vh 0 0 80vw;
   background-color: red !important;
 }
