@@ -30,7 +30,6 @@ class FormGeocode extends React.Component {
     const lat = viewport.latitude
     const lng = viewport.longitude
     this.props.dispatch(setLocation(lat, lng))
-    // this.setState({ viewport });
   };
 
   addressOnSubmit = (result) => {
