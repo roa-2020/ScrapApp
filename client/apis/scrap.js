@@ -1,6 +1,7 @@
 // ** SCRAP FRONTEND API CALLS ** //
 
 import request from "superagent";
+import { getAuthorizationHeader } from 'authenticare/client';
 
 // ** API - GET SCRAPS ** //
 export function apiGetScraps() {
@@ -14,6 +15,7 @@ export function apiGetScraps() {
 export function apiAddScraps(scrap) {
   return request
     .post("/api/v1")
+    .set(getAuthorizationHeader())
     .send(scrap)
     .then((res) => res.body);
 }
