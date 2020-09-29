@@ -1,5 +1,4 @@
 import {
-  ADD_SCRAP,
   RECIEVE_SCRAP,
   RECIEVE_ALL_SCRAPS,
   DELETE_SCRAP,
@@ -9,10 +8,6 @@ const reducer = (state = [], action) => {
   switch (action.type) {
     case RECIEVE_SCRAP:
       return action.scrapDetails;
-
-    case ADD_SCRAP:
-      return [...state, action.scrapDetails];
-
     case DELETE_SCRAP:
       return state.filter((scrap) => {
         return scrap.id !== action.id;
