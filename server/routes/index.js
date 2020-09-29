@@ -20,7 +20,6 @@ router.get("/", (req, res) => {
 // ** SCRAP - POST ROUTE ** //
 
 router.post("/", (req, res) => {
-    console.log(req.body)
     scrapsDb.addScrap(req.body)
         .then((scrap) => res.json(scrap))
 })
@@ -37,7 +36,6 @@ router.patch("/:id", (req, res) => {
 
 router.delete("/:id", (req, res) => {
     const id = Number(req.params.id)
-    console.log(id)
     scrapsDb.deleteScrap(id)
         .then((scrap) => res.json(scrap))
 })

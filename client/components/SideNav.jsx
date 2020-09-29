@@ -8,7 +8,6 @@ export default class SideNav extends React.Component {
   };
 
   toggleMenu = () => {
-    console.log("open");
     this.setState({ menuOpen: !this.state.menuOpen });
   };
 
