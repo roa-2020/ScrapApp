@@ -58,6 +58,26 @@ class Map extends React.Component {
     apiDeleteScraps(id);
     this.changeScrap(null);
   };
+  getScrapIcon =(category)=> {
+    switch(category){
+      case 'Food':
+        return faDrumstickBite;
+      case 'Furniture':
+        return faCouch
+      case 'Clothes':
+        return faTshirt;
+      case 'Shoes':
+        return faShoePrints;
+      case 'Sports':
+        return faBowlingBall;
+      case 'Stuff':
+      default:
+        return faDumpsterFire
+
+    }
+  }
+
+
 
   //Controls zoom level when clicking on geolocate button
   _onViewportChange = (viewport) => {
@@ -66,6 +86,7 @@ class Map extends React.Component {
   }
 
   render() {
+    console.log(faDrumstickBite)
     const selectedScrap = this.state.selectedScrap;
     return (
       <div id="map">
@@ -108,12 +129,12 @@ class Map extends React.Component {
                     this.changeScrap(scrap);
                   }}
                 >
-                  <img src="/images/Scrap_icon.png" alt="scrap icon"></img>
-                </button>
+                   <FontAwesomeIcon icon={this.getScrapIcon(scrap.category)} size="2x" className="nav-icon" />
+                 </button>
               </Marker>
             ))
           }
-
+  
           {selectedScrap && (
             <Popup
               latitude={selectedScrap.latitude}
