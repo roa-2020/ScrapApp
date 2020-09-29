@@ -384,3 +384,8 @@ header.navbar {
 .popup:first-child {
   margin-bottom: 2em;
 }
+
+
+h1:first-letter, h2:first-letter {
+  text-transform:capitalize;
+}
