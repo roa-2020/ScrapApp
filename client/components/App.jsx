@@ -13,7 +13,6 @@ import Header from './Header'
 import Footer from './Footer'
 import ScrapPreview from './ScrapPreview'
 import AddScrapForm from './AddScrapForm'
-import SideNav from './SideNav'
 
 import { getAllScraps } from '../actions/scraps'
 
@@ -30,7 +29,11 @@ export class App extends React.Component {
   componentDidUpdate() {
     apiGetScraps()
       .then(scraps => {
-        this.props.dispatch(getAllScraps(scraps));
+        if (this.props.filter === "") {
+          this.props.dispatch(getAllScraps(scraps));
+        } else {
+          this.props.dispatch(getAllScraps(scraps.filter(scrap => scrap.category === this.props.filter)))
+        }
       })
   }
 
@@ -51,7 +54,6 @@ export class App extends React.Component {
           </div>
           :
           <>
-            <Route exact path="/" component={SideNav} />
             <main className="map_box_container">
               <Route exact path="/" component={Map} />
             </main>
@@ -69,9 +71,10 @@ export class App extends React.Component {
   }
 }
 
-const mapStateToProps = ({ auth }) => {
+const mapStateToProps = ({ auth, filter }) => {
   return {
-    auth
+    auth,
+    filter
   }
 }
 
