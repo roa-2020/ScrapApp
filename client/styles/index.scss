@@ -1,7 +1,7 @@
 @charset "utf-8";
 
 // Import a Google Font
-@import url('https://fonts.googleapis.com/css?family=Lato:400,700');
+@import url("https://fonts.googleapis.com/css?family=Lato:400,700");
 
 // Import custom variables and Bulma overides
 @import "./variables.scss";
@@ -20,18 +20,25 @@
 @import "bulma/sass/helpers/spacing.sass";
 
 // Fix for transparent background on active nav items
-a.navbar-item:focus, a.navbar-item:focus-within, a.navbar-item:hover, a.navbar-item.is-active, .navbar-link:focus, .navbar-link:focus-within, .navbar-link:hover, .navbar-link.is-active {
+a.navbar-item:focus,
+a.navbar-item:focus-within,
+a.navbar-item:hover,
+a.navbar-item.is-active,
+.navbar-link:focus,
+.navbar-link:focus-within,
+.navbar-link:hover,
+.navbar-link.is-active {
   background-color: inherit;
 }
-
 
 * {
   box-sizing: border-box;
   // border: 2px solid red;
 }
 
-
- html, body, #app {
+html,
+body,
+#app {
   height: 100%;
   width: 100%;
 }
@@ -44,6 +51,7 @@ a.navbar-item:focus, a.navbar-item:focus-within, a.navbar-item:hover, a.navbar-i
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: 1em;
 }
 
 .mapboxgl-ctrl button.mapboxgl-ctrl-geolocate .mapboxgl-ctrl-icon {
@@ -78,40 +86,38 @@ a.navbar-item:focus, a.navbar-item:focus-within, a.navbar-item:hover, a.navbar-i
   border: 1px solid #817d74;
   // margin: 10px;
   padding: 10px;
-   
 }
 
-.profileInfo{
+.profileInfo {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  width: 50%;
+  width: 100%;
   align-items: center;
   padding: 1em;
 }
 
-
-.logoutButton{
+.logoutButton {
   margin: 10px;
   padding: 10px;
   width: 100%;
 }
 
-.field{
+.field {
   width: 100% !important;
 }
 
-.label{
+.label {
   text-align: left;
   // margin-bottom: 0 !important;
 }
 
-.topProfile{
+.topProfile {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   margin-bottom: 2em;
-  width: 50%;
+  width: 100%;
 }
 
 #app {
@@ -134,8 +140,7 @@ header {
   align-items: center;
   padding: 1em;
   background-color: #fbf3e5c4;
-} 
-
+}
 
 .nav-footer {
   width: 100%;
@@ -145,7 +150,7 @@ header {
   align-items: center;
   padding: 1em;
   background-color: #fbf3e5c4;
-} 
+}
 
 main {
   flex-grow: 1;
@@ -159,7 +164,8 @@ main {
   text-align: center;
 }
 
-header, nav {
+header,
+nav {
   flex-shrink: 0;
   width: 100%;
   color: #3b6464;
@@ -181,11 +187,13 @@ a {
   height: 20px;
 }
 
-.navbar {
+.navbar-main {
   background-color: #fbf3e5c4;
   box-shadow:  0px 2px 8px 0px #a49b98;
 }
-
+.navbar {
+  background-color: #fbf3e5c4;
+}
 .nav-icon {
   margin: 0.2em;
 }
@@ -199,12 +207,12 @@ body {
   justify-content: space-evenly;
 }
 
-.card{
-//  padding: 2em;
- margin: 1em;
+.card {
+  //  padding: 2em;
+  margin: 1em;
 }
 
-.preview-title{
+.preview-title {
   text-align: center;
   margin-top: 1rem;
   font-weight: bold;
@@ -225,11 +233,12 @@ body {
   align-items: center;
 }
 
-.form > input, .field {
+.form > input,
+.field {
   width: 50%;
 }
 
-.control  {
+.control {
   display: flex;
   justify-content: space-evenly;
 }
@@ -237,12 +246,16 @@ body {
 .button {
   background-color: #817d74;
   color: white;
-  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+    0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }
 
 //--------------------------  THESE ARE THE STYLES FOR MOBILE ONLY -------------------//
 @media only screen and (max-width: 600px) {
-  .form > input, .field, .profileInfo, .topProfile {
+  .form > input,
+  .field,
+  .profileInfo,
+  .topProfile {
     width: 100%;
   }
 
@@ -263,8 +276,9 @@ body {
     text-align: center;
   }
 
-  .password-container, .name-container {
-    flex-direction: column !important; 
+  .password-container,
+  .name-container {
+    flex-direction: column !important;
   }
 
   .textarea:not([rows]) {
@@ -291,7 +305,24 @@ body {
   .field:not(:last-child) {
     margin-bottom: 0.75rem !important;
   }
-}
+
+  .side-bar {
+    margin-bottom: auto;
+    min-height: 100%;
+    background-color: #fbf3e5c4;
+    position: fixed;
+    z-index: 234567890;
+    transition: left 600ms ease-in-out;
+  }
+
+  .side-bar-open {
+    // width: 90vw;
+    width: 100% !important;
+  }
+
+  .side-bar-closed {
+  }
+} // end
 
 //---------------------------------------------//
 
@@ -300,11 +331,11 @@ body {
 }
 
 .textarea:not([rows]) {
-  min-height: 12em;
+  min-height: 6em;
 }
 
 .form {
-  width: 60%
+  width: 60%;
 }
 
 .form-container {
@@ -313,7 +344,8 @@ body {
   justify-content: center;
 }
 
-.media-content, .media-left{
+.media-content,
+.media-left {
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -337,6 +369,13 @@ body {
   height: 50px;
 }
 
+// .mapboxgl-ctrl-geocoder {
+//   position: absolute;
+//   top: 325px;
+//   left: 251px;
+//   z-index: 1;
+// }
+
 .login-container {
   height: 100%;
   display: flex;
@@ -345,8 +384,8 @@ body {
   justify-content: center;
 }
 
-
-.password-container, .name-container {
+.password-container,
+.name-container {
   display: flex;
   justify-content: space-evenly;
   flex-direction: row;
@@ -384,4 +423,47 @@ header.navbar {
 
 .popup:first-child {
   margin-bottom: 2em;
+}
+
+// Form transitions
+
+.toggle-menu {
+  z-index: 234567891;
+  position: fixed;
+  margin-top: 20px;
+}
+
+//----------  for desktop screens only --------//
+.side-bar {
+  // margin-top: 4%;
+  margin-bottom: auto;
+  min-height: 100vh;
+  background-color: #fbf3e5c4;
+  position: fixed;
+  z-index: 234567890;
+  transition: left 800ms ease-in-out;
+  top: 0;
+}
+
+.side-bar-open {
+  left: 0px;
+  // width: 90vw;
+  width: 40%;
+}
+
+.side-bar-closed {
+  left: -2000px;
+  width: 40%;
+}
+
+// .side-bar-closed form {
+//   display: none;
+// }
+
+// ---------------------- //
+@media screen and (min-width: 640px){
+.mapboxgl-ctrl-geocoder {
+  width: 100% !important;
+  max-width: 100% !important;
+  }
 }
