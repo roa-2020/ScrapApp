@@ -27,7 +27,7 @@ class FormGeocode extends React.Component {
   viewportChangeGeocoder = (viewport) => {
     const lat = viewport.latitude
     const lng = viewport.longitude
-    console.log(viewport)
+    // console.log(viewport)
     // console.log(lat, lng)
     this.props.dispatch(setLocation(lat, lng))
     // this.setState({ viewport });
@@ -56,6 +56,7 @@ class FormGeocode extends React.Component {
             mapboxApiAccessToken={MAPBOX_TOKEN}
             position="top-left"
             countries="nz"
+            placeholder="Wheres the pickup?"
           />
         
         </div>
