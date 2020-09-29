@@ -6,4 +6,3 @@ export function applyFilter(category) {
     category
   }
 }
-

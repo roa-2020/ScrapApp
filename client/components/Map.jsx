@@ -112,7 +112,6 @@ class Map extends React.Component {
             onViewportChange={this._onViewportChange}
           />
 
-
           {/* //this part gets all the scraps from global state
           //potentially filter if filter is clicked? */}
           {
@@ -170,7 +169,7 @@ class Map extends React.Component {
   }
 }
 function mapStateToProps(globalState) {
-  return { scraps: globalState.scraps };
+  return { scraps: globalState.scraps, filter: globalState.filter };
 }
 
 export default connect(mapStateToProps)(Map);

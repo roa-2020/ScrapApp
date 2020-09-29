@@ -2,9 +2,9 @@ export const RECIEVE_SCRAP = 'RECIEVE_SCRAP'
 export const DELETE_SCRAP = 'DELETE_SCRAP'
 export const RECIEVE_ALL_SCRAPS = 'RECIEVE_ALL_SCRAPS'
 export const UPDATE_SCRAP = 'UPDATE_SCRAP'
+// export const FILTER_SCRAPS = 'FILTER_SCRAPS'
 
 export function initScrap(scrapDetails) {
-    console.log('action:', scrapDetails)
     return {
         type: RECIEVE_SCRAP,
         scrapDetails
@@ -25,3 +25,10 @@ export function deleteScrap(id) {
     }
 }
 
+// export function filterScrap(scraps, category) {
+//     return {
+//         type: FILTER_SCRAPS,
+//         scraps,
+//         category
+//     }
+// }
