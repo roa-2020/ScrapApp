@@ -1,7 +1,7 @@
 import React from "react"
 import { connect } from "react-redux";
 import { Link } from 'react-router-dom'
-import Profile from  './Profile'
+import Profile from './Profile'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUserCircle } from '@fortawesome/free-solid-svg-icons'
@@ -17,17 +17,19 @@ class Header extends React.Component {
     };
     render() {
         const { auth } = this.props
+        let profilepicLink = `/profilepics/${auth.user.profilepic}.jpg`
         return (
             <>
                 <header className="navbar is-fixed-top navbar-main">
                     <div className="add-btn-grp">
-                        <FontAwesomeIcon onClick={this.toggleMenu} icon={faUserCircle} size="2x" className="nav-icon" />
-                        <h1 className="profile-title">profile</h1>
+                        {/* <FontAwesomeIcon onClick={this.toggleMenu} icon={profilepicLink} size="2x" className="nav-icon" /> */}
+                        <img src={profilepicLink} onClick={this.toggleMenu} className="nav-icon profile-img" />
+                        {/* <h1 className="profile-title">profile</h1> */}
                     </div>
-                    <h1 className="title mb-0">Scrap</h1>
+                    <h1 className="title mb-0">ScrapApp</h1>
                     <div className="add-btn-grp">
-                        <h1 className="add">Add</h1>
-                    <Link to='/scraps/add'><FontAwesomeIcon icon={faPlusCircle} size="2x" className="nav-icon" /></Link>
+                        {/* <h1 className="add">Add</h1> */}
+                        <Link to='/scraps/add'><FontAwesomeIcon icon={faPlusCircle} size="3x" className="nav-icon" /></Link>
                     </div>
                 </header>
                 <div
