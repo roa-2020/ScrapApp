@@ -24,9 +24,9 @@ class Profile extends React.Component {
     const { auth, logout } = this.props
     return (
       <>
-        <div className='nav-container'>
+        {/* <div className='nav-container'>
           <Nav />
-        </div>
+        </div> */}
         <div className='profile'>
           <div className='topProfile'>
             <FontAwesomeIcon icon={faUserCircle} size="4x" />
