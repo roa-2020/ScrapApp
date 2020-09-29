@@ -1,6 +1,8 @@
 import React from "react";
+import Profile from  './Profile'
 
-export default class Sidebar extends React.Component {
+
+export default class SideNav extends React.Component {
   state = {
     menuOpen: false,
   };
@@ -13,11 +15,11 @@ export default class Sidebar extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <button onClick={this.toggleMenu} className="toggle-menu">
+        {/* <button onClick={this.toggleMenu} className="toggle-menu">
           click me
-        </button>
+        </button> */}
 
-        <div
+        {/* <div
           className={[
             "side-bar",
             this.state.menuOpen ? "side-bar-open" : "side-bar-closed",
@@ -25,7 +27,7 @@ export default class Sidebar extends React.Component {
         >
           <Profile />
           
-        </div>
+        </div> */}
       </React.Fragment>
     );
   }
