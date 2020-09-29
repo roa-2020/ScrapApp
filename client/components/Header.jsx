@@ -11,7 +11,7 @@ import { faPlusCircle } from '@fortawesome/free-solid-svg-icons'
 class Header extends React.Component {
     state = {
         menuOpen: false,
-        menuOpenRight: false
+        menuOpenRight: false,
     };
 
     toggleMenu = () => {
@@ -37,6 +37,8 @@ class Header extends React.Component {
                         {/* </Link> */}
                     </div>
                 </header>
+
+                {/* profile sidebar */}
                 <div
                     className={[
                         "side-bar",
@@ -45,6 +47,7 @@ class Header extends React.Component {
                 >
                     <Profile closeMenu={this.toggleMenu} />
                 </div>
+                {/* addscrap form sidebar */}
                 <div
                     className={[
                         "right-side-bar",

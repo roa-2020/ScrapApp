@@ -86,7 +86,10 @@ class AddScrapForm extends React.Component {
                             </div>
                         </div>
                         <input className="button is-medium" value='Add' type="submit" />
+                        <button onClick={this.props.closeMenu} className='logoutButton button is-medium ' >Close</button>
                 </form>
+                
+
                 </div>
             </>
         )
