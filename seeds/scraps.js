@@ -8,7 +8,7 @@ exports.seed = function (knex) {
         {
           id: 1,
           scrap_name: 'Hot Chips',
-          category: 'Shoes',
+          category: 'Food',
           description: 'Very Hot Chips, but they are half eaten',
           scrap_image: 'https://www.flaticon.com/svg/static/icons/svg/685/685352.svg',
           address: '126 Austin Street, Mount Victoria, Wellington, New Zealand',
@@ -44,7 +44,7 @@ exports.seed = function (knex) {
         {
           id: 4,
           scrap_name: 'Basketball Hoop',
-          category: 'Clothes',
+          category: 'Furniture',
           description: 'Basketball Hoop - only used once',
           scrap_image: 'https://www.flaticon.com/svg/static/icons/svg/2742/2742640.svg',
           address: 'Caci, Oriental Parade, Oriental Bay, Wellington, Wellington City, Wellington, 6011, New Zealand',
@@ -56,7 +56,7 @@ exports.seed = function (knex) {
         {
           id: 5,
           scrap_name: 'Soccer Ball',
-          category: 'Sports',
+          category: 'Stuff',
           description: 'Soccer Ball, the best soccer ball of all time',
           scrap_image: 'https://www.flaticon.com/svg/static/icons/svg/1165/1165187.svg',
           address: 'Plumbing World, Abel Smith Street, Mount Cook, Wellington, Wellington City, Wellington, 6040, New Zealand',
@@ -92,7 +92,7 @@ exports.seed = function (knex) {
         {
           id: 8,
           scrap_name: 'Pool Table',
-          category: 'Sports',
+          category: 'Furniture',
           description: 'Nice one',
           scrap_image: 'https://www.flaticon.com/svg/static/icons/svg/2942/2942867.svg',
           address: 'Museum of New Zealand Te Papa Tongarewa, Cable Street, Te Aro, Wellington, 6011, New Zealand',

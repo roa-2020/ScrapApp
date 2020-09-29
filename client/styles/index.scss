@@ -331,7 +331,7 @@ body {
 }
 
 .textarea:not([rows]) {
-  min-height: 12em;
+  min-height: 6em;
 }
 
 .form {
@@ -368,6 +368,13 @@ body {
 .mapboxgl-ctrl-geocoder--input {
   height: 50px;
 }
+
+// .mapboxgl-ctrl-geocoder {
+//   position: absolute;
+//   top: 325px;
+//   left: 251px;
+//   z-index: 1;
+// }
 
 .login-container {
   height: 100%;
@@ -454,3 +461,9 @@ header.navbar {
 // }
 
 // ---------------------- //
+@media screen and (min-width: 640px){
+.mapboxgl-ctrl-geocoder {
+  width: 100% !important;
+  max-width: 100% !important;
+  }
+}
