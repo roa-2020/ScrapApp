@@ -6,7 +6,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUserCircle } from '@fortawesome/free-solid-svg-icons'
 import { faPlusCircle } from '@fortawesome/free-solid-svg-icons'
 
-import Nav from "./Nav"
 import { apiGetUser } from "../apis/users";
 import { logoutUser } from '../actions/auth'
 
@@ -24,9 +23,6 @@ class Profile extends React.Component {
     const { auth, logout } = this.props
     return (
       <>
-        <div className='nav-container'>
-          <Nav />
-        </div>
         <div className='profile'>
           <div className='topProfile'>
             <FontAwesomeIcon icon={faUserCircle} size="4x" />

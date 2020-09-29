@@ -425,6 +425,10 @@ header.navbar {
   margin-bottom: 2em;
 }
 
+
+h1:first-letter, h2:first-letter {
+  text-transform:capitalize;
+}
 // Form transitions
 
 .toggle-menu {
@@ -455,10 +459,6 @@ header.navbar {
   left: -2000px;
   width: 40%;
 }
-
-// .side-bar-closed form {
-//   display: none;
-// }
 
 // ---------------------- //
 @media screen and (min-width: 640px){
