@@ -200,13 +200,21 @@ a {
   cursor: pointer;
 }
 
+.Furniture{
+  color: red !important;
+}
+
+.Food{
+  color: green !important;
+}
+
 .nav-icon:hover {
   color: #363636;
 }
 body {
   overflow: hidden; /* Hide scrollbars */
 }
-.preview-cols {
+.preview-cols { 
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;

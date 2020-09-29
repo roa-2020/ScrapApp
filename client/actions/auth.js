@@ -10,6 +10,7 @@ export function requestLogin () {
 }
 
 export function receiveLogin (user) {
+  console.log(user)
   return {
     type: 'LOGIN_SUCCESS',
     isFetching: false,
