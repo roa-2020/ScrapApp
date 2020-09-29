@@ -1,8 +1,23 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faImage, faUtensils, } from '@fortawesome/free-solid-svg-icons'
+import { faImage, faDrumstickBite, faCouch, faTshirt, faArchive} from '@fortawesome/free-solid-svg-icons'
 class ScrapPreview extends React.Component {
+
+  getScrapIcon = (category) => {
+    switch (category) {
+      case 'Food':
+        return faDrumstickBite;
+      case 'Furniture':
+        return faCouch
+      case 'Clothes':
+        return faTshirt;
+      case 'Stuff':
+      default:
+        return faArchive
+
+    }
+  }
 
   render() {
     return (
@@ -18,7 +33,7 @@ class ScrapPreview extends React.Component {
                       <div className="media-left">
                         <figure className="image is-24x24">
                       {/* <img src="https://bulma.io/images/placeholders/48x48.png" alt="Placeholder image" /> */}
-                      {/* <FontAwesomeIcon icon={faUtensils} size="2x" className="nav-icon" /> */}
+                      <FontAwesomeIcon icon={faUtensils} size="2x" className="nav-icon" />
                         </figure>
                       </div>
                       <div className="media-content">
