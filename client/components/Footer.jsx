@@ -7,32 +7,30 @@ import { faDrumstickBite } from '@fortawesome/free-solid-svg-icons'
 import { faChair } from '@fortawesome/free-solid-svg-icons'
 import { faLeaf } from '@fortawesome/free-solid-svg-icons'
 
+import { applyFilter } from "../actions/filter"
+
 class Footer extends React.Component {
+    componentDidMount() {
+        //get categories
+        //filter all scraps recieved from db by category
+    }
+
     render() {
         const { auth } = this.props
         return (
             <>
                 <nav className="navbar is-fixed-bottom nav-footer" role="navigation">
-                    <a href="/"><FontAwesomeIcon icon={faChair} size="2x" className="is-mobile" /></a>
-                    <a href="/"><FontAwesomeIcon icon={faDrumstickBite} size="2x" className="is-mobile" /></a>
-                    <a href="/"><FontAwesomeIcon icon={faLeaf} size="2x" className="is-mobile" /></a>
-                    {/* <GeolocateControl
-                        positionOptions={this.props.positionOptions}
-                        trackUserLocation={this.props.trackUserLocation}
-                        //on page load centre on user
-                        auto={this.props.auto}
-                    /> */}
+                    <FontAwesomeIcon onClick={() => this.props.dispatch(applyFilter("Household"))} icon={faChair} size="2x" className="is-mobile" />
+                    <FontAwesomeIcon onClick={() => this.props.dispatch(applyFilter("Food"))} icon={faDrumstickBite} size="2x" className="is-mobile" />
+                    <FontAwesomeIcon onClick={() => this.props.dispatch(applyFilter("Other"))} icon={faLeaf} size="2x" className="is-mobile" />
                 </nav>
             </>
         )
     }
 }
 
-
-const mapStateToProps = ({ auth }) => {
-    return {
-        auth
-    }
+const mapStateToProps = ({ filter }) => {
+    return { filter }
 }
 
 export default connect(mapStateToProps)(Footer)

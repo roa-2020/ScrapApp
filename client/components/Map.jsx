@@ -80,7 +80,6 @@ class Map extends React.Component {
   _onViewportChange = (viewport) => {
     viewport.zoom = 15 //Whatever zoom level you want
     this.setState({ viewport })
-    console.log("changing _onViewportChange")
   }
 
   render() {
@@ -112,6 +111,9 @@ class Map extends React.Component {
             onViewportChange={this._onViewportChange}
           />
 
+
+          {/* //this part gets all the scraps from global state
+          //potentially filter if filter is clicked? */}
           {
             this.props.scraps.map((scrap) => (
               <Marker
