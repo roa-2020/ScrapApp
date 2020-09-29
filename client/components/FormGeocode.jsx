@@ -1,9 +1,10 @@
 import 'mapbox-gl/dist/mapbox-gl.css'
 import 'react-map-gl-geocoder/dist/mapbox-gl-geocoder.css'
 import React, { createRef } from 'react'
-import MapGL from 'react-map-gl'
+import ReactMapGL from 'react-map-gl'
 import Geocoder from 'react-map-gl-geocoder'
 import { connect } from "react-redux"
+import { setLocation } from "../actions/newScrap";
 
 const MAPBOX_TOKEN = process.env.REACT_APP_MAPBOX_TOKEN
 
@@ -29,7 +30,7 @@ class FormGeocode extends React.Component {
     console.log(viewport)
     // console.log(lat, lng)
     this.props.dispatch(setLocation(lat, lng))
-    this.setState({ viewport });
+    // this.setState({ viewport });
   };
 
 
@@ -41,6 +42,13 @@ class FormGeocode extends React.Component {
           ref={this.geocoderContainerRef}
           style={{ width: '100%'}}
         />
+        <ReactMapGL
+          ref={this.mapRef}
+          {...this.state.viewport}
+          mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
+          mapStyle="mapbox://styles/scrapp/ckfg9se0g20sk19lhef5gsyqg"
+          onViewportChange={this.viewportChange}
+        />
           <Geocoder
             mapRef={this.mapRef}
             containerRef={this.geocoderContainerRef}
@@ -49,6 +57,7 @@ class FormGeocode extends React.Component {
             position="top-left"
             countries="nz"
           />
+        
         </div>
     );
   };
