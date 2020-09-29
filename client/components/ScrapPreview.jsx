@@ -33,7 +33,7 @@ class ScrapPreview extends React.Component {
                       <div className="media-left">
                         <figure className="image is-24x24">
                       {/* <img src="https://bulma.io/images/placeholders/48x48.png" alt="Placeholder image" /> */}
-                      <FontAwesomeIcon icon={faUtensils} size="2x" className="nav-icon" />
+                      <FontAwesomeIcon icon={this.getScrapIcon(scrap.category)} size="2x" className={`nav-icon ${scrap.category}`}/>
                         </figure>
                       </div>
                       <div className="media-content">
@@ -52,11 +52,9 @@ class ScrapPreview extends React.Component {
     )
   }
 }
-
 const mapStateToProps = ({ scraps }) => {
   return {
     scraps
   }
 }
-
 export default connect(mapStateToProps)(ScrapPreview)
