@@ -66,7 +66,7 @@ class Map extends React.Component {
         return faCouch
       case 'Clothes':
         return faTshirt;
-      case 'Shoes':
+      case 'shoes':
         return faShoePrints;
       case 'Sports':
         return faBowlingBall;
@@ -147,8 +147,8 @@ class Map extends React.Component {
             >
               <div className="popup">
                 <p className="title is-6">
-                  {selectedScrap.scrap_name} - {selectedScrap.category} <span>
-                    <FontAwesomeIcon icon={faDrumstickBite} size="1x" className="nav-icon" />
+                  {selectedScrap.scrap_name}<span>
+                    <FontAwesomeIcon icon={this.getScrapIcon(selectedScrap.category)} size="1x" className="nav-icon" />
                   </span>
                 </p>
                 <p className="subtitle is-6">{selectedScrap.description}</p>
