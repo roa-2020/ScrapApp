@@ -32,7 +32,7 @@ class Map extends React.Component {
       longitude: 174.7752685546875,
       width: "100vw",
       height: "100vh",
-      zoom: 15
+      zoom: 13
     },
   };
 
@@ -46,7 +46,6 @@ class Map extends React.Component {
     console.log(viewport)
     console.log(lat, lng)
     this.props.dispatch(setLocation(lat, lng))
-
     this.setState({ viewport });
   };
 
@@ -59,8 +58,8 @@ class Map extends React.Component {
     apiDeleteScraps(id);
     this.changeScrap(null);
   };
-  getScrapIcon =(category)=> {
-    switch(category){
+  getScrapIcon = (category) => {
+    switch (category) {
       case 'Food':
         return faDrumstickBite;
       case 'Furniture':
@@ -78,16 +77,14 @@ class Map extends React.Component {
     }
   }
 
-
-
   //Controls zoom level when clicking on geolocate button
   _onViewportChange = (viewport) => {
-    viewport.zoom = this.state.viewport.zoom + 1 //Whatever zoom level you want
+    viewport.zoom = 15 //Whatever zoom level you want
     this.setState({ viewport })
+    console.log("changing _onViewportChange")
   }
 
   render() {
-    console.log(faDrumstickBite)
     const selectedScrap = this.state.selectedScrap;
     return (
       <div id="map">
@@ -130,12 +127,12 @@ class Map extends React.Component {
                     this.changeScrap(scrap);
                   }}
                 >
-                   <FontAwesomeIcon icon={this.getScrapIcon(scrap.category)} size="2x" className="nav-icon" />
-                 </button>
+                  <FontAwesomeIcon icon={this.getScrapIcon(scrap.category)} size="2x" className="nav-icon" />
+                </button>
               </Marker>
             ))
           }
-  
+
           {selectedScrap && (
             <Popup
               latitude={selectedScrap.latitude}
