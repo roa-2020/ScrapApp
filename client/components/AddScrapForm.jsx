@@ -1,6 +1,6 @@
 import React from "react"
 import { connect } from "react-redux";
-
+import FormGeocode from './FormGeocode'
 import { apiAddScraps, apiGetScraps } from "../apis/scrap.js";
 import { getAllScraps, initScrap } from "../actions/scraps"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -77,6 +77,7 @@ class AddScrapForm extends React.Component {
                         </div>
                         <div className="field">
                             <label className="label">Location</label>
+                                <FormGeocode/>
                             <div className="control">
                                 <input required className="input" type="text" placeholder="Location" value={this.state.address} name="address" onChange={this.handleChange} />
                             </div>
@@ -94,7 +95,6 @@ class AddScrapForm extends React.Component {
                             </div>
                         </div>
                         <input className="button is-medium" value='Add' type="submit" />
-                        
                 </form>
                 </div>
             </>
