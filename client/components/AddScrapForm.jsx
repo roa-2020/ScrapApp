@@ -51,19 +51,19 @@ class AddScrapForm extends React.Component {
                             <div className="control radio-group">
                                 <input type="radio" name="category" onChange={this.handleChange} value="Food" id="food" />
                                 <label htmlFor="food">
-                                    <FontAwesomeIcon icon={faDrumstickBite} size="2x" className="nav-icon" />
+                                    <FontAwesomeIcon icon={faDrumstickBite} size="2x" className="nav-icon food-icon" />
                                 </label>
                                 <input type="radio" name="category" onChange={this.handleChange} value="Furniture" id="furniture" />
                                 <label htmlFor="furniture">
-                                    <FontAwesomeIcon icon={faCouch} size="2x" className="nav-icon" />
+                                    <FontAwesomeIcon icon={faCouch} size="2x" className="nav-icon furniture-icon" />
                                 </label>
                                 <input type="radio" name="category" onChange={this.handleChange} value="Clothes" id="clothes" />
                                 <label htmlFor="clothes">
-                                    <FontAwesomeIcon icon={faTshirt} size="2x" className="nav-icon" />
+                                    <FontAwesomeIcon icon={faTshirt} size="2x" className="nav-icon clothes-icon" />
                                 </label>
                                 <input type="radio" name="category" onChange={this.handleChange} value="Stuff" id="stuff" />
                                 <label htmlFor="stuff">
-                                    <FontAwesomeIcon icon={faArchive} size="2x" className="nav-icon" />
+                                    <FontAwesomeIcon icon={faArchive} size="2x" className="nav-icon stuff-icon" />
                                 </label>
                             </div>
                         </div>
