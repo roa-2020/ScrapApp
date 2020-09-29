@@ -13,7 +13,7 @@ class Nav extends React.Component {
       <div className="navbar-brand">
         <>
           <Link to='/' className="navbar-item column">Map</Link>
-          <Link to='/' className="navbar-item column navbar-end" onClick={() => logout()}>Logout</Link>
+          <Link to='/' className="navbar-item column navbar-end" onClick={logout}>Logout</Link>
         </>
       </div>
     </nav >

@@ -16,12 +16,12 @@ import { setLocation } from "../actions/newScrap";
 
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faImage, faDrumstickBite, faCouch, faTshirt, faDumpsterFire, faShoePrints, faBowlingBall } from '@fortawesome/free-solid-svg-icons'
+import { faImage, faDrumstickBite, faCouch, faTshirt, faArchive} from '@fortawesome/free-solid-svg-icons'
 
 
 class Map extends React.Component {
   constructor(props) {
-    super(props)
+    super()
     this.mapRef = createRef();
   }
 
@@ -40,13 +40,14 @@ class Map extends React.Component {
     this.setState({ viewport });
   };
 
-  viewportChangeGeocoder = (viewport) => {
-    const lat = viewport.latitude
-    const lng = viewport.longitude
-    console.log(lat, lng)
-    this.props.dispatch(setLocation(lat, lng))
-    this.setState({ viewport });
-  };
+  // viewportChangeGeocoder = (viewport) => {
+  //   const lat = viewport.latitude
+  //   const lng = viewport.longitude
+  //   console.log(viewport)
+  //   console.log(lat, lng)
+  //   this.props.dispatch(setLocation(lat, lng))
+  //   this.setState({ viewport });
+  // };
 
   changeScrap = (scrap) => {
     this.setState({ selectedScrap: scrap });
@@ -65,13 +66,9 @@ class Map extends React.Component {
         return faCouch
       case 'Clothes':
         return faTshirt;
-      case 'Shoes':
-        return faShoePrints;
-      case 'Sports':
-        return faBowlingBall;
       case 'Stuff':
       default:
-        return faDumpsterFire
+        return faArchive
 
     }
   }
@@ -80,7 +77,7 @@ class Map extends React.Component {
   _onViewportChange = (viewport) => {
     viewport.zoom = 15 //Whatever zoom level you want
     this.setState({ viewport })
-    console.log("changing _onViewportChange")
+    // console.log("changing _onViewportChange")
   }
 
   render() {
@@ -95,14 +92,14 @@ class Map extends React.Component {
           onViewportChange={this.viewportChange}
         >
 
-          <Geocoder
+          {/* <Geocoder
             mapRef={this.mapRef}
             onViewportChange={this.viewportChangeGeocoder}
             mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
             position="top-right"
             placeholder="Add your location!"
             countries="nz"
-          />
+          /> */}
 
           <GeolocateControl
             positionOptions={{ enableHighAccuracy: true }}
@@ -144,8 +141,8 @@ class Map extends React.Component {
             >
               <div className="popup">
                 <p className="title is-6">
-                  {selectedScrap.scrap_name} - {selectedScrap.category} <span>
-                    <FontAwesomeIcon icon={faDrumstickBite} size="1x" className="nav-icon" />
+                  {selectedScrap.scrap_name}<span>
+                    <FontAwesomeIcon icon={this.getScrapIcon(selectedScrap.category)} size="1x" className="nav-icon" />
                   </span>
                 </p>
                 <p className="subtitle is-6">{selectedScrap.description}</p>
