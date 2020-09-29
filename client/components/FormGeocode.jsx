@@ -4,7 +4,8 @@ import React, { createRef } from 'react'
 import ReactMapGL from 'react-map-gl'
 import Geocoder from 'react-map-gl-geocoder'
 import { connect } from "react-redux"
-import { setLocation } from "../actions/newScrap";
+import { setAddress, setLocation } from "../actions/newScrap";
+import { faCommentsDollar } from '@fortawesome/free-solid-svg-icons'
 
 const MAPBOX_TOKEN = process.env.REACT_APP_MAPBOX_TOKEN
 
@@ -18,7 +19,7 @@ class FormGeocode extends React.Component {
   state = {
     latitude: -41.294105529785156,
     longitude: 174.7752685546875,
-
+    address: ""
   }
   
   viewportChange = (viewport) => {
@@ -28,10 +29,14 @@ class FormGeocode extends React.Component {
   viewportChangeGeocoder = (viewport) => {
     const lat = viewport.latitude
     const lng = viewport.longitude
-    console.log(viewport)
     this.props.dispatch(setLocation(lat, lng))
   };
 
+  addressOnSubmit = (result) => {
+    const address = result.result.place_name
+    this.setState({ address });
+    this.props.dispatch(setAddress(address))
+  }
 
 
   render() {
@@ -52,6 +57,7 @@ class FormGeocode extends React.Component {
             mapRef={this.mapRef}
             containerRef={this.geocoderContainerRef}
             onViewportChange={this.viewportChangeGeocoder}
+            onResult={this.addressOnSubmit}
             mapboxApiAccessToken={MAPBOX_TOKEN}
             position="top-left"
             countries="nz"

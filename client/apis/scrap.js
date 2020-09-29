@@ -13,7 +13,6 @@ export function apiGetScraps() {
 
 // ** API - ADD SCRAPS ** //
 export function apiAddScraps(scrap) {
-  console.log(scrap)
   return request
     .post("/api/v1")
     .set(getAuthorizationHeader())

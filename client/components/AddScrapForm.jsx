@@ -30,6 +30,7 @@ class AddScrapForm extends React.Component {
         const scrap = this.state
         scrap.longitude=this.props.longitude
         scrap.latitude=this.props.latitude
+        scrap.address = this.props.address
         apiAddScraps(scrap)
             .then(scrap => {
                 apiGetScraps()
@@ -69,7 +70,7 @@ class AddScrapForm extends React.Component {
                         <div className="field">
                             <label className="label">Location</label>
                             <div className="control">
-                                <FormGeocode/>
+                                <FormGeocode />
                                 {/* <input required className="input" type="text" placeholder="Location" value={this.state.address} name="address" onChange={this.handleChange} /> */}
                             </div>
                         </div>
@@ -94,7 +95,7 @@ class AddScrapForm extends React.Component {
 }
 
 function mapStateToProps(globalState) {
-    return { latitude: globalState.newScrap.lat, longitude: globalState.newScrap.long }
+    return { latitude: globalState.newScrap.lat, longitude: globalState.newScrap.long, address: globalState.newScrap.address }
 }
 
 export default connect(mapStateToProps)(AddScrapForm);
