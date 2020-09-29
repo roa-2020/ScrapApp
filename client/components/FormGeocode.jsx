@@ -21,10 +21,10 @@ class FormGeocode extends React.Component {
   
   render() {
       return (
-      <div style={{ height: "100vh" }}>
+      <div style={{ width: "100%" }}>
         <div
           ref={this.geocoderContainerRef}
-          style={{ position: "relative", top: 20, left: 20 }}
+          style={{ width: '100%'}}
         />
           <Geocoder
             mapRef={this.mapRef}
@@ -33,7 +33,7 @@ class FormGeocode extends React.Component {
             position="top-left"
             countries="nz"
           />
-      </div>
+        </div>
     );
   };
 }

@@ -76,9 +76,9 @@ class AddScrapForm extends React.Component {
                         </div>
                         <div className="field">
                             <label className="label">Location</label>
-                                <FormGeocode/>
                             <div className="control">
-                                <input required className="input" type="text" placeholder="Location" value={this.state.address} name="address" onChange={this.handleChange} />
+                                <FormGeocode/>
+                                {/* <input required className="input" type="text" placeholder="Location" value={this.state.address} name="address" onChange={this.handleChange} /> */}
                             </div>
                         </div>
                         <div className="field">
