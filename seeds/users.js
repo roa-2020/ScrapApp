@@ -10,7 +10,7 @@ exports.seed = function (knex) {
         [
           {
             id: 1,
-            username: 'phil',
+            username: 'phil-chan',
             name: 'Phil',
             password: '123',
             user_rating: 10,
@@ -18,7 +18,7 @@ exports.seed = function (knex) {
           },
           {
             id: 2,
-            username: 'steven',
+            username: 'steven-delacy',
             name: 'Steven',
             password: '123',
             user_rating: 10,
@@ -26,7 +26,7 @@ exports.seed = function (knex) {
           },
           {
             id: 3,
-            username: 'cam',
+            username: 'camshaw11',
             name: 'Cam',
             password: '123',
             user_rating: 10,
@@ -34,7 +34,7 @@ exports.seed = function (knex) {
           },
           {
             id: 4,
-            username: 'lewis',
+            username: 'lewis-rosenberg-smith',
             name: 'Lewis',
             password: '123',
             user_rating: 10,
@@ -42,7 +42,7 @@ exports.seed = function (knex) {
           },
           {
             id: 5,
-            username: 'seamus',
+            username: 'seamus-ahkit',
             name: 'Seamus',
             password: '123',
             user_rating: 10,
@@ -50,7 +50,7 @@ exports.seed = function (knex) {
           },
           {
             id: 6,
-            username: 'connor',
+            username: 'Connor-ONeale',
             name: 'Connor',
             password: '123',
             user_rating: 10,

@@ -5,5 +5,7 @@ exports.up = function (knex) {
 };
 
 exports.down = function (knex) {
-  return knex.schema.dropColumn("profilepic");
+  return knex.schema.table('users', table => {
+    table.dropColumn('profilepic')
+  });
 };

@@ -60,14 +60,14 @@ class Profile extends React.Component {
             <div className="field">
               <div className='profile-container'>
                 <label className='label'>Username</label>
-                <h1 className="title">{this.state.details && this.state.details.username}</h1>
+                <h1 className="title">{auth.user.username}</h1>
               </div>
             </div>
 
             <div className="field">
               <div className='profile-container'>
                 <label className='label'>Name</label>
-                <h1 className="title">{this.state.details && this.state.details.name}</h1>
+                <h1 className="title">{auth.user.name}</h1>
               </div>
             </div>
 
