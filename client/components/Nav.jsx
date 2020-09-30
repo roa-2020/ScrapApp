@@ -9,6 +9,7 @@ class Nav extends React.Component {
 
   render() {
     const { auth, logout } = this.props
+
     return <nav className="navbar">
       <div className="navbar-brand">
         <>
@@ -21,6 +22,7 @@ class Nav extends React.Component {
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {
+
   return {
     logout: () => {
       const confirmSuccess = () => ownProps.history.push('/')
@@ -30,6 +32,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 }
 
 const mapStateToProps = ({ auth }) => {
+  
   return {
     auth
   }

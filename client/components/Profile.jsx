@@ -1,15 +1,12 @@
 import React from "react"
 import { connect } from 'react-redux'
-import { HashRouter as Router, Route, Link } from 'react-router-dom'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUserCircle } from '@fortawesome/free-solid-svg-icons'
-import { faPlusCircle } from '@fortawesome/free-solid-svg-icons'
 
 import { apiGetUser, updateUserProfilePic } from "../apis/users";
 import { addProfilePic } from "../apis/fileupload";
 import { checkAuth, logoutUser, updateProfilepic } from '../actions/auth'
-
 
 class Profile extends React.Component {
   constructor(props) {
@@ -46,8 +43,10 @@ class Profile extends React.Component {
       <>
         <div className='profile'>
           <div className='topProfile'>
-            {auth.user.profilepic ? profilepic : defaultImg}
-            {/* <h1 className="title">{this.state.details && this.state.details.username}</h1> */}
+            <FontAwesomeIcon icon={faUserCircle} size="4x" />
+            <div className=''>
+              <h1 className="title">{this.state.details && this.state.details.username}</h1>
+            </div>
           </div>
 
           <form ref='uploadForm'
@@ -67,14 +66,12 @@ class Profile extends React.Component {
                 <h1 className="title">{auth.user.username}</h1>
               </div>
             </div>
-
             <div className="field">
               <div className='profile-container'>
                 <label className='label'>Name</label>
                 <h1 className="title">{auth.user.name}</h1>
               </div>
             </div>
-
             <div className="field">
               <div className='profile-container'>
                 <label className='label'>Password</label>
@@ -83,19 +80,13 @@ class Profile extends React.Component {
             </div>
             <button onClick={logout} className='button logoutButton is-medium' >Log out</button>
             <button onClick={this.props.closeMenu} className='button logoutButton is-medium' >Close</button>
-
           </div>
-
-
-
         </div>
       </>
-
     )
-
   }
-
 }
+
 const mapDispatchToProps = (dispatch, ownProps) => {
 
   return {
@@ -110,6 +101,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 }
 
 const mapStateToProps = ({ auth }) => {
+  
   return {
     auth
   }

@@ -10,12 +10,6 @@ function addScrap(scrap, db = connection) {
     .insert(scrap)
 }
 
-function updateScrap(id, newScrapData, db = connection) {
-  return db('scraps')
-    .where('id', id)
-    .update(newScrapData)
-}
-
 function deleteScrap(id, db = connection) {
   return db('scraps')
     .where('id', id)
@@ -25,6 +19,5 @@ function deleteScrap(id, db = connection) {
 module.exports = {
   getScraps,
   addScrap,
-  updateScrap,
   deleteScrap
 }
