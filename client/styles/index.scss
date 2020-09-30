@@ -47,7 +47,7 @@ body,
 .profile {
   // background-color: gray;
   // height: 100%;
-  padding: 1em;
+  // padding: 1em;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -59,6 +59,17 @@ body,
   border-radius: 50px;
   width: 3em;
   margin: 0 auto;
+}
+
+.mapboxgl-popup-close-button {
+  position: absolute;
+  right: 0;
+  top: 0;
+  border: 0;
+  border-radius: 0 3px 0 0;
+  cursor: pointer;
+  background-color: transparent;
+  font-size: 40px;
 }
 
 .mapboxgl-ctrl button.mapboxgl-ctrl-geolocate .mapboxgl-ctrl-icon {
@@ -92,6 +103,7 @@ body,
   border-color: #dbdbdb;
   border-radius: 4px;
   color: #363636;
+  
 }
 
 .profileInfo {
@@ -106,7 +118,7 @@ body,
 .logoutButton {
   margin: 10px;
   padding: 10px;
-  width: 100%;
+  width: 50%;
 }
 
 .field {
@@ -280,7 +292,7 @@ body {
     width: 100%;
   }
 
-  .form {
+  .form, .profile {
     width: 95% !important ;
   }
   .radio-group {
@@ -321,6 +333,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 100% !important
   }
 
   .field:not(:last-child) {
@@ -330,7 +343,7 @@ body {
   .side-bar {
     margin-bottom: auto;
     min-height: 100%;
-    background-color:#fbf3e5;
+    background-color:#fbf3e5 !important;
     position: fixed;
     z-index: 234567890;
     transition: left 600ms ease-in-out;
@@ -339,6 +352,24 @@ body {
   .side-bar-open {
     // width: 90vw;
     width: 100% !important;
+  }
+  .right-side-bar {
+    margin-bottom: auto;
+    min-height: 100%;
+    background-color:#fbf3e5 !important;
+    position: fixed;
+    z-index: 234567890;
+    transition: left 600ms ease-in-out;
+  }
+
+  .right-side-bar-open {
+    // width: 90vw;
+    width: 100% !important;
+  }
+  .logoutButton {
+    margin: 10px;
+    padding: 10px;
+    width: 100%;
   }
 
   body {
@@ -364,7 +395,7 @@ body {
   min-height: 6em;
 }
 
-.form {
+.form, .profile {
   width: 60%;
 }
 
@@ -372,6 +403,7 @@ body {
   display: flex;
   align-items: flex-start;
   justify-content: center;
+  width: 100%;
 }
 
 .media-content,
@@ -483,6 +515,9 @@ h1:first-letter, h2:first-letter {
   left: 0px;
   // width: 90vw;
   width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .side-bar-closed {
@@ -490,6 +525,30 @@ h1:first-letter, h2:first-letter {
   width: 40%;
 }
 
+.right-side-bar {
+  // margin-top: 4%;
+  margin-bottom: auto;
+  min-height: 100vh;
+  background-color: #fbf3e5c4;
+  position: fixed;
+  z-index: 234567890;
+  transition: right 800ms ease-in-out;
+  top: 0;
+}
+
+.right-side-bar-open {
+  right: 0px;
+  // width: 90vw;
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.right-side-bar-closed {
+  right: -2000px;
+  width: 40%;
+}
 // ---------------------- //
 @media screen and (min-width: 640px){
 .mapboxgl-ctrl-geocoder {
@@ -509,12 +568,28 @@ input[type=radio] {
   height: 2em;
 }
 
+.Food{
+  color: #c98c37;
+}
+
+.Furniture{
+  color: #66ce2a;
+}
+
+.Clothes{
+  color: #8ed6d1;
+}
+
+.Stuff{
+  color: #ca7070;
+}
+
 .food-icon {
-  color: #c89041;
+  color: #c98c37;
 }
 
 .furniture-icon {
-  color: #98d675;
+  color: #66ce2a;
 }
 
 .clothes-icon {
