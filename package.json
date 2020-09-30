@@ -51,7 +51,8 @@
     "supertest": "^4.0.2",
     "webpack": "^4.44.2",
     "webpack-cli": "^3.3.12",
-    "react-map-gl": "^5.2.8"
+    "react-map-gl": "^5.2.8",
+    "express-fileupload": "^1.2.0"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.30",
