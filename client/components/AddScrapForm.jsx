@@ -13,6 +13,7 @@ class AddScrapForm extends React.Component {
         address: '',
         scrap_name: '',
         description: '',
+        geoInputLoaded: true
     }
 
     componentDidMount() {
@@ -28,6 +29,7 @@ class AddScrapForm extends React.Component {
     handleSubmit = (e) => {
         e.preventDefault()
         const scrap = this.state
+
         scrap.longitude=this.props.longitude
         scrap.latitude=this.props.latitude
         scrap.address = this.props.address
@@ -39,6 +41,17 @@ class AddScrapForm extends React.Component {
                 })
                 // this.props.history.push('/')
         })
+        this.setState({
+            category: '',
+            address: '',
+            scrap_name: '',
+            description: '',
+            geoInputLoaded: false
+        }, () => {
+            this.setState({
+                geoInputLoaded: true
+            })
+        })
     }
     render() {
         return (
@@ -49,19 +62,19 @@ class AddScrapForm extends React.Component {
                         <div className="field">
                             <label className="label">Category</label>
                             <div className="control radio-group">
-                                <input type="radio" name="category" onChange={this.handleChange} value="Food" id="food" />
+                                <input type="radio" name="category" onChange={this.handleChange} value="Food" id="food" checked={this.state.category === "Food"} />
                                 <label htmlFor="food">
                                     <FontAwesomeIcon icon={faDrumstickBite} size="2x" className="nav-icon food-icon" />
                                 </label>
-                                <input type="radio" name="category" onChange={this.handleChange} value="Furniture" id="furniture" />
+                                <input type="radio" name="category" onChange={this.handleChange} value="Furniture" id="furniture" checked={this.state.category === "Furniture"} />
                                 <label htmlFor="furniture">
                                     <FontAwesomeIcon icon={faCouch} size="2x" className="nav-icon furniture-icon" />
                                 </label>
-                                <input type="radio" name="category" onChange={this.handleChange} value="Clothes" id="clothes" />
+                                <input type="radio" name="category" onChange={this.handleChange} value="Clothes" id="clothes" checked={this.state.category === "Clothes"} />
                                 <label htmlFor="clothes">
                                     <FontAwesomeIcon icon={faTshirt} size="2x" className="nav-icon clothes-icon" />
                                 </label>
-                                <input type="radio" name="category" onChange={this.handleChange} value="Stuff" id="stuff" />
+                                <input type="radio" name="category" onChange={this.handleChange} value="Stuff" id="stuff" checked={this.state.category === "Stuff"} />
                                 <label htmlFor="stuff">
                                     <FontAwesomeIcon icon={faArchive} size="2x" className="nav-icon stuff-icon" />
                                 </label>
@@ -70,7 +83,7 @@ class AddScrapForm extends React.Component {
                         <div className="field">
                             <label className="label">Location</label>
                             <div className="control">
-                                <FormGeocode />
+                                {this.state.geoInputLoaded && <FormGeocode />}
                                 {/* <input required className="input" type="text" placeholder="Location" value={this.state.address} name="address" onChange={this.handleChange} /> */}
                             </div>
                         </div>
