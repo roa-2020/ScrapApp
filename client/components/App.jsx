@@ -12,14 +12,25 @@ import Header from './Header'
 import Footer from './Footer'
 import ScrapPreview from './ScrapPreview'
 
+import { apiGetUser, updateUserProfilePic } from "../apis/users";
+import { logoutUser, updateProfilepic } from '../actions/auth'
+
 export class App extends React.Component {
   componentDidMount() {
-    const confirmSuccess = () => { }
+    const confirmSuccess = () => {
+
+    }
     this.props.dispatch(checkAuth(confirmSuccess))
     apiGetScraps()
       .then(scraps => {
         this.props.dispatch(getAllScraps(scraps));
+        apiGetUser(this.props.auth.user.id)
+          .then((user) => {
+            console.log(user)
+            this.props.dispatch(updateProfilepic(user.profilepic))
+          })
       })
+
   }
 
   componentDidUpdate() {
@@ -52,9 +63,9 @@ export class App extends React.Component {
             <main className="map_box_container">
               <Route exact path="/" component={Map} />
             </main>
-              <Route exact path="/" component={Header} />
-              <Route exact path="/" component={Footer} />
-              <Route exact path="/scraps/add" component={Nav} />
+            <Route exact path="/" component={Header} />
+            <Route exact path="/" component={Footer} />
+            <Route exact path="/scraps/add" component={Nav} />
           </>
         }
       </Router>
