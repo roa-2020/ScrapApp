@@ -15,6 +15,8 @@ import ScrapPreview from './ScrapPreview'
 import AddScrapForm from './AddScrapForm'
 
 import { getAllScraps } from '../actions/scraps'
+import { updateProfilepic } from '../actions/auth'
+import { apiGetUser } from '../actions/users'
 
 export class App extends React.Component {
   componentDidMount() {
@@ -35,6 +37,7 @@ export class App extends React.Component {
           this.props.dispatch(getAllScraps(scraps.filter(scrap => scrap.category === this.props.filter)))
         }
       })
+    this.props.dispatch(apiGetUser(this.props.auth.user))
   }
 
   render() {
@@ -71,10 +74,11 @@ export class App extends React.Component {
   }
 }
 
-const mapStateToProps = ({ auth, filter }) => {
+const mapStateToProps = ({ auth, filter, users }) => {
   return {
     auth,
-    filter
+    filter,
+    users
   }
 }
 
