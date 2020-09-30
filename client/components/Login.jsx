@@ -36,7 +36,9 @@ class Login extends React.Component {
         </label>
         <div className="button-container">
           <input className="button is-medium" value='Login' type="submit" />
-          <Link to='/register' className="button is-medium">Register</Link>
+          <Link
+            to='/register' className="button is-medium">Register
+          </Link>
         </div>
       </form>
     )

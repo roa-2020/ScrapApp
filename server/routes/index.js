@@ -36,14 +36,6 @@ router.post("/", getTokenDecoder(), (req, res) => {
         .then((scrap) => res.json(scrap))
 })
 
-// ** SCRAP - PATCH ROUTE ** //
-
-router.patch("/:id", (req, res) => {
-    scrapsDb.updateScrap(req.params.id, req.body)
-        .then((scrap) => res.json(scrap))
-})
-
-
 // ** SCRAP - DELETE ROUTE ** //
 
 router.delete("/:id", (req, res) => {

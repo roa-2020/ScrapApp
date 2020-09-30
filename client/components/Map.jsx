@@ -46,7 +46,7 @@ class Map extends React.Component {
         this.changeScrap(selectedScrap)
       })
   }
-  
+
   getScrapIcon = (category) => {
     switch (category) {
       case 'Food':
@@ -136,6 +136,7 @@ class Map extends React.Component {
     );
   }
 }
+
 function mapStateToProps(globalState) {
   return { scraps: globalState.scraps, filter: globalState.filter };
 }

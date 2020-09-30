@@ -26,11 +26,3 @@ export function apiDeleteScraps(id) {
     .delete('/api/v1/' + id)
     .then(res => res.body)
 }
-
-// ** API - UPDATE SCRAPS ** //
-export function apiUpdateScraps(id, scrap) {
-  return request
-    .patch('/api/v1/' + id)
-    .send(scrap)
-    .then(res => res.body)
-}

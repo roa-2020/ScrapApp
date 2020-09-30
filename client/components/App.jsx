@@ -1,5 +1,5 @@
 import React from 'react'
-import { HashRouter as Router, Route, Link } from 'react-router-dom'
+import { HashRouter as Router, Route } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { apiGetScraps } from '../apis/scrap'
 import { checkAuth } from '../actions/auth'
@@ -36,7 +36,7 @@ export class App extends React.Component {
   render() {
 
     const { auth } = this.props
-    
+
     return (
       <Router>
         {!auth.isAuthenticated
