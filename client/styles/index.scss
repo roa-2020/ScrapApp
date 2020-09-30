@@ -55,6 +55,16 @@ body,
   margin-top: 1em;
 }
 
+.nav-icon.profile-img{
+  border-radius: 50px;
+  width: 3em;
+  margin: 0 auto;
+}
+
+#uploadForm{
+  display: none
+}
+
 .mapboxgl-popup-close-button {
   position: absolute;
   right: 0;
@@ -78,7 +88,6 @@ body,
 
 .mapboxgl-ctrl-geolocate{
   margin: 80vh 0 0 80vw;
-  background-color: red !important;
 }
 
 .mapboxgl-ctrl-geolocate:focus{
@@ -126,7 +135,6 @@ body,
 
 .topProfile {
   display: flex;
-  justify-content: space-evenly;
   align-items: center;
   margin-bottom: 2em;
   width: 100%;
@@ -171,10 +179,13 @@ main {
   // padding: 1em;
 }
 
-.title {
-  color: #3b6464;
-  line-height: revert !important;
-  text-align: center;
+// .title {
+//   color: #3b6464;
+//   line-height: revert !important;
+// }
+
+.topProfile .title{
+  margin: 0 auto;
 }
 
 header,
@@ -218,7 +229,7 @@ a {
 body {
   overflow: hidden; /* Hide scrollbars */
 }
-.preview-cols {
+.preview-cols { 
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;

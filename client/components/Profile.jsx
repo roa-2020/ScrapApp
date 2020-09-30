@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUserCircle } from '@fortawesome/free-solid-svg-icons'
 import { faPlusCircle } from '@fortawesome/free-solid-svg-icons'
 
-import { apiGetUser } from "../apis/users";
+import { apiGetUser, addProfilePic } from "../apis/users";
 import { logoutUser } from '../actions/auth'
 
 
@@ -14,21 +14,39 @@ class Profile extends React.Component {
   state = {
     details: "",
   }
+
   componentDidMount() {
 
   }
+
+  handleSubmit = (file) => {
+    addProfilePic(file, this.props.auth.user.id)
+  }
+
   render() {
     apiGetUser(this.props.auth.user.id).then(data =>
       this.setState({ ...this.state, details: data }))
     const { auth, logout } = this.props
+    let profilepic = <img src={`/profilepics/${auth.user.profilepic}.png`} className="nav-icon profile-img" style={{ width: "6em" }} />
+    let defaultImg = <FontAwesomeIcon icon={faUserCircle} size="6x" className="nav-icon" style={{ margin: "0 auto" }} />
     return (
       <>
         <div className='profile'>
           <div className='topProfile'>
-            <FontAwesomeIcon icon={faUserCircle} size="4x" />
-            <div className=''><h1 className="title">{this.state.details && this.state.details.username}</h1></div>
-
+            {auth.user.profilepic ? profilepic : defaultImg}
+            {/* <h1 className="title">{this.state.details && this.state.details.username}</h1> */}
           </div>
+
+
+          <form ref='uploadForm'
+            id='uploadForm'
+            action='api/v1/user/${this.props.auth.user.id}'
+            method='post'
+            encType="multipart/form-data">
+            <input type="file" name="sampleFile" />
+            <input type='submit' value='Upload!' onClick={() => this.handleSubmit} />
+          </form>
+
 
           <div className='profileInfo'>
 
