@@ -11,6 +11,13 @@ function createUser (user, db = connection) {
     })
 }
 
+function updateUser(id, data, db = connection) {
+  console.log(data)
+  return db('users')
+    .where("id", id)
+    .update(data)
+}
+
 function userExists (username, db = connection) {
   return db('users')
     .where('username', username)
@@ -33,5 +40,6 @@ module.exports = {
   createUser,
   userExists,
   getUserByUsername,
-  getUserById
+  getUserById,
+  updateUser
 }

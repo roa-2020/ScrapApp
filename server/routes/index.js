@@ -12,16 +12,23 @@ router.get("/user/:id", (req, res) => {
 })
 
 router.post('/user/:id', (req, res) => {
-    console.log(req.files)
+    console.log(req.files.profilepic.name)
     if (!req.files || Object.keys(req.files).length === 0) {
         return res.status(400).send('No files were uploaded.');
     }
 
-    req.files.profilepic.mv('./public/profilepics/filename.png', function (err) {
+    req.files.profilepic.mv('./public/profilepics/' + req.files.profilepic.name, function (err) {
         if (err) return res.status(500).send(err);
         res.send('File uploaded!');
     });
 });
+
+router.patch('/user/:id', (req, res) => {
+    return usersDb.updateUser(req.params.id, req.body)
+        .then(data => {
+            return res.json(data)
+        })
+})
 
 // ** SCRAP - GET ROUTE ** //
 

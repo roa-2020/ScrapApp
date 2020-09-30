@@ -22,7 +22,7 @@ class Header extends React.Component {
     };
     render() {
         const { auth } = this.props
-        let profilepic = <img src={`/profilepics/${auth.user.profilepic}.png`} onClick={this.toggleMenu} className="nav-icon profile-img" />
+        let profilepic = <img src={`/profilepics/${auth.user.profilepic}`} onClick={this.toggleMenu} className="nav-icon profile-img" />
         let defaultImg = <FontAwesomeIcon onClick={this.toggleMenu} icon={faUserCircle} size="3x" className="nav-icon" />
         return (
             <>

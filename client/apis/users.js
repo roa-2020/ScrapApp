@@ -7,3 +7,12 @@ export function apiGetUser(id) {
     })
     .catch(err => console.log(err))
 }
+
+export function updateUserProfilePic(id, newProfilepic) {
+  return request.patch("/api/v1/user/" + id)
+    .send({ profilepic: newProfilepic })
+    .then(res => {
+      return res.body
+    })
+    .catch(err => console.log(err))
+}

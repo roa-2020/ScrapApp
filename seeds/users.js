@@ -14,7 +14,7 @@ exports.seed = function (knex) {
             name: 'Phil',
             password: '123',
             user_rating: 10,
-            profilepic: "phil1"
+            profilepic: "phil1.png"
           },
           {
             id: 2,
@@ -22,7 +22,7 @@ exports.seed = function (knex) {
             name: 'Steven',
             password: '123',
             user_rating: 10,
-            profilepic: "steven2"
+            profilepic: "steven2.png"
           },
           {
             id: 3,
@@ -30,7 +30,7 @@ exports.seed = function (knex) {
             name: 'Cam',
             password: '123',
             user_rating: 10,
-            profilepic: "cam3"
+            profilepic: "cam3.png"
           },
           {
             id: 4,
@@ -38,7 +38,7 @@ exports.seed = function (knex) {
             name: 'Lewis',
             password: '123',
             user_rating: 10,
-            profilepic: "lewis4"
+            profilepic: "lewis4.png"
           },
           {
             id: 5,
@@ -46,7 +46,7 @@ exports.seed = function (knex) {
             name: 'Seamus',
             password: '123',
             user_rating: 10,
-            profilepic: "seamus5"
+            profilepic: "seamus5.png"
           },
           {
             id: 6,
@@ -54,7 +54,7 @@ exports.seed = function (knex) {
             name: 'Connor',
             password: '123',
             user_rating: 10,
-            profilepic: "connor6"
+            profilepic: "connor6.png"
           }
         ].map(user => {
           return generateHash(user.password)

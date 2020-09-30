@@ -5,7 +5,7 @@ const initialState = {
   errorMessage: ''
 }
 
-export default function auth (state = initialState, action) {
+export default function auth(state = initialState, action) {
   switch (action.type) {
     case 'LOGIN_REQUEST':
       return {
@@ -49,6 +49,16 @@ export default function auth (state = initialState, action) {
         isAuthenticated: false,
         errorMessage: action.message
       }
+
+    case 'UPDATE_PROFILEPIC':
+      return {
+        ...state,
+        user: {
+          ...state.user,
+          profilepic: action.profilepic
+        }
+      }
+
     default:
       return state
   }

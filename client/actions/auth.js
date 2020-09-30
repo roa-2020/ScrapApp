@@ -57,6 +57,13 @@ export function receiveLogout () {
   }
 }
 
+export function updateProfilepic (profilepic) {
+  return {
+    type: 'UPDATE_PROFILEPIC',
+    profilepic
+  }
+}
+
 export function logoutUser (confirmSuccess) {
   return dispatch => {
     dispatch(requestLogout())

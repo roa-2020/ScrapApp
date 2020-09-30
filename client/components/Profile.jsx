@@ -6,9 +6,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUserCircle } from '@fortawesome/free-solid-svg-icons'
 import { faPlusCircle } from '@fortawesome/free-solid-svg-icons'
 
-import { apiGetUser } from "../apis/users";
+import { apiGetUser, updateUserProfilePic } from "../apis/users";
 import { addProfilePic } from "../apis/fileupload";
-import { logoutUser } from '../actions/auth'
+import { checkAuth, logoutUser, updateProfilepic } from '../actions/auth'
 
 
 class Profile extends React.Component {
@@ -27,16 +27,20 @@ class Profile extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    console.log(this.fileInput.current.files[0])
     addProfilePic(this.fileInput.current.files[0], this.props.auth.user.id)
       .then(console.log)
+    updateUserProfilePic(this.props.auth.user.id, this.fileInput.current.files[0].name)
+      .then(() => {
+        apiGetUser(this.props.auth.user.id)
+          .then((user) => { this.props.updateProfilepic(user.profilepic) })
+      })
   }
 
   render() {
     // apiGetUser(this.props.auth.user.id).then(data =>
     //   this.setState({ ...this.state, details: data }))
     const { auth, logout } = this.props
-    let profilepic = <img src={`/profilepics/${auth.user.profilepic}.png`} className="nav-icon profile-img" style={{ width: "6em" }} />
+    let profilepic = <img src={`/profilepics/${auth.user.profilepic}`} className="nav-icon profile-img" style={{ width: "6em" }} />
     let defaultImg = <FontAwesomeIcon icon={faUserCircle} size="6x" className="nav-icon" style={{ margin: "0 auto" }} />
     return (
       <>
@@ -98,6 +102,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     logout: () => {
       const confirmSuccess = () => ownProps.history.push('/')
       dispatch(logoutUser(confirmSuccess))
+    },
+    updateProfilepic: (profilepic) => {
+      dispatch(updateProfilepic(profilepic))
     }
   }
 }
