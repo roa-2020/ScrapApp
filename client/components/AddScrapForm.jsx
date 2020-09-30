@@ -2,9 +2,9 @@ import React from "react"
 import { connect } from "react-redux";
 import FormGeocode from './FormGeocode'
 import { apiAddScraps, apiGetScraps } from "../apis/scrap.js";
-import { getAllScraps, initScrap } from "../actions/scraps"
+import { getAllScraps } from "../actions/scraps"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faImage, faDrumstickBite, faCouch, faTshirt, faArchive} from '@fortawesome/free-solid-svg-icons'
+import { faDrumstickBite, faCouch, faTshirt, faArchive} from '@fortawesome/free-solid-svg-icons'
 
 
 class AddScrapForm extends React.Component {
@@ -17,7 +17,7 @@ class AddScrapForm extends React.Component {
 
     componentDidMount() {
     }
-
+    
     handleChange = (e) => {
         const name = e.target.name
         this.setState({
@@ -27,19 +27,19 @@ class AddScrapForm extends React.Component {
 
     handleSubmit = (e) => {
         e.preventDefault()
-        const scrap = this.state
-        scrap.longitude=this.props.longitude
-        scrap.latitude=this.props.latitude
-        scrap.address = this.props.address
+            const scrap = this.state
+            scrap.longitude=this.props.longitude
+            scrap.latitude=this.props.latitude
+            scrap.address = this.props.address
         apiAddScraps(scrap)
             .then(scrap => {
                 apiGetScraps()
                 .then(scraps => {
                 this.props.dispatch(getAllScraps(scraps));
                 })
-                // this.props.history.push('/')
         })
     }
+
     render() {
         return (
             <>
@@ -71,7 +71,6 @@ class AddScrapForm extends React.Component {
                             <label className="label">Location</label>
                             <div className="control">
                                 <FormGeocode />
-                                {/* <input required className="input" type="text" placeholder="Location" value={this.state.address} name="address" onChange={this.handleChange} /> */}
                             </div>
                         </div>
                         <div className="field">
@@ -88,9 +87,7 @@ class AddScrapForm extends React.Component {
                         </div>
                         <input className="button is-medium" value='Add' type="submit" onClick={this.props.closeMenu}/>
                         <button onClick={this.props.closeMenu} className='logoutButton button is-medium ' >Close</button>
-                </form>
-                
-
+                    </form>
                 </div>
             </>
         )

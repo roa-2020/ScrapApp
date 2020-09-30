@@ -1,12 +1,9 @@
 import React from "react"
 import { connect } from "react-redux";
-// import ReactMapGL, { Marker, Popup, GeolocateControl } from "react-map-gl";
+import { applyFilter } from "../actions/filter"
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-
 import { faDrumstickBite, faCouch, faTshirt, faArchive } from '@fortawesome/free-solid-svg-icons'
-
-import { applyFilter } from "../actions/filter"
 
 class Footer extends React.Component {
     render() {

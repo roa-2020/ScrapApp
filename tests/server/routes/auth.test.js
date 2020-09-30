@@ -43,23 +43,3 @@ test('/register fails for existing user', () => {
   })
 })
 
-// test('/register fails for create error', () => {
-//   let expected = 'DATABASE_ERROR'
-
-//   // Mock userExists to return false
-//   usersDb.userExists.mockImplementation(username => Promise.resolve(false))
-//   // Mock createUser to fail (reject)
-//   usersDb.createUser.mockImplementation((username, first_name, last_name, password) => Promise.reject("Can't create user"))
-
-//   return request(server).post('/api/v1/auth/register')
-//   .expect(500)
-//   .then(res => {
-//     let actual = res.body.errorType
-
-//     expect(actual).toEqual(expected)
-//   })
-//   .catch(err => {
-//     console.log(err)
-
-//   })
-// })

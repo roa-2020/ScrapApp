@@ -1,9 +1,9 @@
 import React from 'react'
-
 import { connect } from 'react-redux'
-import { loginUser, loginError } from '../actions/auth'
-
 import { Link } from 'react-router-dom'
+
+import { loginUser } from '../actions/auth'
+
 
 class Login extends React.Component {
   state = {
@@ -21,6 +21,7 @@ class Login extends React.Component {
     const confirmSuccess = () => { this.props.history.push('/') }
     this.props.dispatch(loginUser({ username, password }, confirmSuccess))
   }
+
   render() {
     const { auth } = this.props
     return (
@@ -35,7 +36,6 @@ class Login extends React.Component {
         </label>
         <div className="button-container">
           <input className="button is-medium" value='Login' type="submit" />
-          {/* <input className="button is-large" value='Login' type="submit" /> */}
           <Link to='/register' className="button is-medium">Register</Link>
         </div>
       </form>

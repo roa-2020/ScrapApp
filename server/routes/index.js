@@ -48,7 +48,6 @@ router.patch("/:id", (req, res) => {
 
 router.delete("/:id", (req, res) => {
     const id = Number(req.params.id)
-    console.log(id)
     scrapsDb.deleteScrap(id)
         .then((scrap) => res.json(scrap))
 })

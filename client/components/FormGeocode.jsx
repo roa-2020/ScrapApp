@@ -1,11 +1,13 @@
-import 'mapbox-gl/dist/mapbox-gl.css'
-import 'react-map-gl-geocoder/dist/mapbox-gl-geocoder.css'
 import React, { createRef } from 'react'
+import { connect } from "react-redux"
+
+import { setAddress, setLocation } from "../actions/newScrap";
+
 import ReactMapGL from 'react-map-gl'
 import Geocoder from 'react-map-gl-geocoder'
-import { connect } from "react-redux"
-import { setAddress, setLocation } from "../actions/newScrap";
-import { faCommentsDollar } from '@fortawesome/free-solid-svg-icons'
+
+import 'mapbox-gl/dist/mapbox-gl.css'
+import 'react-map-gl-geocoder/dist/mapbox-gl-geocoder.css'
 
 const MAPBOX_TOKEN = process.env.REACT_APP_MAPBOX_TOKEN
 
