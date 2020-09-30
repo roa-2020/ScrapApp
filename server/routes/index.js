@@ -2,6 +2,7 @@ const express = require("express")
 const usersDb = require('../db/users')
 const scrapsDb = require('../db/scraps')
 const router = express.Router()
+const { getTokenDecoder } = require('authenticare/server')
 
 // ** USER - GET ROUTE ** //
 
@@ -19,18 +20,21 @@ router.get("/", (req, res) => {
 
 // ** SCRAP - POST ROUTE ** //
 
-router.post("/", (req, res) => {
-    scrapsDb.addScrap(req.body)
+router.post("/", getTokenDecoder(), (req, res) => {
+
+    const scrap = {
+        category: req.body.category,
+        address: req.body.address,
+        scrap_name: req.body.scrap_name,
+        description: req.body.description,
+        longitude: req.body.longitude,
+        latitude: req.body.latitude,
+        user_id: req.user.id
+    }
+
+    scrapsDb.addScrap(scrap)
         .then((scrap) => res.json(scrap))
 })
-
-// ** SCRAP - PATCH ROUTE ** //
-
-router.patch("/:id", (req, res) => {
-    scrapsDb.updateScrap(req.params.id, req.body)
-        .then((scrap) => res.json(scrap))
-})
-
 
 // ** SCRAP - DELETE ROUTE ** //
 

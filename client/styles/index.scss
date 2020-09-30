@@ -33,7 +33,6 @@ a.navbar-item.is-active,
 
 * {
   box-sizing: border-box;
-  // border: 2px solid red;
 }
 
 html,
@@ -41,17 +40,26 @@ body,
 #app {
   height: 100%;
   width: 100%;
+  background-color: #fbf3e5c4;
 }
 
 .profile {
-  // background-color: gray;
-  // height: 100%;
-  padding: 1em;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   margin-top: 1em;
+}
+
+.mapboxgl-popup-close-button {
+  position: absolute;
+  right: 0;
+  top: 0;
+  border: 0;
+  border-radius: 0 3px 0 0;
+  cursor: pointer;
+  background-color: transparent;
+  font-size: 40px;
 }
 
 .mapboxgl-ctrl button.mapboxgl-ctrl-geolocate .mapboxgl-ctrl-icon {
@@ -80,11 +88,12 @@ body,
 
 .profile-container {
   text-align: center;
-  background-color: white;
-  box-sizing: border-box;
-  border: 1px solid #817d74;
-  // margin: 10px;
   padding: 10px;
+  background-color: white;
+  border-color: #dbdbdb;
+  border-radius: 4px;
+  color: #363636;
+  
 }
 
 .profileInfo {
@@ -99,7 +108,7 @@ body,
 .logoutButton {
   margin: 10px;
   padding: 10px;
-  width: 100%;
+  width: 50%;
 }
 
 .field {
@@ -108,7 +117,6 @@ body,
 
 .label {
   text-align: left;
-  // margin-bottom: 0 !important;
 }
 
 .topProfile {
@@ -120,14 +128,12 @@ body,
 }
 
 #app {
-  // display: flex;
   flex-direction: row;
   min-height: 100%;
   width: 100%;
   align-items: stretch;
   background-color: #fbf3e5c4;
   margin: 0;
-  // padding: 1em;
 }
 
 header {
@@ -149,12 +155,12 @@ header {
   align-items: center;
   padding: 1em;
   background-color: #fbf3e5c4;
+  box-shadow: 0px -1px 20px #a49b9847;
 }
 
 main {
   flex-grow: 1;
   width: 100%;
-  // padding: 1em;
 }
 
 .title {
@@ -188,18 +194,24 @@ a {
 
 .navbar-main {
   background-color: #fbf3e5c4;
-  box-shadow:  0px 2px 8px 0px #a49b98;
+  box-shadow:  0px 1px 20px 0px #a49b9847;
 }
 .navbar {
   background-color: #fbf3e5c4;
 }
 .nav-icon {
   margin: 0.2em;
+  cursor: pointer;
+}
+
+.nav-icon:hover {
+  color: #363636;
 }
 
 body {
-  overflow: hidden; /* Hide scrollbars */
+  overflow: hidden;
 }
+
 .preview-cols {
   display: flex;
   flex-direction: row;
@@ -207,7 +219,6 @@ body {
 }
 
 .card {
-  //  padding: 2em;
   margin: 1em;
 }
 
@@ -258,13 +269,13 @@ body {
     width: 100%;
   }
 
-  .form {
+  .form, .profile {
     width: 95% !important ;
   }
+
   .radio-group {
     display: flex;
     justify-content: center;
-    flex-flow: row wrap;
   }
 
   .login-container {
@@ -299,6 +310,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 100% !important
   }
 
   .field:not(:last-child) {
@@ -308,20 +320,47 @@ body {
   .side-bar {
     margin-bottom: auto;
     min-height: 100%;
-    background-color: #fbf3e5c4;
+    background-color:#fbf3e5 !important;
     position: fixed;
     z-index: 234567890;
     transition: left 600ms ease-in-out;
   }
 
   .side-bar-open {
-    // width: 90vw;
     width: 100% !important;
   }
 
-  .side-bar-closed {
+  .right-side-bar {
+    margin-bottom: auto;
+    min-height: 100%;
+    background-color:#fbf3e5 !important;
+    position: fixed;
+    z-index: 234567890;
+    transition: left 600ms ease-in-out;
   }
-} // end
+
+  .right-side-bar-open {
+    width: 100% !important;
+  }
+
+  .logoutButton {
+    margin: 10px;
+    padding: 10px;
+    width: 100%;
+  }
+
+  body {
+    overflow: scroll !important; 
+  }
+
+  .add, .profile-title {
+    display: none !important;
+  }
+
+  .add-btn-grp {
+    border: 0px !important;
+  }
+}
 
 //---------------------------------------------//
 
@@ -333,7 +372,7 @@ body {
   min-height: 6em;
 }
 
-.form {
+.form, .profile {
   width: 60%;
 }
 
@@ -341,6 +380,7 @@ body {
   display: flex;
   align-items: flex-start;
   justify-content: center;
+  width: 100%;
 }
 
 .media-content,
@@ -368,13 +408,6 @@ body {
   height: 50px;
 }
 
-// .mapboxgl-ctrl-geocoder {
-//   position: absolute;
-//   top: 325px;
-//   left: 251px;
-//   z-index: 1;
-// }
-
 .login-container {
   height: 100%;
   display: flex;
@@ -401,17 +434,18 @@ header.navbar {
 
 .form-container {
   height: 100%;
-  margin-top: 2em;
 }
 
 .mapboxgl-ctrl-icon {
   background-color: #fbf3e5;
   width: 20px;
 }
+
 .mapboxgl-ctrl-group > button {
   width: 40px;
   height: 40px;
 }
+
 .popup {
   display: flex;
   flex-direction: column;
@@ -428,7 +462,6 @@ header.navbar {
 h1:first-letter, h2:first-letter {
   text-transform:capitalize;
 }
-// Form transitions
 
 .toggle-menu {
   z-index: 234567891;
@@ -438,7 +471,6 @@ h1:first-letter, h2:first-letter {
 
 //----------  for desktop screens only --------//
 .side-bar {
-  // margin-top: 4%;
   margin-bottom: auto;
   min-height: 100vh;
   background-color: #fbf3e5c4;
@@ -450,8 +482,10 @@ h1:first-letter, h2:first-letter {
 
 .side-bar-open {
   left: 0px;
-  // width: 90vw;
   width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .side-bar-closed {
@@ -459,10 +493,93 @@ h1:first-letter, h2:first-letter {
   width: 40%;
 }
 
+.right-side-bar {
+  margin-bottom: auto;
+  min-height: 100vh;
+  background-color: #fbf3e5c4;
+  position: fixed;
+  z-index: 234567890;
+  transition: right 800ms ease-in-out;
+  top: 0;
+}
+
+.right-side-bar-open {
+  right: 0px;
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.right-side-bar-closed {
+  right: -2000px;
+  width: 40%;
+}
 // ---------------------- //
 @media screen and (min-width: 640px){
 .mapboxgl-ctrl-geocoder {
   width: 100% !important;
   max-width: 100% !important;
   }
+}
+
+@media only screen and (max-width: 600px) {
+  .mapboxgl-ctrl-geocoder--input {
+      width: 100% !important;
+  }
+}
+
+input[type=radio] {
+  border: 0px;
+  width: 100%;
+  height: 2em;
+}
+
+.Food{
+  color: #c98c37;
+}
+
+.Furniture{
+  color: #66ce2a;
+}
+
+.Clothes{
+  color: #8ed6d1;
+}
+
+.Stuff{
+  color: #ca7070;
+}
+
+.food-icon {
+  color: #c98c37;
+}
+
+.furniture-icon {
+  color: #66ce2a;
+}
+
+.clothes-icon {
+  color: #8ed6d1;
+}
+
+.stuff-icon {
+  color: #ca7070;
+}
+
+.add-btn-grp {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30px;
+}
+
+.add {
+  padding-left: 0.5em;
+  font-weight: bold;
+}
+
+.profile-title {
+  padding-right: 0.5em;
+  font-weight: bold;
 }
