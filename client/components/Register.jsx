@@ -7,8 +7,7 @@ class Register extends React.Component {
     username: '',
     name: '',
     password: '',
-    confirm_password: '',
-    profilepic: null,
+    confirm_password: ''
   }
 
   componentDidMount() {
@@ -22,10 +21,10 @@ class Register extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault()
     e.target.reset()
-    let { username, password, confirm_password, name, profilepic } = this.state
+    let { username, password, confirm_password, name } = this.state
     if (confirm_password != password) return this.props.dispatch(loginError("Passwords don't match"))
     const confirmSuccess = () => { this.props.history.push('/') }
-    this.props.dispatch(registerUserRequest({ username, password, name, profilepic }, confirmSuccess))
+    this.props.dispatch(registerUserRequest({ username, password, name }, confirmSuccess))
   }
 
   render() {

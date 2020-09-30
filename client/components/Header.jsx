@@ -22,20 +22,19 @@ class Header extends React.Component {
     };
     render() {
         const { auth } = this.props
-        let profilepic = <img src={`/profilepics/${auth.user.profilepic}.png`} onClick={this.toggleMenu} className="nav-icon profile-img" />
-        let defaultImg = <FontAwesomeIcon onClick={this.toggleMenu} icon={faUserCircle} size="3x" className="nav-icon" />
         return (
             <>
                 <header className="navbar is-fixed-top navbar-main">
                     <div className="add-btn-grp">
-                        {/* <FontAwesomeIcon onClick={this.toggleMenu} icon={profilepicLink} size="2x" className="nav-icon" /> */}
-                        {auth.user.profilepic ? profilepic : defaultImg}
-                        {/* <h1 className="profile-title">profile</h1> */}
+                        <FontAwesomeIcon onClick={this.toggleMenu} icon={faUserCircle} size="2x" className="nav-icon" />
+                        <h1 className="profile-title">profile</h1>
                     </div>
-                    <h1 className="title mb-0">ScrapApp</h1>
+                    <h1 className="title mb-0">Scrap</h1>
                     <div className="add-btn-grp">
-                        {/* <h1 className="add">Add</h1> */}
-                        <Link to='/scraps/add'><FontAwesomeIcon icon={faPlusCircle} size="3x" className="nav-icon" /></Link>
+                        <h1 className="add">Add</h1>
+                        {/* <Link to='/scraps/add'> */}
+                        <FontAwesomeIcon onClick={this.toggleForm} icon={faPlusCircle} size="2x" className="nav-icon" />
+                        {/* </Link> */}
                     </div>
                 </header>
 

@@ -11,17 +11,6 @@ router.get("/user/:id", (req, res) => {
         .then((user) => res.json(user))
 })
 
-router.post('/user/:id', function (req, res) {
-    if (!req.files || Object.keys(req.files).length === 0) {
-        return res.status(400).send('No files were uploaded.');
-    }
-
-    req.files.sampleFile.mv('/profilepics/filename.jpg', function (err) {
-        if (err) return res.status(500).send(err);
-        res.send('File uploaded!');
-    });
-});
-
 // ** SCRAP - GET ROUTE ** //
 
 router.get("/", (req, res) => {

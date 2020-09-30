@@ -16,7 +16,7 @@ import { setLocation } from "../actions/newScrap";
 
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faImage, faDrumstickBite, faCouch, faTshirt, faArchive } from '@fortawesome/free-solid-svg-icons'
+import { faImage, faDrumstickBite, faCouch, faTshirt, faArchive} from '@fortawesome/free-solid-svg-icons'
 
 
 class Map extends React.Component {
@@ -124,9 +124,7 @@ class Map extends React.Component {
                     this.changeScrap(scrap);
                   }}
                 >
-                  <FontAwesomeIcon icon={this.getScrapIcon(scrap.category)} size="2x"
-                    className={`nav-icon ${scrap.category}`}
-                  />
+                  <FontAwesomeIcon icon={this.getScrapIcon(scrap.category)} size="2x" className={`nav-icon ${scrap.category}`}/>
                 </button>
               </Marker>
             ))
