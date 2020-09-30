@@ -33,7 +33,6 @@ a.navbar-item.is-active,
 
 * {
   box-sizing: border-box;
-  // border: 2px solid red;
 }
 
 html,
@@ -45,9 +44,6 @@ body,
 }
 
 .profile {
-  // background-color: gray;
-  // height: 100%;
-  // padding: 1em;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -121,7 +117,6 @@ body,
 
 .label {
   text-align: left;
-  // margin-bottom: 0 !important;
 }
 
 .topProfile {
@@ -133,14 +128,12 @@ body,
 }
 
 #app {
-  // display: flex;
   flex-direction: row;
   min-height: 100%;
   width: 100%;
   align-items: stretch;
   background-color: #fbf3e5c4;
   margin: 0;
-  // padding: 1em;
 }
 
 header {
@@ -168,7 +161,6 @@ header {
 main {
   flex-grow: 1;
   width: 100%;
-  // padding: 1em;
 }
 
 .title {
@@ -215,9 +207,11 @@ a {
 .nav-icon:hover {
   color: #363636;
 }
+
 body {
-  overflow: hidden; /* Hide scrollbars */
+  overflow: hidden;
 }
+
 .preview-cols {
   display: flex;
   flex-direction: row;
@@ -225,7 +219,6 @@ body {
 }
 
 .card {
-  //  padding: 2em;
   margin: 1em;
 }
 
@@ -279,10 +272,10 @@ body {
   .form, .profile {
     width: 95% !important ;
   }
+
   .radio-group {
     display: flex;
     justify-content: center;
-    // flex-flow: row wrap;
   }
 
   .login-container {
@@ -334,9 +327,9 @@ body {
   }
 
   .side-bar-open {
-    // width: 90vw;
     width: 100% !important;
   }
+
   .right-side-bar {
     margin-bottom: auto;
     min-height: 100%;
@@ -347,9 +340,9 @@ body {
   }
 
   .right-side-bar-open {
-    // width: 90vw;
     width: 100% !important;
   }
+
   .logoutButton {
     margin: 10px;
     padding: 10px;
@@ -357,7 +350,7 @@ body {
   }
 
   body {
-    overflow: scroll !important; /* Hide scrollbars */
+    overflow: scroll !important; 
   }
 
   .add, .profile-title {
@@ -422,13 +415,6 @@ body {
   height: 50px;
 }
 
-// .mapboxgl-ctrl-geocoder {
-//   position: absolute;
-//   top: 325px;
-//   left: 251px;
-//   z-index: 1;
-// }
-
 .login-container {
   height: 100%;
   display: flex;
@@ -455,17 +441,18 @@ header.navbar {
 
 .form-container {
   height: 100%;
-  // margin-top: 2em;
 }
 
 .mapboxgl-ctrl-icon {
   background-color: #fbf3e5;
   width: 20px;
 }
+
 .mapboxgl-ctrl-group > button {
   width: 40px;
   height: 40px;
 }
+
 .popup {
   display: flex;
   flex-direction: column;
@@ -482,7 +469,6 @@ header.navbar {
 h1:first-letter, h2:first-letter {
   text-transform:capitalize;
 }
-// Form transitions
 
 .toggle-menu {
   z-index: 234567891;
@@ -492,7 +478,6 @@ h1:first-letter, h2:first-letter {
 
 //----------  for desktop screens only --------//
 .side-bar {
-  // margin-top: 4%;
   margin-bottom: auto;
   min-height: 100vh;
   background-color: #fbf3e5c4;
@@ -504,7 +489,6 @@ h1:first-letter, h2:first-letter {
 
 .side-bar-open {
   left: 0px;
-  // width: 90vw;
   width: 40%;
   display: flex;
   justify-content: center;
@@ -518,7 +502,6 @@ h1:first-letter, h2:first-letter {
 }
 
 .right-side-bar {
-  // margin-top: 4%;
   margin-bottom: auto;
   min-height: 100vh;
   background-color: #fbf3e5c4;
@@ -530,7 +513,6 @@ h1:first-letter, h2:first-letter {
 
 .right-side-bar-open {
   right: 0px;
-  // width: 90vw;
   width: 40%;
   display: flex;
   justify-content: center;
@@ -555,6 +537,7 @@ h1:first-letter, h2:first-letter {
       width: 100% !important;
   }
 }
+
 input[type=radio] {
   border: 0px;
   width: 100%;
@@ -598,8 +581,6 @@ input[type=radio] {
   justify-content: center;
   align-items: center;
   border-radius: 30px;
-  // padding: 0.em;
-  // border: 2px solid #3b6464;
 }
 
 .add {
@@ -611,10 +592,6 @@ input[type=radio] {
   padding-right: 0.5em;
   font-weight: bold;
 }
-
-// .right-side-bar-open * {
-//   border: 2px solid red;
-// }
 
 .right-side-bar-closed, .side-bar-closed {
   display: flex;

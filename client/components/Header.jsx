@@ -1,7 +1,7 @@
 import React from "react"
 import { connect } from "react-redux";
-import { Link } from 'react-router-dom'
-import Profile from  './Profile'
+
+import Profile from './Profile'
 import AddScrapForm from './AddScrapForm'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -36,13 +36,9 @@ class Header extends React.Component {
                     <h1 className="title mb-0">Scrap</h1>
                     <div className="add-btn-grp">
                         <h1 className="add">Add</h1>
-                        {/* <Link to='/scraps/add'> */}
                         <FontAwesomeIcon onClick={this.openForm} icon={faPlusCircle} size="2x" className="nav-icon" />
-                        {/* </Link> */}
                     </div>
                 </header>
-
-                {/* profile sidebar */}
                 <div
                     className={[
                         "side-bar",
@@ -51,7 +47,6 @@ class Header extends React.Component {
                 >
                     <Profile closeMenu={this.toggleMenu} />
                 </div>
-                {/* addscrap form sidebar */}
                 <div
                     className={[
                         "right-side-bar",
@@ -70,4 +65,5 @@ const mapStateToProps = ({ auth }) => {
         auth
     }
 }
+
 export default connect(mapStateToProps)(Header)

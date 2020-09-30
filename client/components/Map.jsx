@@ -1,25 +1,18 @@
 import React, { createRef, } from "react";
 import ReactMapGL, { Marker, Popup, GeolocateControl } from "react-map-gl";
+import { connect } from "react-redux";
+
 import "mapbox-gl/dist/mapbox-gl.css";
 import "react-map-gl-geocoder/dist/mapbox-gl-geocoder.css";
-import scrapData from "./static-scrap-data.json";
-import { connect } from "react-redux";
-import { apiGetScraps, apiDeleteScraps } from "../apis/scrap.js";
-import { HashRouter as Router, Route, Link } from "react-router-dom";
-import Footer from './Footer'
-import Header from './Header'
 
-import Geocoder from "react-map-gl-geocoder";
+import { apiDeleteScraps } from "../apis/scrap.js";
 import { deleteScrap } from "../actions/scraps";
-import { getAllScraps } from "../actions/scraps";
-import { setLocation } from "../actions/newScrap";
-
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faImage, faDrumstickBite, faCouch, faTshirt, faArchive} from '@fortawesome/free-solid-svg-icons'
-
+import { faDrumstickBite, faCouch, faTshirt, faArchive} from '@fortawesome/free-solid-svg-icons'
 
 class Map extends React.Component {
+  IDEAL_ZOOM = 15;
   constructor(props) {
     super()
     this.mapRef = createRef();
@@ -32,7 +25,7 @@ class Map extends React.Component {
       longitude: 174.7752685546875,
       width: "100vw",
       height: "100vh",
-      zoom: 13
+      zoom: this.IDEAL_ZOOM
     },
   };
 
@@ -40,24 +33,20 @@ class Map extends React.Component {
     this.setState({ viewport });
   };
 
-  // viewportChangeGeocoder = (viewport) => {
-  //   const lat = viewport.latitude
-  //   const lng = viewport.longitude
-  //   console.log(viewport)
-  //   console.log(lat, lng)
-  //   this.props.dispatch(setLocation(lat, lng))
-  //   this.setState({ viewport });
-  // };
-
   changeScrap = (scrap) => {
     this.setState({ selectedScrap: scrap });
   };
 
   deleteScrap = (id) => {
     this.props.dispatch(deleteScrap(id));
-    apiDeleteScraps(id);
+    const selectedScrap = this.state.selectedScrap
     this.changeScrap(null);
-  };
+    apiDeleteScraps(id)
+      .catch(() => {
+        this.changeScrap(selectedScrap)
+      })
+  }
+
   getScrapIcon = (category) => {
     switch (category) {
       case 'Food':
@@ -69,18 +58,17 @@ class Map extends React.Component {
       case 'Stuff':
       default:
         return faArchive
-
     }
   }
 
-  //Controls zoom level when clicking on geolocate button
   _onViewportChange = (viewport) => {
-    viewport.zoom = 15 //Whatever zoom level you want
+    viewport.zoom = this.IDEAL_ZOOM
     this.setState({ viewport })
   }
 
   render() {
     const selectedScrap = this.state.selectedScrap;
+
     return (
       <div id="map">
         <ReactMapGL
@@ -91,27 +79,13 @@ class Map extends React.Component {
           onViewportChange={this.viewportChange}
         >
 
-          {/* <Geocoder
-            mapRef={this.mapRef}
-            onViewportChange={this.viewportChangeGeocoder}
-            mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
-            position="top-right"
-            placeholder="Add your location!"
-            countries="nz"
-          /> */}
-
           <GeolocateControl
             positionOptions={{ enableHighAccuracy: true }}
             trackUserLocation={true}
-            //on page load centre on user
             auto={true}
             onViewportChange={this._onViewportChange}
           />
-
-          {/* //this part gets all the scraps from global state
-          //potentially filter if filter is clicked? */}
-          {
-            this.props.scraps.map((scrap) => (
+          {this.props.scraps.map((scrap) => (
               <Marker
                 key={scrap.id}
                 latitude={scrap.latitude}
@@ -129,7 +103,6 @@ class Map extends React.Component {
               </Marker>
             ))
           }
-
           {selectedScrap && (
             <Popup
               latitude={selectedScrap.latitude}
@@ -138,7 +111,6 @@ class Map extends React.Component {
               onClose={() => {
                 this.changeScrap(null)
               }}
-
             >
               <div className="popup">
                 <p className="title is-6">
@@ -164,6 +136,7 @@ class Map extends React.Component {
     );
   }
 }
+
 function mapStateToProps(globalState) {
   return { scraps: globalState.scraps, filter: globalState.filter };
 }

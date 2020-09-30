@@ -1,16 +1,14 @@
 import React from "react"
 import { connect } from "react-redux";
-// import ReactMapGL, { Marker, Popup, GeolocateControl } from "react-map-gl";
+import { applyFilter } from "../actions/filter"
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-
 import { faDrumstickBite, faCouch, faTshirt, faArchive } from '@fortawesome/free-solid-svg-icons'
-
-import { applyFilter } from "../actions/filter"
 
 class Footer extends React.Component {
     render() {
         const { auth } = this.props
+
         return (
             <>
                 <nav className="navbar is-fixed-bottom nav-footer" role="navigation">
@@ -25,6 +23,7 @@ class Footer extends React.Component {
 }
 
 const mapStateToProps = ({ filter }) => {
+    
     return { filter }
 }
 
