@@ -29,6 +29,7 @@ class Register extends React.Component {
 
   render() {
     const { auth } = this.props
+
     return (
       <form className="form-box" onSubmit={this.handleSubmit}>
         <h1 className="title is-2">Register</h1>
@@ -58,6 +59,7 @@ class Register extends React.Component {
 }
 
 const mapStateToProps = ({ auth }) => {
+  
   return {
     auth
   }

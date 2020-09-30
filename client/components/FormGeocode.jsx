@@ -42,6 +42,7 @@ class FormGeocode extends React.Component {
 
 
   render() {
+
       return (
       <div style={{ width: "100%" }}>
         <div
@@ -72,6 +73,7 @@ class FormGeocode extends React.Component {
 }
 
 function mapStateToProps(globalState) {
+  
   return { scraps: globalState.scraps };
 };
 

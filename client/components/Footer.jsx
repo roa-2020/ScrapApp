@@ -8,6 +8,7 @@ import { faDrumstickBite, faCouch, faTshirt, faArchive } from '@fortawesome/free
 class Footer extends React.Component {
     render() {
         const { auth } = this.props
+
         return (
             <>
                 <nav className="navbar is-fixed-bottom nav-footer" role="navigation">
@@ -22,6 +23,7 @@ class Footer extends React.Component {
 }
 
 const mapStateToProps = ({ filter }) => {
+    
     return { filter }
 }
 

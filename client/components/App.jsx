@@ -36,6 +36,7 @@ export class App extends React.Component {
   render() {
 
     const { auth } = this.props
+    
     return (
       <Router>
         {!auth.isAuthenticated
@@ -63,6 +64,7 @@ export class App extends React.Component {
 }
 
 const mapStateToProps = ({ auth, filter }) => {
+
   return {
     auth,
     filter

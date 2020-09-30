@@ -46,6 +46,7 @@ class Map extends React.Component {
         this.changeScrap(selectedScrap)
       })
   }
+  
   getScrapIcon = (category) => {
     switch (category) {
       case 'Food':

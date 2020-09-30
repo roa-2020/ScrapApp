@@ -41,6 +41,7 @@ class AddScrapForm extends React.Component {
     }
 
     render() {
+        
         return (
             <>
                 <div className="form-container">

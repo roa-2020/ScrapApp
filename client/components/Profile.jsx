@@ -67,6 +67,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 }
 
 const mapStateToProps = ({ auth }) => {
+  
   return {
     auth
   }
