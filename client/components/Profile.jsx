@@ -43,7 +43,7 @@ class Profile extends React.Component {
       <>
         <div className='profile'>
           <div className='topProfile'>
-            <FontAwesomeIcon icon={faUserCircle} size="4x" />
+            {auth.user.profilepic ? profilepic : defaultImg}
             <div className=''>
               <h1 className="title">{this.state.details && this.state.details.username}</h1>
             </div>
@@ -101,7 +101,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 }
 
 const mapStateToProps = ({ auth }) => {
-  
+
   return {
     auth
   }
