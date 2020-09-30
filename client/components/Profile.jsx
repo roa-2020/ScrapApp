@@ -20,7 +20,6 @@ class Profile extends React.Component {
   state = {
     details: "",
   }
-
   componentDidMount() {
 
   }

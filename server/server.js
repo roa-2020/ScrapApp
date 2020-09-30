@@ -1,5 +1,4 @@
 const express = require('express')
-const fileUpload = require('express-fileupload');
 
 const authRoutes = require('./routes/auth')
 const indexRoutes = require('./routes/index')
