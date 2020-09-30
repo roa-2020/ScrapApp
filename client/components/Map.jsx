@@ -12,6 +12,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faDrumstickBite, faCouch, faTshirt, faArchive} from '@fortawesome/free-solid-svg-icons'
 
 class Map extends React.Component {
+  IDEAL_ZOOM = 15;
   constructor(props) {
     super()
     this.mapRef = createRef();
@@ -24,7 +25,7 @@ class Map extends React.Component {
       longitude: 174.7752685546875,
       width: "100vw",
       height: "100vh",
-      zoom: 13
+      zoom: this.IDEAL_ZOOM
     },
   };
 
@@ -38,9 +39,13 @@ class Map extends React.Component {
 
   deleteScrap = (id) => {
     this.props.dispatch(deleteScrap(id));
-    apiDeleteScraps(id);
+    const selectedScrap = this.state.selectedScrap
     this.changeScrap(null);
-  };
+    apiDeleteScraps(id)
+      .catch(() => {
+        this.changeScrap(selectedScrap)
+      })
+  }
   getScrapIcon = (category) => {
     switch (category) {
       case 'Food':
@@ -56,12 +61,13 @@ class Map extends React.Component {
   }
 
   _onViewportChange = (viewport) => {
-    viewport.zoom = 15
+    viewport.zoom = this.IDEAL_ZOOM
     this.setState({ viewport })
   }
 
   render() {
     const selectedScrap = this.state.selectedScrap;
+
     return (
       <div id="map">
         <ReactMapGL
