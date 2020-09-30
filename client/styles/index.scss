@@ -318,8 +318,9 @@ body {
   }
 
   .side-bar {
+    overflow: scroll;
     margin-bottom: auto;
-    min-height: 100%;
+    height: 100%;
     background-color:#fbf3e5 !important;
     position: fixed;
     z-index: 234567890;
@@ -331,8 +332,9 @@ body {
   }
 
   .right-side-bar {
+    overflow: scroll;
     margin-bottom: auto;
-    min-height: 100%;
+    height: 100%;
     background-color:#fbf3e5 !important;
     position: fixed;
     z-index: 234567890;
