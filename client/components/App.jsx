@@ -12,8 +12,8 @@ import Header from './Header'
 import Footer from './Footer'
 import ScrapPreview from './ScrapPreview'
 
-import { apiGetUser, updateUserProfilePic } from "../apis/users";
-import { logoutUser, updateProfilepic } from '../actions/auth'
+import { apiGetUser, } from "../apis/users";
+import { updateProfilepic } from '../actions/auth'
 
 export class App extends React.Component {
   componentDidMount() {
