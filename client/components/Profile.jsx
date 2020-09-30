@@ -6,11 +6,17 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUserCircle } from '@fortawesome/free-solid-svg-icons'
 import { faPlusCircle } from '@fortawesome/free-solid-svg-icons'
 
-import { apiGetUser, addProfilePic } from "../apis/users";
+import { apiGetUser } from "../apis/users";
+import { addProfilePic } from "../apis/fileupload";
 import { logoutUser } from '../actions/auth'
 
 
 class Profile extends React.Component {
+  constructor(props) {
+    super(props)
+    this.fileInput = React.createRef();
+  }
+
   state = {
     details: "",
   }
@@ -19,13 +25,16 @@ class Profile extends React.Component {
 
   }
 
-  handleSubmit = (file) => {
-    addProfilePic(file, this.props.auth.user.id)
+  handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(this.fileInput.current.files[0])
+    addProfilePic(this.fileInput.current.files[0], this.props.auth.user.id)
+      .then(console.log)
   }
 
   render() {
-    apiGetUser(this.props.auth.user.id).then(data =>
-      this.setState({ ...this.state, details: data }))
+    // apiGetUser(this.props.auth.user.id).then(data =>
+    //   this.setState({ ...this.state, details: data }))
     const { auth, logout } = this.props
     let profilepic = <img src={`/profilepics/${auth.user.profilepic}.png`} className="nav-icon profile-img" style={{ width: "6em" }} />
     let defaultImg = <FontAwesomeIcon icon={faUserCircle} size="6x" className="nav-icon" style={{ margin: "0 auto" }} />
@@ -37,19 +46,17 @@ class Profile extends React.Component {
             {/* <h1 className="title">{this.state.details && this.state.details.username}</h1> */}
           </div>
 
-
           <form ref='uploadForm'
             id='uploadForm'
-            action='api/v1/user/${this.props.auth.user.id}'
+            action={'/api/v1/user/' + this.props.auth.user.id}
             method='post'
-            encType="multipart/form-data">
-            <input type="file" name="sampleFile" />
-            <input type='submit' value='Upload!' onClick={() => this.handleSubmit} />
+            encType="multipart/form-data"
+            onSubmit={this.handleSubmit}>
+            <input type="file" name="sampleFile" ref={this.fileInput} />
+            <input type='submit' value='Upload!' />
           </form>
 
-
           <div className='profileInfo'>
-
             <div className="field">
               <div className='profile-container'>
                 <label className='label'>Username</label>

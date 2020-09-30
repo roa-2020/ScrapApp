@@ -11,12 +11,13 @@ router.get("/user/:id", (req, res) => {
         .then((user) => res.json(user))
 })
 
-router.post('/user/:id', function (req, res) {
+router.post('/user/:id', (req, res) => {
+    console.log(req.files)
     if (!req.files || Object.keys(req.files).length === 0) {
         return res.status(400).send('No files were uploaded.');
     }
 
-    req.files.sampleFile.mv('/profilepics/filename.jpg', function (err) {
+    req.files.profilepic.mv('./public/profilepics/filename.png', function (err) {
         if (err) return res.status(500).send(err);
         res.send('File uploaded!');
     });

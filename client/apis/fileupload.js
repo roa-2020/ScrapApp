@@ -1,8 +1,8 @@
 import request from 'superagent'
 
-export function addProfilePic(pic, id) {
+export function addProfilePic(file, id) {
   return request
     .post("/api/v1/user/" + id)
-    .send(pic)
+    .attach('profilepic', file)
     .then((res) => res.body);
 }
