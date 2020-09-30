@@ -93,7 +93,7 @@ body,
   border-color: #dbdbdb;
   border-radius: 4px;
   color: #363636;
-  
+  border: 1px solid #00000033;
 }
 
 .profileInfo {
@@ -360,7 +360,14 @@ body {
   .add-btn-grp {
     border: 0px !important;
   }
-}
+
+  
+  .right-side-bar-closed, .side-bar-closed {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+} // end
 
 //---------------------------------------------//
 
@@ -491,6 +498,7 @@ h1:first-letter, h2:first-letter {
 .side-bar-closed {
   left: -2000px;
   width: 40%;
+  transition: left 800ms ease-in-out;
 }
 
 .right-side-bar {
@@ -514,6 +522,7 @@ h1:first-letter, h2:first-letter {
 .right-side-bar-closed {
   right: -2000px;
   width: 40%;
+  transition: right 800ms ease-in-out;
 }
 // ---------------------- //
 @media screen and (min-width: 640px){
@@ -582,4 +591,14 @@ input[type=radio] {
 .profile-title {
   padding-right: 0.5em;
   font-weight: bold;
+}
+
+.right-side-bar-closed, .side-bar-closed {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.marker-icon {
+  margin-left: 0.5em;
 }

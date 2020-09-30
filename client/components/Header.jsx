@@ -1,7 +1,7 @@
 import React from "react"
 import { connect } from "react-redux";
 
-import Profile from  './Profile'
+import Profile from './Profile'
 import AddScrapForm from './AddScrapForm'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -17,8 +17,12 @@ class Header extends React.Component {
     toggleMenu = () => {
         this.setState({ menuOpen: !this.state.menuOpen });
     };
-    toggleForm = () => {
-        this.setState({ menuOpenRight: !this.state.menuOpenRight });
+    openForm = () => {
+        this.setState({ menuOpenRight: true });
+    };
+
+    closeForm = () => {
+        this.setState({ menuOpenRight: false });
     };
     render() {
         const { auth } = this.props
@@ -32,7 +36,7 @@ class Header extends React.Component {
                     <h1 className="title mb-0">Scrap</h1>
                     <div className="add-btn-grp">
                         <h1 className="add">Add</h1>
-                        <FontAwesomeIcon onClick={this.toggleForm} icon={faPlusCircle} size="2x" className="nav-icon" />
+                        <FontAwesomeIcon onClick={this.openForm} icon={faPlusCircle} size="2x" className="nav-icon" />
                     </div>
                 </header>
                 <div
@@ -49,7 +53,7 @@ class Header extends React.Component {
                         this.state.menuOpenRight ? "right-side-bar-open" : "right-side-bar-closed",
                     ].join(" ")}
                 >
-                    <AddScrapForm closeMenu={this.toggleForm} />
+                    <AddScrapForm closeMenu={this.closeForm} />
                 </div>
             </>
         )

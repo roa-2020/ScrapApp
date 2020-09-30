@@ -114,9 +114,9 @@ class Map extends React.Component {
             >
               <div className="popup">
                 <p className="title is-6">
-                  {selectedScrap.scrap_name}<span>
-                    <FontAwesomeIcon icon={this.getScrapIcon(selectedScrap.category)} size="1x" className="nav-icon" />
-                  </span>
+                  {selectedScrap.scrap_name}
+                  <FontAwesomeIcon icon={this.getScrapIcon(selectedScrap.category)} size="1x" className="marker-icon" />
+
                 </p>
                 <p className="subtitle is-6">{selectedScrap.description}</p>
                 <p className="subtitle is-7">{selectedScrap.address.split(' ').slice(0, 6).join(' ')}</p>
