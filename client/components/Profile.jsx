@@ -37,7 +37,7 @@ class Profile extends React.Component {
     // apiGetUser(this.props.auth.user.id).then(data =>
     //   this.setState({ ...this.state, details: data }))
     const { auth, logout } = this.props
-    let profilepic = <img src={`/profilepics/${auth.user.profilepic}`} className="nav-icon profile-img" style={{ width: "6em" }} />
+    let profilepic = <img src={`/profilepics/${auth.user.profilepic}`} className="nav-icon profile-img" style={{ width: "6em", margin: "0 auto" }} />
     let defaultImg = <FontAwesomeIcon icon={faUserCircle} size="6x" className="nav-icon" style={{ margin: "0 auto" }} />
     return (
       <>
@@ -47,17 +47,17 @@ class Profile extends React.Component {
             <div className=''>
               <h1 className="title">{this.state.details && this.state.details.username}</h1>
             </div>
+            <form ref='uploadForm'
+              id='uploadForm'
+              action={'/api/v1/user/' + this.props.auth.user.id}
+              method='post'
+              encType="multipart/form-data"
+              onSubmit={this.handleSubmit}>
+              <input type="file" name="sampleFile" ref={this.fileInput} />
+              <input type='submit' className="button" value='Upload!' />
+            </form>
           </div>
 
-          <form ref='uploadForm'
-            id='uploadForm'
-            action={'/api/v1/user/' + this.props.auth.user.id}
-            method='post'
-            encType="multipart/form-data"
-            onSubmit={this.handleSubmit}>
-            <input type="file" name="sampleFile" ref={this.fileInput} />
-            <input type='submit' value='Upload!' />
-          </form>
 
           <div className='profileInfo'>
             <div className="field">
