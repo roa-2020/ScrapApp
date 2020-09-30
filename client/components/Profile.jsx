@@ -40,7 +40,7 @@ class Profile extends React.Component {
 
           <form ref='uploadForm'
             id='uploadForm'
-            action='http://localhost:8000/upload'
+            action='api/v1/user/${this.props.auth.user.id}'
             method='post'
             encType="multipart/form-data">
             <input type="file" name="sampleFile" />

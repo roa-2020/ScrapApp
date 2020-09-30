@@ -61,6 +61,10 @@ body,
   margin: 0 auto;
 }
 
+#uploadForm{
+  display: none
+}
+
 .mapboxgl-popup-close-button {
   position: absolute;
   right: 0;
